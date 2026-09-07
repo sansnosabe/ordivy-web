@@ -4,8 +4,8 @@ import './globals.css';
 const geist = Geist({ variable: '--font-geist', subsets: ['latin'] });
 
 export const metadata = {
-  title: 'Ordviy — Todo en orden',
-  description: 'Organiza lo que tienes, compra mejor y desperdicia menos con Ordviy.',
+  title: 'Ordivy — Todo lo que tienes, bajo control',
+  description: 'Organiza lo que tienes, compra mejor y desperdicia menos con Ordivy.',
 };
 
 export default function RootLayout({ children }) {
