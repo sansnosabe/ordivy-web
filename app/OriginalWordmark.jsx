@@ -1,4 +1,4 @@
-// Original logo paths, positions and spacing from public/ordivy-wordmark.svg.
+// Original Ordivy logo paths, positions and spacing.
 export default function OriginalWordmark() {
   return <svg className="v2-original-wordmark" viewBox="158 135 1217 404" aria-label="Ordivy">
     <g fill="#75556d">
@@ -8,3 +8,4 @@ export default function OriginalWordmark() {
     </g>
   </svg>;
 }
+
