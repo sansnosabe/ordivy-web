@@ -1,11 +1,12 @@
 import { Geist } from 'next/font/google';
 import './globals.css';
+import './landing.css';
 
 const geist = Geist({ variable: '--font-geist', subsets: ['latin'] });
 
 export const metadata = {
-  title: 'Ordivy — Todo lo que tienes, bajo control',
-  description: 'Organiza lo que tienes, compra mejor y desperdicia menos con Ordivy.',
+  title: 'Ordivy — Tu casa, en orden',
+  description: 'Organiza lo que tienes, encuentra cada cosa y compra solo lo necesario con Ordivy.',
 };
 
 export default function RootLayout({ children }) {
