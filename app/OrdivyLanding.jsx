@@ -1,6 +1,7 @@
 import MotionV2 from "./MotionV2";
 import BrandFilm from "./BrandFilm";
 import Image from "next/image";
+import Link from "next/link";
 import {
   ArrowDown,
   ArrowRight,
@@ -302,7 +303,9 @@ export default function OrdivyLanding() {
         <Logo />
         <p>© 2026 Ordivy. Todos los derechos reservados.</p>
         <nav aria-label="Enlaces del pie">
-          <a href="#faq">Preguntas</a>
+          <Link href="/support">Soporte</Link>
+          <Link href="/privacy">Privacidad</Link>
+          <Link href="/terms">Condiciones</Link>
           <a href="#inicio">Volver arriba ↑</a>
         </nav>
       </footer>
