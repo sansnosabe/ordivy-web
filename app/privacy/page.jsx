@@ -12,14 +12,14 @@ export default function PrivacyPage() {
       title="Tu inventario sigue siendo tuyo."
       intro={
         <p>
-          Esta política explica qué información utiliza Ordivy, dónde se guarda y qué servicios externos intervienen. Última actualización: 14 de septiembre de 2026.
+          Esta política explica qué información utiliza Ordivy, dónde se guarda y qué servicios externos intervienen. Última actualización: 16 de septiembre de 2026.
         </p>
       }
     >
       <LanguageSection id="es" language="Español" title="Política de privacidad">
         <LegalSection title="1. Alcance">
           <p>
-            Esta política se aplica a la primera versión pública de Ordivy, una aplicación de inventario personal con funcionamiento principalmente local. Ordivy no exige crear una cuenta y no sincroniza tu inventario con servidores propios.
+            Esta política se aplica a la primera versión pública de Ordivy, una aplicación de inventario personal con funcionamiento principalmente local. Sus funciones locales no exigen crear una cuenta y el inventario todavía no se sincroniza con servidores propios.
           </p>
         </LegalSection>
 
@@ -28,6 +28,7 @@ export default function PrivacyPage() {
             Ordivy guarda localmente los datos que introduces: inventarios, ubicaciones, nombres y detalles de productos, identificadores, cantidades, mínimos, caducidades, elementos en uso, lista de Compra, historial, preferencias y fotografías elegidas por ti.
           </p>
           <p>Estos datos permanecen en el almacenamiento privado de la aplicación y se utilizan exclusivamente para ofrecer sus funciones.</p>
+          <p>Si creas una cuenta, Supabase procesa tu correo, contraseña, nombre de usuario único, identificador interno y sesión para registrarte, confirmar el correo y mantener la sesión. Ordivy no guarda tu contraseña en texto legible. El nombre de usuario podrá ser visible cuando se activen funciones sociales o de colaboración.</p>
         </LegalSection>
 
         <LegalSection title="3. Permisos">
@@ -42,13 +43,16 @@ export default function PrivacyPage() {
 
         <LegalSection title="4. Servicios externos">
           <p>
+            <strong>Cuenta y Supabase.</strong> Supabase presta el servicio de autenticación y conserva los datos de cuenta necesarios. Puedes eliminar la cuenta desde la aplicación. Esta acción borra la identidad y sus datos cloud, pero no elimina automáticamente el inventario almacenado localmente en el dispositivo. Consulta la <a href="https://supabase.com/privacy">política de privacidad de Supabase</a>.
+          </p>
+          <p>
             <strong>Open Food Facts.</strong> Al buscar un alimento o escanear un código desconocido, se puede enviar el texto de búsqueda o el código a Open Food Facts. Las imágenes de su catálogo pueden cargarse desde sus servidores. No se envía tu inventario completo. Consulta su <a href="https://world.openfoodfacts.org/privacy">información de privacidad</a>.
           </p>
           <p>
             <strong>Reconocimiento de voz.</strong> Según el dispositivo y sus ajustes, Apple, Google o el servicio de reconocimiento del fabricante puede procesar el audio para convertirlo en texto. Ordivy recibe el texto resultante para que puedas revisarlo.
           </p>
           <p>
-            <strong>Compras y RevenueCat.</strong> Apple o Google procesa el pago. RevenueCat recibe un identificador anónimo generado para la instalación, los identificadores de producto, el estado de la suscripción y la información técnica necesaria para activar o restaurar Premium. Ordivy no recibe ni almacena los datos completos de tu tarjeta. Consulta las políticas de <a href="https://www.revenuecat.com/privacy/">RevenueCat</a>, <a href="https://www.apple.com/legal/privacy/">Apple</a> y <a href="https://policies.google.com/privacy">Google</a>.
+            <strong>Compras y RevenueCat.</strong> Apple o Google procesa el pago. RevenueCat recibe el identificador interno de tu cuenta Ordivy, los identificadores de producto, el estado de la suscripción y la información técnica necesaria para activar o restaurar Premium. Ordivy no recibe ni almacena los datos completos de tu tarjeta. Consulta las políticas de <a href="https://www.revenuecat.com/privacy/">RevenueCat</a>, <a href="https://www.apple.com/legal/privacy/">Apple</a> y <a href="https://policies.google.com/privacy">Google</a>.
           </p>
         </LegalSection>
 
@@ -74,12 +78,12 @@ export default function PrivacyPage() {
         </LegalSection>
 
         <LegalSection title="8. Servicios que no están activos">
-          <p>Esta versión no utiliza cuentas de Ordivy, sincronización en la nube, colaboración, publicidad ni analítica de uso.</p>
+          <p>Las cuentas de Ordivy están activas. La sincronización del inventario en la nube, la colaboración, la publicidad y la analítica de uso no están activas.</p>
         </LegalSection>
 
         <LegalSection title="9. Consultas y solicitudes">
           <p>
-            Puedes escribir para consultar qué información interviene en una función, solicitar ayuda con su eliminación o ejercer los derechos que reconozca la normativa aplicable. Como Ordivy no tiene cuentas propias, la mayoría de los datos pueden eliminarse directamente desde la aplicación o el dispositivo.
+            Puedes escribir para consultar qué información interviene en una función, solicitar ayuda con su eliminación o ejercer los derechos que reconozca la normativa aplicable. Puedes eliminar tu cuenta desde la aplicación y los datos locales directamente desde la aplicación o el dispositivo.
           </p>
           <a className="legal-contact" href="mailto:ordivyapp@gmail.com">ordivyapp@gmail.com</a>
         </LegalSection>
@@ -92,7 +96,7 @@ export default function PrivacyPage() {
       <LanguageSection id="en" language="English" title="Privacy policy">
         <LegalSection title="1. Scope">
           <p>
-            This policy applies to the first public version of Ordivy, a personal inventory app that works mainly on the device. Ordivy does not require an account and does not sync your inventory with its own servers.
+            This policy applies to the first public version of Ordivy, a personal inventory app that works mainly on the device. Its local features do not require an account, and inventory is not currently synced with Ordivy servers.
           </p>
         </LegalSection>
 
@@ -101,6 +105,7 @@ export default function PrivacyPage() {
             Ordivy stores the information you enter locally: inventories, locations, product names and details, identifiers, quantities, minimums, expiry dates, items in use, Shopping list, history, preferences, and photos you choose.
           </p>
           <p>This information remains in the app&apos;s private storage and is used only to provide its features.</p>
+          <p>If you create an account, Supabase processes your email, password, unique username, internal identifier, and session to register you, confirm your email, and keep you signed in. Ordivy does not store your password in readable form. Your username may be visible when social or collaboration features become available.</p>
         </LegalSection>
 
         <LegalSection title="3. Permissions">
@@ -115,13 +120,16 @@ export default function PrivacyPage() {
 
         <LegalSection title="4. External services">
           <p>
+            <strong>Account and Supabase.</strong> Supabase provides authentication and stores the account information required for that service. You can delete your account in the app. This deletes your identity and cloud account data but does not automatically remove inventory stored locally on your device. See <a href="https://supabase.com/privacy">Supabase&apos;s privacy policy</a>.
+          </p>
+          <p>
             <strong>Open Food Facts.</strong> When you search for food or scan an unknown code, the search text or product code may be sent to Open Food Facts. Catalog images may load from its servers. Your complete inventory is not sent. See its <a href="https://world.openfoodfacts.org/privacy">privacy information</a>.
           </p>
           <p>
             <strong>Speech recognition.</strong> Depending on your device and settings, Apple, Google, or the device manufacturer&apos;s recognition service may process audio to convert it into text. Ordivy receives the resulting text so that you can review it.
           </p>
           <p>
-            <strong>Purchases and RevenueCat.</strong> Apple or Google processes payments. RevenueCat receives an anonymous identifier generated for the installation, product identifiers, subscription status, and technical information required to activate or restore Premium. Ordivy does not receive or store your full payment card details. See the policies of <a href="https://www.revenuecat.com/privacy/">RevenueCat</a>, <a href="https://www.apple.com/legal/privacy/">Apple</a>, and <a href="https://policies.google.com/privacy">Google</a>.
+            <strong>Purchases and RevenueCat.</strong> Apple or Google processes payments. RevenueCat receives your internal Ordivy account identifier, product identifiers, subscription status, and technical information required to activate or restore Premium. Ordivy does not receive or store your full payment card details. See the policies of <a href="https://www.revenuecat.com/privacy/">RevenueCat</a>, <a href="https://www.apple.com/legal/privacy/">Apple</a>, and <a href="https://policies.google.com/privacy">Google</a>.
           </p>
         </LegalSection>
 
@@ -147,12 +155,12 @@ export default function PrivacyPage() {
         </LegalSection>
 
         <LegalSection title="8. Services that are not active">
-          <p>This version does not use Ordivy accounts, cloud sync, collaboration, advertising, or usage analytics.</p>
+          <p>Ordivy accounts are active. Cloud inventory sync, collaboration, advertising, and usage analytics are not active.</p>
         </LegalSection>
 
         <LegalSection title="9. Questions and requests">
           <p>
-            You may contact us to ask what information a feature uses, request help deleting it, or exercise rights available under applicable law. Because Ordivy has no accounts of its own, most information can be deleted directly in the app or on the device.
+            You may contact us to ask what information a feature uses, request help deleting it, or exercise rights available under applicable law. You can delete your account in the app and remove local information directly in the app or on the device.
           </p>
           <a className="legal-contact" href="mailto:ordivyapp@gmail.com">ordivyapp@gmail.com</a>
         </LegalSection>
