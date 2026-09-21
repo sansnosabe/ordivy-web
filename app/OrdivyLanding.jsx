@@ -22,8 +22,8 @@ const benefits = [
     label: "PRODUCTO DETECTADO", value: "Bonito en aceite", note: "Pincha · 400 g",
   },
   {
-    number: "02", Icon: MapPin, title: "Dile dónde lo guardas", text: "Asigna una ubicación que entiendas de verdad. Puede ser una habitación, un armario, un estante o una caja.",
-    label: "UBICACIÓN", value: "Cocina › Despensa", note: "Estante de conservas · 4 unidades",
+    number: "02", Icon: MapPin, title: "Dile dónde lo guardas", text: "Cada producto pertenece a un inventario y a una ubicación dentro de él. En Cocina, por ejemplo, puedes elegir Despensa.",
+    label: "INVENTARIO COCINA", value: "Ubicación: Despensa", note: "Bonito en aceite · 4 unidades",
   },
   {
     number: "03", Icon: ShoppingBasket, title: "Deja que vigile el mínimo", text: "Marca cuántas unidades quieres tener siempre. Si bajas de ese número, el producto aparece en tu lista de compra.",
@@ -32,14 +32,14 @@ const benefits = [
 ];
 
 const inventorySpaces = [
-  ["Despensa", "Cocina › Estante de conservas", "Bonito en aceite · 4 uds.", "1 por reponer"],
-  ["Congelador", "Cocina › Cajón inferior", "Verduras · 3 bolsas", "Todo localizado"],
-  ["Armario", "Dormitorio › Balda superior", "Ropa de invierno", "Guardado por temporada"],
-  ["Botiquín", "Baño › Armario", "8 productos · 2 caducan pronto", "Revisar fechas"],
-  ["Trastero", "Caja 04 › Herramientas", "Taladro y accesorios", "12 piezas"],
-  ["Oficina", "Cajonera › Material", "Papel, tinta y cables", "2 con stock bajo"],
-  ["Colecciones", "Vitrina › Balda 03", "Ediciones y piezas", "36 registradas"],
-  ["Garaje", "Armario metálico", "Limpieza y mantenimiento", "5 ubicaciones"],
+  ["Despensa", "Inventario Cocina", "Bonito en aceite · 4 uds.", "1 por reponer"],
+  ["Congelador", "Inventario Cocina", "Verduras · 3 bolsas", "Todo localizado"],
+  ["Armario", "Inventario Casa", "Ropa de invierno", "Guardado por temporada"],
+  ["Botiquín", "Inventario Casa", "8 productos · 2 caducan pronto", "Revisar fechas"],
+  ["Trastero", "Inventario Casa", "Taladro y accesorios", "12 piezas"],
+  ["Oficina", "Inventario Trabajo", "Papel, tinta y cables", "2 con stock bajo"],
+  ["Vitrina", "Inventario Colecciones", "Ediciones y piezas", "36 registradas"],
+  ["Garaje", "Inventario Casa", "Limpieza y mantenimiento", "Todo localizado"],
 ];
 
 const faqs = [
@@ -232,9 +232,9 @@ export default function OrdivyLanding() {
             </div>
             <div className="v2-results">
               {[
-                ["🔧", "Taladro inalámbrico", "Trastero · Estante superior", "1 ud."],
-                ["🔋", "Batería de taladro", "Trastero · Caja de herramientas", "2 ud."],
-                ["📦", "Brocas para taladro", "Garaje · Armario pequeño", "12 ud."],
+                ["🔧", "Taladro inalámbrico", "Ubicación: Trastero", "1 ud."],
+                ["🔋", "Batería de taladro", "Ubicación: Trastero", "2 ud."],
+                ["📦", "Brocas para taladro", "Ubicación: Garaje", "12 ud."],
               ].map(([emoji, name, place, qty]) => (
                 <article key={name}>
                   <span>{emoji}</span>
@@ -253,7 +253,7 @@ export default function OrdivyLanding() {
             <p>Escribe “taladro” y no recibes una lista genérica: ves el objeto que ya tienes, su ubicación exacta y la cantidad disponible.</p>
             <ul>
               <li>
-                <Check /> “Trastero · Estante superior”, no solo “en casa”
+                <Check /> “Ubicación: Trastero”, no solo “en casa”
               </li>
               <li>
                 <Check /> Herramienta, batería y accesorios en una búsqueda
@@ -274,7 +274,7 @@ export default function OrdivyLanding() {
             <br />
             Ordivy tampoco.
           </h2>
-          <p>Crea inventarios, ubicaciones y sububicaciones con los nombres que utilizas tú: Cocina, Despensa, estante de conservas.</p>
+          <p>Crea un inventario —por ejemplo, Cocina— y añade dentro ubicaciones independientes como Despensa, Nevera o Congelador.</p>
         </div>
         <div className="v2-rail">
           <div>

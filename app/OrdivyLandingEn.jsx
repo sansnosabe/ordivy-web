@@ -22,8 +22,8 @@ const benefits = [
     label: "PRODUCT FOUND", value: "Tuna in olive oil", note: "Pincha · 400 g",
   },
   {
-    number: "02", Icon: MapPin, title: "Say where you keep it", text: "Assign a location that makes sense in your home: a room, cupboard, shelf, box, or drawer.",
-    label: "LOCATION", value: "Kitchen › Pantry", note: "Tinned food shelf · 4 units",
+    number: "02", Icon: MapPin, title: "Say where you keep it", text: "Each product belongs to one inventory and one location inside it. In Kitchen, for example, you can choose Pantry.",
+    label: "KITCHEN INVENTORY", value: "Location: Pantry", note: "Tuna in olive oil · 4 units",
   },
   {
     number: "03", Icon: ShoppingBasket, title: "Let Ordivy watch the minimum", text: "Choose how many units you always want available. Drop below that number and the item appears on your shopping list.",
@@ -32,14 +32,14 @@ const benefits = [
 ];
 
 const inventorySpaces = [
-  ["Pantry", "Kitchen › Tinned food shelf", "Tuna in olive oil · 4 units", "1 to restock"],
-  ["Freezer", "Kitchen › Bottom drawer", "Vegetables · 3 bags", "Everything located"],
-  ["Wardrobe", "Bedroom › Top shelf", "Winter clothes", "Stored by season"],
-  ["Medicine cabinet", "Bathroom › Cabinet", "8 products · 2 expire soon", "Check dates"],
-  ["Storage room", "Box 04 › Tools", "Drill and accessories", "12 pieces"],
-  ["Office", "Drawer unit › Supplies", "Paper, ink, and cables", "2 low-stock items"],
-  ["Collections", "Display case › Shelf 03", "Editions and pieces", "36 recorded"],
-  ["Garage", "Metal cupboard", "Cleaning and maintenance", "5 locations"],
+  ["Pantry", "Kitchen inventory", "Tuna in olive oil · 4 units", "1 to restock"],
+  ["Freezer", "Kitchen inventory", "Vegetables · 3 bags", "Everything located"],
+  ["Wardrobe", "Home inventory", "Winter clothes", "Stored by season"],
+  ["Medicine cabinet", "Home inventory", "8 products · 2 expire soon", "Check dates"],
+  ["Storage room", "Home inventory", "Drill and accessories", "12 pieces"],
+  ["Office", "Work inventory", "Paper, ink, and cables", "2 low-stock items"],
+  ["Display case", "Collections inventory", "Editions and pieces", "36 recorded"],
+  ["Garage", "Home inventory", "Cleaning and maintenance", "Everything located"],
 ];
 
 const faqs = [
@@ -230,9 +230,9 @@ export default function OrdivyLandingEn() {
             </div>
             <div className="v2-results">
               {[
-                ["🔧", "Cordless drill", "Storage room · Top shelf", "1 unit"],
-                ["🔋", "Drill battery", "Storage room · Tool box", "2 units"],
-                ["📦", "Drill bits", "Garage · Small cupboard", "12 units"],
+                ["🔧", "Cordless drill", "Location: Storage room", "1 unit"],
+                ["🔋", "Drill battery", "Location: Storage room", "2 units"],
+                ["📦", "Drill bits", "Location: Garage", "12 units"],
               ].map(([emoji, name, place, qty]) => (
                 <article key={name}>
                   <span>{emoji}</span>
@@ -251,7 +251,7 @@ export default function OrdivyLandingEn() {
             <p>Type “drill” and you do not get a generic list: you see the item you own, its exact location, and the quantity available.</p>
             <ul>
               <li>
-                <Check /> “Storage room · Top shelf”, instead of just “at home”
+                <Check /> “Location: Storage room”, instead of just “at home”
               </li>
               <li>
                 <Check /> Tool, battery, and accessories in one search
@@ -272,7 +272,7 @@ export default function OrdivyLandingEn() {
             <br />
             Neither is Ordivy.
           </h2>
-          <p>Create inventories, locations, and nested locations using the names you actually use: Kitchen, Pantry, tinned food shelf.</p>
+          <p>Create an inventory —Kitchen, for example— and add separate locations inside it such as Pantry, Fridge, or Freezer.</p>
         </div>
         <div className="v2-rail">
           <div>
