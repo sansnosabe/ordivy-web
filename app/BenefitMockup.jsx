@@ -1,83 +1,65 @@
-import { MapPin, ScanLine, ShoppingBasket } from "lucide-react";
+import { AlertTriangle, ChevronRight, MapPin, ScanLine, Search, ShoppingBasket } from "lucide-react";
 
 const content = {
   es: {
-    section: "INVENTARIO",
-    scanStatus: "Escaneo completado",
-    product: "Bonito en aceite",
-    productMeta: "Pincha · 400 g",
-    found: "Producto encontrado",
-    inventory: "Inventario",
-    inventoryValue: "Cocina",
-    location: "Ubicación",
-    locationValue: "Despensa",
-    saved: "Bonito · 4 unidades",
-    units: "Unidades",
-    warning: "Avísame si quedan menos de",
+    search: "BUSCAR", inventory: "INVENTARIO", kitchen: "Cocina",
+    scan: "Escanear código", searchProduct: "Buscar producto", query: "bonito",
+    product: "Bonito en aceite", productMeta: "Pincha · 400 g", location: "Despensa",
+    lowStock: "Stock bajo", units: "Unidades", threshold: "Avisarme si quedan menos de",
     shopping: "Falta 1 en Compra",
   },
   en: {
-    section: "INVENTORY",
-    scanStatus: "Scan complete",
-    product: "Tuna in olive oil",
-    productMeta: "Pincha · 400 g",
-    found: "Product found",
-    inventory: "Inventory",
-    inventoryValue: "Kitchen",
-    location: "Location",
-    locationValue: "Pantry",
-    saved: "Tuna · 4 units",
-    units: "Units",
-    warning: "Notify me when fewer than",
+    search: "SEARCH", inventory: "INVENTORY", kitchen: "Kitchen",
+    scan: "Scan barcode", searchProduct: "Search product", query: "tuna",
+    product: "Tuna in olive oil", productMeta: "Pincha · 400 g", location: "Pantry",
+    lowStock: "Low stock", units: "Units", threshold: "Notify me when fewer than",
     shopping: "1 missing from Shopping",
   },
 };
+
+function ProductThumb() {
+  return <i className="v2-app-product-thumb" aria-hidden="true"><span>🥫</span></i>;
+}
+
+function ProductHeader({ copy, quantity = false }) {
+  return <div className="v2-app-product-head">
+    <ProductThumb />
+    <span><strong>{copy.product}</strong><small>{copy.productMeta}</small><em><MapPin /> {copy.location}</em></span>
+    {quantity && <b>4/5<small>{copy.units.toLowerCase()}</small></b>}
+  </div>;
+}
 
 export default function BenefitMockup({ kind, locale = "es" }) {
   const copy = content[locale];
 
   return (
     <div className={`v2-benefit-proof v2-benefit-proof--${kind}`} aria-hidden="true">
-      <div className="v2-mini-ui-head">
-        <b>ORDIVY</b>
-        <span>{copy.section}</span>
+      <div className="v2-app-mini-head">
+        <span>{kind === "scan" ? copy.search : copy.inventory}</span>
+        <strong>{copy.kitchen}</strong>
       </div>
 
-      {kind === "scan" && (
-        <>
-          <div className="v2-mini-status"><i /> {copy.scanStatus}</div>
-          <div className="v2-mini-product">
-            <i><ScanLine /></i>
-            <span><strong>{copy.product}</strong><small>{copy.productMeta}</small></span>
-          </div>
-          <div className="v2-mini-confirm">{copy.found}</div>
-        </>
-      )}
+      {kind === "scan" && <>
+        <div className="v2-app-segment">
+          <span><ScanLine /> {copy.scan}</span>
+          <span className="is-active"><Search /> {copy.searchProduct}</span>
+        </div>
+        <div className="v2-app-search"><Search /><span>{copy.query}</span></div>
+        <div className="v2-app-search-result"><ProductThumb /><span><strong>{copy.product}</strong><small>{copy.productMeta}</small></span><ChevronRight /></div>
+      </>}
 
-      {kind === "location" && (
-        <>
-          <div className="v2-mini-location-grid">
-            <span><small>{copy.inventory}</small><strong>{copy.inventoryValue}</strong></span>
-            <i><MapPin /></i>
-            <span><small>{copy.location}</small><strong>{copy.locationValue}</strong></span>
-          </div>
-          <div className="v2-mini-saved"><i /> {copy.saved}</div>
-        </>
-      )}
+      {kind === "location" && <div className="v2-app-product-card">
+        <ProductHeader copy={copy} quantity />
+        <div className="v2-app-location-row"><span><MapPin /> {locale === "es" ? "Ubicación" : "Location"}</span><strong>{copy.location}</strong><ChevronRight /></div>
+      </div>}
 
-      {kind === "restock" && (
-        <>
-          <div className="v2-mini-quantity">
-            <small>{copy.units}</small>
-            <span><i>−</i><strong>4</strong><i>+</i></span>
-          </div>
-          <div className="v2-mini-threshold">
-            <small>{copy.warning}</small>
-            <span><i>−</i><strong>5</strong><i>+</i></span>
-          </div>
-          <div className="v2-mini-shopping"><ShoppingBasket /> {copy.shopping}</div>
-        </>
-      )}
+      {kind === "restock" && <div className="v2-app-product-card v2-app-product-card--open">
+        <div className="v2-app-stock-label"><AlertTriangle /> {copy.lowStock}</div>
+        <ProductHeader copy={copy} />
+        <div className="v2-app-counter"><strong>{copy.units}</strong><span><i>−</i><b>4</b><i>+</i></span></div>
+        <div className="v2-app-counter v2-app-counter--minimum"><strong>{copy.threshold}</strong><span><i>−</i><b>5</b><i>+</i></span></div>
+        <div className="v2-app-shopping"><ShoppingBasket /> {copy.shopping}</div>
+      </div>}
     </div>
   );
 }
