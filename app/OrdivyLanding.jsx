@@ -37,8 +37,23 @@ const faqs = [
   ],
   [
     "¿Dónde se guardan mis datos?",
-    "Ordivy nace con un enfoque local: tu información empieza en tu dispositivo y solo solicita los permisos necesarios para cada función.",
+    "En esta primera versión, tus inventarios se guardan en el dispositivo. La cuenta protege el acceso Premium, pero la sincronización del inventario todavía no está activa.",
   ],
+  [
+    "¿En qué dispositivos estará disponible?",
+    "El primer lanzamiento está preparado para iPhone. La versión para Android y la experiencia específica para iPad llegarán más adelante.",
+  ],
+  [
+    "¿Cómo funciona Premium en el lanzamiento?",
+    "Durante esta primera fase, Premium se activa mediante invitaciones de Ordivy. Las compras y suscripciones dentro de la app todavía no están disponibles.",
+  ],
+];
+
+const screenshots = [
+  ["/screenshots/01-inicio.jpg", "Inicio", "Un resumen claro de tus inventarios, ubicaciones y productos por reponer."],
+  ["/screenshots/02-inventario-general.jpg", "Inventario", "Consulta cantidades, mínimos y ubicaciones sin perderte entre listas."],
+  ["/screenshots/04-buscar-producto.jpg", "Búsqueda", "Encuentra productos por nombre o marca y reutiliza los que ya tienes guardados."],
+  ["/screenshots/05-lista-compra.jpg", "Compra", "Convierte el stock bajo en una lista de compra práctica y ordenada."],
 ];
 
 function LogoSymbol({ className = "" }) {
@@ -65,13 +80,13 @@ function Logo({ light = false }) {
   );
 }
 
-function StoreBadge({ store }) {
+function StoreBadge() {
   return (
-    <span className="v2-store" aria-label={`Descargar Ordivy en ${store}`}>
-      <i aria-hidden="true">{store === "App Store" ? "●" : "▶"}</i>
+    <span className="v2-store" aria-label="Ordivy llegará próximamente a App Store">
+      <i aria-hidden="true">●</i>
       <span>
-        <small>Descargar en</small>
-        <b>{store}</b>
+        <small>Próximamente en</small>
+        <b>App Store</b>
       </span>
     </span>
   );
@@ -85,9 +100,9 @@ function AppScreen() {
       <div className="v2-phone v2-phone--real">
         <Image
           src="/ordivy-app-home.jpeg"
-          alt="Pantalla real de Ordivy mostrando el inventario Colecciones, sus ubicaciones y un producto"
-          width={942}
-          height={1924}
+          alt="Pantalla de inicio de Ordivy con el inventario Cocina y sus ubicaciones"
+          width={1242}
+          height={2688}
           priority
           sizes="(max-width: 560px) 286px, 304px"
         />
@@ -110,7 +125,7 @@ export default function OrdivyLanding() {
             <a href="#faq">Preguntas</a>
           </nav>
           <a className="v2-header-cta" href="#descargar">
-            Descargar <ArrowRight size={16} />
+            Próximamente <ArrowRight size={16} />
           </a>
         </header>
         <div className="v2-hero-layout v2-shell">
@@ -124,7 +139,7 @@ export default function OrdivyLanding() {
             </p>
             <div className="v2-hero-actions">
               <a className="v2-primary" href="#descargar">
-                Descargar Ordivy <ArrowRight size={18} />
+                Ver lanzamiento <ArrowRight size={18} />
               </a>
               <a className="v2-text-link" href="#como-funciona">
                 Ver cómo funciona <ArrowDown size={16} />
@@ -247,6 +262,27 @@ export default function OrdivyLanding() {
         </div>
       </section>
 
+      <section className="v2-screens v2-section" id="capturas">
+        <div className="v2-shell v2-screens-head" data-reveal-v2>
+          <div>
+            <p className="v2-eyebrow v2-eyebrow--dark">ORDIVY POR DENTRO</p>
+            <h2>Diseñada para entenderla desde el primer vistazo.</h2>
+          </div>
+          <p>Estas son pantallas reales de la versión que llegará primero a iPhone.</p>
+        </div>
+        <div className="v2-shell v2-screen-grid">
+          {screenshots.map(([src, title, text]) => (
+            <article key={src} data-reveal-v2>
+              <div className="v2-screen-shot">
+                <Image src={src} alt={`Pantalla ${title} de Ordivy`} width={1242} height={2688} sizes="(max-width: 560px) 78vw, 260px" />
+              </div>
+              <span>{title}</span>
+              <p>{text}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
       <section className="v2-privacy v2-section">
         <div className="v2-shell v2-privacy-panel" data-reveal-v2>
           <i>
@@ -293,9 +329,9 @@ export default function OrdivyLanding() {
             Encuentra más.
           </h2>
           <p>Tu casa, tu inventario y tu lista de compra en un solo lugar.</p>
+          <span className="v2-launch-status"><i /> Versión para iPhone enviada a revisión</span>
           <div className="v2-store-row">
-            <StoreBadge store="App Store" />
-            <StoreBadge store="Google Play" />
+            <StoreBadge />
           </div>
         </div>
       </section>

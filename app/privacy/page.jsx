@@ -1,7 +1,7 @@
 import { LanguageSection, LegalSection, LegalShell } from "../LegalShell";
 
 export const metadata = {
-  title: "Privacidad — Ordivy",
+  title: "Privacidad",
   description: "Política de privacidad de Ordivy en español e inglés.",
 };
 
@@ -52,13 +52,13 @@ export default function PrivacyPage() {
             <strong>Reconocimiento de voz.</strong> Según el dispositivo y sus ajustes, Apple, Google o el servicio de reconocimiento del fabricante puede procesar el audio para convertirlo en texto. Ordivy recibe el texto resultante para que puedas revisarlo.
           </p>
           <p>
-            <strong>Compras y RevenueCat.</strong> Apple o Google procesa el pago. RevenueCat recibe el identificador interno de tu cuenta Ordivy, los identificadores de producto, el estado de la suscripción y la información técnica necesaria para activar o restaurar Premium. Ordivy no recibe ni almacena los datos completos de tu tarjeta. Consulta las políticas de <a href="https://www.revenuecat.com/privacy/">RevenueCat</a>, <a href="https://www.apple.com/legal/privacy/">Apple</a> y <a href="https://policies.google.com/privacy">Google</a>.
+            <strong>Premium y futuras compras.</strong> La versión inicial no ofrece compras ni suscripciones dentro de la aplicación. El acceso Premium de lanzamiento se concede mediante invitaciones administradas por Ordivy. Aunque la aplicación incluye preparación técnica para futuras compras, no se procesan pagos mientras esta función permanezca desactivada.
           </p>
         </LegalSection>
 
         <LegalSection title="5. Finalidades y decisiones del usuario">
           <p>
-            Los datos locales se utilizan para organizar y mostrar tu inventario. Las consultas externas, el dictado, las fotografías, las notificaciones y las compras se ejecutan cuando solicitas la función correspondiente. Ordivy no utiliza estos datos para publicidad, seguimiento entre aplicaciones ni elaboración de perfiles.
+            Los datos locales se utilizan para organizar y mostrar tu inventario. Las consultas externas, el dictado, las fotografías y las notificaciones se ejecutan cuando solicitas la función correspondiente. Ordivy no utiliza estos datos para publicidad, seguimiento entre aplicaciones ni elaboración de perfiles.
           </p>
         </LegalSection>
 
@@ -67,7 +67,7 @@ export default function PrivacyPage() {
             Los datos locales se conservan hasta que los modificas o eliminas, borras los datos de la aplicación o desinstalas Ordivy. Las copias del dispositivo administradas por Apple o Google pueden conservar información según tus propios ajustes de copia de seguridad.
           </p>
           <p>
-            Apple, Google, RevenueCat y Open Food Facts conservan los datos que procesan conforme a sus políticas y obligaciones legales. Puedes retirar permisos desde los ajustes del sistema y administrar o cancelar una suscripción desde la tienda correspondiente.
+            Supabase, Open Food Facts y los servicios del sistema que utilices conservan los datos que procesan conforme a sus políticas y obligaciones legales. Puedes retirar permisos desde los ajustes del dispositivo y eliminar tu cuenta desde Ordivy.
           </p>
         </LegalSection>
 
@@ -78,7 +78,7 @@ export default function PrivacyPage() {
         </LegalSection>
 
         <LegalSection title="8. Servicios que no están activos">
-          <p>Las cuentas de Ordivy están activas. La sincronización del inventario en la nube, la colaboración, la publicidad y la analítica de uso no están activas.</p>
+          <p>Las cuentas de Ordivy están activas. La sincronización del inventario en la nube, la colaboración, las compras y suscripciones, la publicidad y la analítica de uso no están activas.</p>
         </LegalSection>
 
         <LegalSection title="9. Consultas y solicitudes">
@@ -129,13 +129,13 @@ export default function PrivacyPage() {
             <strong>Speech recognition.</strong> Depending on your device and settings, Apple, Google, or the device manufacturer&apos;s recognition service may process audio to convert it into text. Ordivy receives the resulting text so that you can review it.
           </p>
           <p>
-            <strong>Purchases and RevenueCat.</strong> Apple or Google processes payments. RevenueCat receives your internal Ordivy account identifier, product identifiers, subscription status, and technical information required to activate or restore Premium. Ordivy does not receive or store your full payment card details. See the policies of <a href="https://www.revenuecat.com/privacy/">RevenueCat</a>, <a href="https://www.apple.com/legal/privacy/">Apple</a>, and <a href="https://policies.google.com/privacy">Google</a>.
+            <strong>Premium and future purchases.</strong> The initial version does not offer in-app purchases or subscriptions. Launch Premium is granted through invitations managed by Ordivy. Although the app includes technical preparation for future purchases, no payments are processed while this feature remains disabled.
           </p>
         </LegalSection>
 
         <LegalSection title="5. Purposes and user choices">
           <p>
-            Local information is used to organize and display your inventory. External searches, dictation, photos, notifications, and purchases run when you request the corresponding feature. Ordivy does not use this information for advertising, cross-app tracking, or profiling.
+            Local information is used to organize and display your inventory. External searches, dictation, photos, and notifications run when you request the corresponding feature. Ordivy does not use this information for advertising, cross-app tracking, or profiling.
           </p>
         </LegalSection>
 
@@ -144,7 +144,7 @@ export default function PrivacyPage() {
             Local information is retained until you modify or delete it, erase the app&apos;s data, or uninstall Ordivy. Device backups managed by Apple or Google may retain information according to your own backup settings.
           </p>
           <p>
-            Apple, Google, RevenueCat, and Open Food Facts retain the information they process according to their policies and legal obligations. You can withdraw permissions in system settings and manage or cancel a subscription through the relevant store.
+            Supabase, Open Food Facts, and the system services you use retain the information they process according to their policies and legal obligations. You can withdraw permissions in device settings and delete your account from Ordivy.
           </p>
         </LegalSection>
 
@@ -155,7 +155,7 @@ export default function PrivacyPage() {
         </LegalSection>
 
         <LegalSection title="8. Services that are not active">
-          <p>Ordivy accounts are active. Cloud inventory sync, collaboration, advertising, and usage analytics are not active.</p>
+          <p>Ordivy accounts are active. Cloud inventory sync, collaboration, purchases and subscriptions, advertising, and usage analytics are not active.</p>
         </LegalSection>
 
         <LegalSection title="9. Questions and requests">

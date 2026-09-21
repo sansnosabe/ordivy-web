@@ -1,7 +1,7 @@
 import AuthBridge from "../AuthBridge";
 
 export const metadata = {
-  title: "Recuperar contraseña | Ordivy",
+  title: "Recuperar contraseña",
   robots: { index: false, follow: false },
 };
 
