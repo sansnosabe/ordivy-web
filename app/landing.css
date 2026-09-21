@@ -105,6 +105,28 @@
 .v2-header nav a:hover {
   color: #fff;
 }
+.v2-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.v2-lang-switch {
+  display: grid;
+  min-width: 38px;
+  min-height: 38px;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
+  color: rgba(255, 255, 255, 0.76) !important;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  transition: background 0.2s, color 0.2s;
+}
+.v2-lang-switch:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff !important;
+}
 .v2-header-cta {
   display: flex;
   align-items: center;
@@ -946,6 +968,13 @@
   }
   .v2-header-cta {
     padding: 9px 12px;
+  }
+  .v2-header-actions {
+    gap: 7px;
+  }
+  .v2-lang-switch {
+    min-width: 34px;
+    min-height: 34px;
   }
   .v2-hero-layout {
     min-height: auto;

@@ -4,11 +4,14 @@ import { LanguageSection, LegalSection, LegalShell } from "../LegalShell";
 export const metadata = {
   title: "Soporte",
   description: "Ayuda y contacto de soporte para Ordivy.",
+  alternates: { canonical: "/support", languages: { "es-ES": "/support", en: "/en/support" } },
 };
 
 export default function SupportPage() {
   return (
     <LegalShell
+      locale="es"
+      page="support"
       eyebrow="SOPORTE"
       title="Estamos para ayudarte."
       intro={
@@ -37,29 +40,6 @@ export default function SupportPage() {
 
         <LegalSection title="Privacidad y condiciones">
           <p>Consulta la <Link href="/privacy">política de privacidad</Link> y las <Link href="/terms">condiciones de uso</Link> vigentes.</p>
-        </LegalSection>
-      </LanguageSection>
-
-      <LanguageSection id="en" language="English" title="Help with Ordivy">
-        <LegalSection title="Contact">
-          <p>We answer questions about features, Premium access, privacy, and technical problems.</p>
-          <a className="legal-contact" href="mailto:ordivyapp@gmail.com?subject=Ordivy%20support">Send an email</a>
-        </LegalSection>
-
-        <LegalSection title="Information and inventories">
-          <p>The first version stores inventories locally. If you change devices or uninstall Ordivy, information may be lost when no system-managed backup exists.</p>
-        </LegalSection>
-
-        <LegalSection title="Camera, photos, and voice">
-          <p>You can review or change permissions in your device settings. If you deny one, the other Ordivy features remain available.</p>
-        </LegalSection>
-
-        <LegalSection title="Launch Premium">
-          <p>In the first version, Premium is activated with Ordivy invitation codes. In-app purchases and subscriptions are not available yet. If your code does not work, contact us with your username; do not send passwords.</p>
-        </LegalSection>
-
-        <LegalSection title="Privacy and terms">
-          <p>Read the current <Link href="/privacy">privacy policy</Link> and <Link href="/terms">terms of use</Link>.</p>
         </LegalSection>
       </LanguageSection>
     </LegalShell>

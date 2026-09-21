@@ -4,11 +4,17 @@ import { useEffect, useRef } from 'react';
 import Image from 'next/image';
 import OriginalWordmark from './OriginalWordmark';
 
-const categories = [
+const categoriesEs = [
   ['herramientas', 'Herramientas'], ['comida', 'Comida'],
   ['colecciones', 'Colecciones'], ['oficina', 'Oficina'],
   ['cuidado', 'Cuidado personal'], ['hogar', 'Hogar'],
   ['botiquin', 'Botiquín'], ['ropa', 'Ropa'],
+];
+const categoriesEn = [
+  ['herramientas', 'Tools'], ['comida', 'Food'],
+  ['colecciones', 'Collections'], ['oficina', 'Office'],
+  ['cuidado', 'Personal care'], ['hogar', 'Home'],
+  ['botiquin', 'Medicine'], ['ropa', 'Clothes'],
 ];
 // Hold the fully visible introduction before moving it aside. Following beats
 // keep their relative spacing when the reading time changes.
@@ -59,7 +65,9 @@ function CategoryFace({ id, name }) {
   </div>;
 }
 
-export default function BrandFilm({ children }) {
+export default function BrandFilm({ children, locale = 'es' }) {
+  const english = locale === 'en';
+  const categories = english ? categoriesEn : categoriesEs;
   const rootRef = useRef(null);
   useEffect(() => {
     const root = rootRef.current;
@@ -316,18 +324,22 @@ export default function BrandFilm({ children }) {
     };
   },[]);
 
-  return <section className="brand-film" id="marca" ref={rootRef} aria-label="De dónde nace Ordivy: nuestra historia">
+  return <section className="brand-film" id={english ? 'story' : 'marca'} ref={rootRef} aria-label={english ? 'The story behind Ordivy' : 'De dónde nace Ordivy: nuestra historia'}>
     <div className="bf-warm" />
     <div className="bf-final-backdrop" aria-hidden="true" />
-    <div className="bf-topline"><span>ORDIVY</span><span>TODO EMPIEZA EN CASA.</span></div>
+    <div className="bf-topline"><span>ORDIVY</span><span>{english ? 'IT ALL STARTS AT HOME.' : 'TODO EMPIEZA EN CASA.'}</span></div>
     <div className="bf-stage" key="brand-film-stage-v10">
-      <div className="bf-scene bf-opening"><span>Una historia muy de casa</span><h2>De dónde<br />nace <em>Ordivy.</em></h2><p>De algo que nos suena a todos.</p></div>
+      <div className="bf-scene bf-opening">
+        <span>{english ? 'A story that starts at home' : 'Una historia muy de casa'}</span>
+        <h2>{english ? <>Where<br /><em>Ordivy</em> began.</> : <>De dónde<br />nace <em>Ordivy.</em></>}</h2>
+        <p>{english ? 'From something we all recognize.' : 'De algo que nos suena a todos.'}</p>
+      </div>
       <div className="bf-story">
         <div className="bf-title-slot" aria-hidden="true" />
         <div className="bf-scene bf-order">
-          <p>Todo empezó buscando cosas que sabía que tenía, pero no recordaba dónde había guardado.</p>
-          <p>Empecé a organizar mis cosas por partes y quise dejarlo todo anotado: qué tenía, dónde lo guardaba y cómo lo había organizado.</p>
-          <p>De ahí nació Ordivy: una app donde tener mis cosas registradas y organizadas, consultar lo que tengo y preguntarle dónde encontrar lo que busco.</p>
+          <p>{english ? 'It started with searching for things I knew I owned but could not remember where I had put them.' : 'Todo empezó buscando cosas que sabía que tenía, pero no recordaba dónde había guardado.'}</p>
+          <p>{english ? 'I began organizing everything in sections and wanted to record what I had, where I kept it, and how it was arranged.' : 'Empecé a organizar mis cosas por partes y quise dejarlo todo anotado: qué tenía, dónde lo guardaba y cómo lo había organizado.'}</p>
+          <p>{english ? 'That became Ordivy: an app to record and organize my things, check what I own, and find exactly where everything is.' : 'De ahí nació Ordivy: una app donde tener mis cosas registradas y organizadas, consultar lo que tengo y preguntarle dónde encontrar lo que busco.'}</p>
         </div>
       </div>
       <div className="bf-glow" aria-hidden="true" />
@@ -336,20 +348,20 @@ export default function BrandFilm({ children }) {
       <div className="bf-word"><OriginalWordmark /></div>
       <div className="bf-closing">
         <div className="bf-definitions">
-          <div className="bf-definition"><b>Order</b><p>Poner orden en<br /> lo que tienes.</p></div>
-          <div className="bf-definition"><b>Difference</b><p>Comprar mejor.<br /> Desperdiciar menos.</p></div>
-          <div className="bf-definition"><b>Inventory</b><p>Saber qué tienes<br /> y dónde está.</p></div>
+          <div className="bf-definition"><b>Order</b><p>{english ? <>Bring order to<br /> what you own.</> : <>Poner orden en<br /> lo que tienes.</>}</p></div>
+          <div className="bf-definition"><b>Difference</b><p>{english ? <>Buy better.<br /> Waste less.</> : <>Comprar mejor.<br /> Desperdiciar menos.</>}</p></div>
+          <div className="bf-definition"><b>Inventory</b><p>{english ? <>Know what you own<br /> and where it is.</> : <>Saber qué tienes<br /> y dónde está.</>}</p></div>
         </div>
       </div>
-      <aside className="bf-scene bf-search bf-category-summary" aria-label="Categorías que forman el logo">
+      <aside className="bf-scene bf-search bf-category-summary" aria-label={english ? 'Categories that form the logo' : 'Categorías que forman el logo'}>
         <ul className="bf-category-list">{categories.map(([id,name])=><li className="bf-category-item" key={id}>
           <CategoryFace id={id} name={name} />
         </li>)}</ul>
       </aside>
     </div>
     <div className="bf-outro">
-      <p className="bf-signature">El orden<br /><span>marca la diferencia.</span></p>
-      <p className="bf-promise">Recuerda lo que tienes.<br /><strong>Compra solo lo que necesitas.</strong></p>
+      <p className="bf-signature">{english ? <>Order<br /><span>makes the difference.</span></> : <>El orden<br /><span>marca la diferencia.</span></>}</p>
+      <p className="bf-promise">{english ? <>Remember what you own.<br /><strong>Buy only what you need.</strong></> : <>Recuerda lo que tienes.<br /><strong>Compra solo lo que necesitas.</strong></>}</p>
     </div>
   </section>;
 }

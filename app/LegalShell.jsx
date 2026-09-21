@@ -1,17 +1,21 @@
 import Link from "next/link";
 import OriginalWordmark from "./OriginalWordmark";
 
-export function LegalShell({ eyebrow, title, intro, children }) {
+export function LegalShell({ eyebrow, title, intro, children, locale = "es", page = "" }) {
+  const english = locale === "en";
+  const base = english ? "/en" : "";
+  const alternate = english ? `/${page}` : `/en/${page}`;
   return (
-    <main className="legal-site">
+    <main className="legal-site" lang={locale}>
       <header className="legal-header">
-        <Link className="legal-brand" href="/" aria-label="Ordivy, inicio">
+        <Link className="legal-brand" href={english ? "/en" : "/"} aria-label={english ? "Ordivy, home" : "Ordivy, inicio"}>
           <OriginalWordmark />
         </Link>
-        <nav aria-label="Páginas de Ordivy">
-          <Link href="/support">Soporte</Link>
-          <Link href="/privacy">Privacidad</Link>
-          <Link href="/terms">Condiciones</Link>
+        <nav aria-label={english ? "Ordivy pages" : "Páginas de Ordivy"}>
+          <Link href={`${base}/support`}>{english ? "Support" : "Soporte"}</Link>
+          <Link href={`${base}/privacy`}>{english ? "Privacy" : "Privacidad"}</Link>
+          <Link href={`${base}/terms`}>{english ? "Terms" : "Condiciones"}</Link>
+          <Link className="legal-lang-switch" href={alternate} hrefLang={english ? "es" : "en"}>{english ? "ES" : "EN"}</Link>
         </nav>
       </header>
 
@@ -20,11 +24,6 @@ export function LegalShell({ eyebrow, title, intro, children }) {
         <h1>{title}</h1>
         <div>{intro}</div>
       </section>
-
-      <div className="legal-language-nav" aria-label="Idiomas disponibles">
-        <a href="#es">Español</a>
-        <a href="#en">English</a>
-      </div>
 
       <div className="legal-content">{children}</div>
 

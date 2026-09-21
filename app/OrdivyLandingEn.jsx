@@ -17,43 +17,43 @@ import {
 } from "lucide-react";
 
 const benefits = [
-  ["01", ScanLine, "Añade sin perder tiempo", "Escanea un código, busca el producto o créalo manualmente. Tú eliges cuánto detalle necesitas."],
-  ["02", MapPin, "Cada cosa en su sitio", "Organiza por casa, habitación, armario, caja o cualquier ubicación que tenga sentido para ti."],
-  ["03", ShoppingBasket, "Compra con cabeza", "Controla cantidades y mínimos para saber qué falta antes de volver a comprarlo."],
+  ["01", ScanLine, "Add items in seconds", "Scan a code, search for a product, or create one manually. You decide how much detail you need."],
+  ["02", MapPin, "Everything in its place", "Organize by home, room, cupboard, box, or any location that makes sense to you."],
+  ["03", ShoppingBasket, "Shop with a plan", "Track quantities and minimums so you know what is missing before you buy it again."],
 ];
 
 const faqs = [
   [
-    "¿Qué puedo organizar con Ordivy?",
-    "Prácticamente cualquier cosa: alimentos, ropa, herramientas, productos del hogar, material de oficina o colecciones.",
+    "What can I organize with Ordivy?",
+    "Almost anything: food, clothes, tools, household products, office supplies, or collections.",
   ],
   [
-    "¿Tengo que registrar todo de golpe?",
-    "No. Empieza por un espacio pequeño y añade productos cuando los uses o cuando hagas la compra. Ordivy se adapta a tu ritmo.",
+    "Do I have to add everything at once?",
+    "No. Start with one small space and add products as you use or buy them. Ordivy adapts to your pace.",
   ],
   [
-    "¿Puedo crear varios inventarios?",
-    "Sí. Puedes separar casa, oficina, trastero o cualquier otro espacio y organizar cada uno con sus propias ubicaciones.",
+    "Can I create several inventories?",
+    "Yes. You can separate your home, office, storage room, or any other space and organize each one with its own locations.",
   ],
   [
-    "¿Dónde se guardan mis datos?",
-    "En esta primera versión, tus inventarios se guardan en el dispositivo. La cuenta protege el acceso Premium, pero la sincronización del inventario todavía no está activa.",
+    "Where is my information stored?",
+    "In this first version, your inventories are stored on your device. Your account protects Premium access, but inventory sync is not active yet.",
   ],
   [
-    "¿En qué dispositivos estará disponible?",
-    "El primer lanzamiento está preparado para iPhone. La versión para Android y la experiencia específica para iPad llegarán más adelante.",
+    "Which devices will be supported?",
+    "The first release is built for iPhone. Android and a dedicated iPad experience will come later.",
   ],
   [
-    "¿Cómo funciona Premium en el lanzamiento?",
-    "Durante esta primera fase, Premium se activa mediante invitaciones de Ordivy. Las compras y suscripciones dentro de la app todavía no están disponibles.",
+    "How does Premium work at launch?",
+    "During this first phase, Premium is activated through Ordivy invitations. In-app purchases and subscriptions are not available yet.",
   ],
 ];
 
 const screenshots = [
-  ["/screenshots/01-inicio.jpg", "Inicio", "Un resumen claro de tus inventarios, ubicaciones y productos por reponer."],
-  ["/screenshots/02-inventario-general.jpg", "Inventario", "Consulta cantidades, mínimos y ubicaciones sin perderte entre listas."],
-  ["/screenshots/04-buscar-producto.jpg", "Búsqueda", "Encuentra productos por nombre o marca y reutiliza los que ya tienes guardados."],
-  ["/screenshots/05-lista-compra.jpg", "Compra", "Convierte el stock bajo en una lista de compra práctica y ordenada."],
+  ["/screenshots/01-inicio.jpg", "Home", "A clear overview of your inventories, locations, and products that need restocking."],
+  ["/screenshots/02-inventario-general.jpg", "Inventory", "Check quantities, minimums, and locations without getting lost in lists."],
+  ["/screenshots/04-buscar-producto.jpg", "Search", "Find products by name or brand and reuse the ones you have already saved."],
+  ["/screenshots/05-lista-compra.jpg", "Shopping", "Turn low stock into a practical, organized shopping list."],
 ];
 
 function LogoSymbol({ className = "" }) {
@@ -73,7 +73,7 @@ function LogoSymbol({ className = "" }) {
 
 function Logo({ light = false }) {
   return (
-    <a className={`v2-brand ${light ? "v2-brand--light" : ""}`} href="#inicio" aria-label="Ordivy, inicio">
+    <a className={`v2-brand ${light ? "v2-brand--light" : ""}`} href="#home" aria-label="Ordivy, home">
       <LogoSymbol />
       <span>ordivy</span>
     </a>
@@ -82,10 +82,10 @@ function Logo({ light = false }) {
 
 function StoreBadge() {
   return (
-    <span className="v2-store" aria-label="Ordivy llegará próximamente a App Store">
+    <span className="v2-store" aria-label="Ordivy is coming soon to the App Store">
       <i aria-hidden="true">●</i>
       <span>
-        <small>Próximamente en</small>
+        <small>Coming soon to the</small>
         <b>App Store</b>
       </span>
     </span>
@@ -100,7 +100,7 @@ function AppScreen() {
       <div className="v2-phone v2-phone--real">
         <Image
           src="/ordivy-app-home.jpeg"
-          alt="Pantalla de inicio de Ordivy con el inventario Cocina y sus ubicaciones"
+          alt="Ordivy home screen showing the Kitchen inventory and its locations"
           width={1242}
           height={2688}
           priority
@@ -111,45 +111,43 @@ function AppScreen() {
   );
 }
 
-export default function OrdivyLanding() {
+export default function OrdivyLandingEn() {
   return (
     <main className="v2-site">
       <MotionV2 />
-      <section className="v2-hero" id="inicio">
+      <section className="v2-hero" id="home">
         <div className="v2-hero-glow" aria-hidden="true" />
         <header className="v2-header v2-shell">
           <Logo light />
-          <nav aria-label="Navegación principal">
-            <a href="#como-funciona">Cómo funciona</a>
-            <a href="#funciones">Funciones</a>
-            <a href="#faq">Preguntas</a>
+          <nav aria-label="Main navigation">
+            <a href="#how-it-works">How it works</a>
+            <a href="#features">Features</a>
+            <a href="#faq">Questions</a>
           </nav>
           <div className="v2-header-actions">
-            <Link className="v2-lang-switch" href="/en" hrefLang="en" aria-label="View the website in English">EN</Link>
-            <a className="v2-header-cta" href="#descargar">
-              Próximamente <ArrowRight size={16} />
-            </a>
+            <Link className="v2-lang-switch" href="/" hrefLang="es" aria-label="Ver la web en español">ES</Link>
+            <a className="v2-header-cta" href="#download">Coming soon <ArrowRight size={16} /></a>
           </div>
         </header>
         <div className="v2-hero-layout v2-shell">
           <div className="v2-hero-copy" data-hero>
-            <p className="v2-eyebrow">TU INVENTARIO PERSONAL</p>
+            <p className="v2-eyebrow">YOUR PERSONAL INVENTORY</p>
             <h1>
-              Saber qué tienes cambia <em>lo que compras.</em>
+              Knowing what you own changes <em>what you buy.</em>
             </h1>
             <p className="v2-hero-lede">
-              Ordivy pone orden en tus cosas para que encuentres todo, repongas a tiempo y dejes de comprar lo que ya tenías.
+              Ordivy brings order to your belongings so you can find everything, restock on time, and stop buying what you already have.
             </p>
             <div className="v2-hero-actions">
-              <a className="v2-primary" href="#descargar">
-                Ver lanzamiento <ArrowRight size={18} />
+              <a className="v2-primary" href="#download">
+                View release <ArrowRight size={18} />
               </a>
-              <a className="v2-text-link" href="#como-funciona">
-                Ver cómo funciona <ArrowDown size={16} />
+              <a className="v2-text-link" href="#how-it-works">
+                See how it works <ArrowDown size={16} />
               </a>
             </div>
             <p className="v2-trust">
-              <ShieldCheck size={16} /> Diseñada para que el control empiece en tu dispositivo.
+              <ShieldCheck size={16} /> Designed so control starts on your device.
             </p>
           </div>
           <AppScreen />
@@ -158,7 +156,7 @@ export default function OrdivyLanding() {
           <div className="v2-ticker-track">
             {[0, 1, 2, 3].map((copy) => (
               <div className="v2-ticker-group" key={copy}>
-                {["ENCUENTRA", "ORGANIZA", "ESCANEA", "GUARDA", "LOCALIZA", "REPÓN", "PLANIFICA", "REUTILIZA", "AHORRA", "APROVECHA"].map((word) => (
+                {["FIND", "ORGANIZE", "SCAN", "SAVE", "LOCATE", "RESTOCK", "PLAN", "REUSE", "SAVE MONEY", "MAKE IT LAST"].map((word) => (
                   <span key={word}>
                     {word}
                     <i className="v2-ticker-tile" />
@@ -170,16 +168,16 @@ export default function OrdivyLanding() {
         </div>
       </section>
 
-      <BrandFilm><LogoSymbol /></BrandFilm>
-      <section className="v2-statement v2-section" id="como-funciona">
+      <BrandFilm locale="en"><LogoSymbol /></BrandFilm>
+      <section className="v2-statement v2-section" id="how-it-works">
         <div className="v2-shell v2-statement-head">
           <div data-reveal-v2>
-            <p className="v2-eyebrow v2-eyebrow--dark">MENOS MEMORIA. MÁS CLARIDAD.</p>
-            <h2>Tu casa deja de ser un misterio.</h2>
+            <p className="v2-eyebrow v2-eyebrow--dark">LESS TO REMEMBER. MORE CLARITY.</p>
+            <h2>Your home stops being a mystery.</h2>
           </div>
           <p data-reveal-v2>
-            Ese paquete que compras dos veces. La herramienta que nunca aparece. Lo que caduca al fondo de un armario. Ordivy convierte cada rincón en
-            información útil.
+            The packet you buy twice. The tool you can never find. The food expiring at the back of a cupboard. Ordivy turns every corner into useful
+            information.
           </p>
         </div>
         <div className="v2-shell v2-benefits">
@@ -196,20 +194,20 @@ export default function OrdivyLanding() {
         </div>
       </section>
 
-      <section className="v2-search-story v2-section" id="funciones">
+      <section className="v2-search-story v2-section" id="features">
         <div className="v2-shell v2-search-layout">
           <div className="v2-search-demo" data-reveal-v2>
-            <p>BUSCAR EN ORDIVY</p>
+            <p>SEARCH IN ORDIVY</p>
             <div className="v2-big-search">
               <Search />
-              <span>taladro</span>
-              <i>3 resultados</i>
+              <span>drill</span>
+              <i>3 results</i>
             </div>
             <div className="v2-results">
               {[
-                ["🔧", "Taladro inalámbrico", "Trastero · Estante superior", "1 ud."],
-                ["🔋", "Batería de taladro", "Trastero · Caja de herramientas", "2 ud."],
-                ["📦", "Brocas para taladro", "Garaje · Armario pequeño", "12 ud."],
+                ["🔧", "Cordless drill", "Storage room · Top shelf", "1 unit"],
+                ["🔋", "Drill battery", "Storage room · Tool box", "2 units"],
+                ["📦", "Drill bits", "Garage · Small cupboard", "12 units"],
               ].map(([emoji, name, place, qty]) => (
                 <article key={name}>
                   <span>{emoji}</span>
@@ -223,18 +221,18 @@ export default function OrdivyLanding() {
             </div>
           </div>
           <div className="v2-search-copy" data-reveal-v2>
-            <p className="v2-eyebrow v2-eyebrow--dark">TODO LOCALIZADO</p>
-            <h2>Encuentra una aguja en tu propio pajar.</h2>
-            <p>Busca en todos tus inventarios y descubre al instante dónde está cada cosa y cuántas unidades quedan.</p>
+            <p className="v2-eyebrow v2-eyebrow--dark">EVERYTHING LOCATED</p>
+            <h2>Find a needle in your own haystack.</h2>
+            <p>Search across all your inventories and instantly see where everything is and how many units remain.</p>
             <ul>
               <li>
-                <Check /> Búsqueda en todos tus espacios
+                <Check /> Search across all your spaces
               </li>
               <li>
-                <Check /> Cantidades y mínimos siempre visibles
+                <Check /> Quantities and minimums always visible
               </li>
               <li>
-                <Check /> Inventario y lista de compra conectados
+                <Check /> Inventory and shopping list connected
               </li>
             </ul>
           </div>
@@ -243,22 +241,22 @@ export default function OrdivyLanding() {
 
       <section className="v2-inventory v2-section">
         <div className="v2-shell v2-inventory-head" data-reveal-v2>
-          <p className="v2-eyebrow">UN SISTEMA QUE SE ADAPTA A TI</p>
+          <p className="v2-eyebrow">A SYSTEM THAT ADAPTS TO YOU</p>
           <h2>
-            Una despensa. Un armario.
+            A pantry. A wardrobe.
             <br />
-            Una casa entera.
+            An entire home.
           </h2>
-          <p>Empieza por lo que más necesitas ordenar y amplía cuando quieras.</p>
+          <p>Start with what you most need to organize and expand whenever you want.</p>
         </div>
         <div className="v2-rail">
           <div>
-            {["Despensa", "Congelador", "Armario", "Botiquín", "Trastero", "Oficina", "Colecciones", "Garaje"].map((item, index) => (
+            {["Pantry", "Freezer", "Wardrobe", "Medicine cabinet", "Storage room", "Office", "Collections", "Garage"].map((item, index) => (
               <article className={`v2-rail-card v2-rail-card--${(index % 4) + 1}`} key={item} data-reveal-v2>
                 <span>0{index + 1}</span>
                 <PackageCheck />
                 <h3>{item}</h3>
-                <p>Cada objeto, cantidad y ubicación bajo control.</p>
+                <p>Every item, quantity, and location under control.</p>
               </article>
             ))}
           </div>
@@ -268,16 +266,16 @@ export default function OrdivyLanding() {
       <section className="v2-screens v2-section" id="capturas">
         <div className="v2-shell v2-screens-head" data-reveal-v2>
           <div>
-            <p className="v2-eyebrow v2-eyebrow--dark">ORDIVY POR DENTRO</p>
-            <h2>Diseñada para entenderla desde el primer vistazo.</h2>
+            <p className="v2-eyebrow v2-eyebrow--dark">INSIDE ORDIVY</p>
+            <h2>Designed to make sense at first glance.</h2>
           </div>
-          <p>Estas son pantallas reales de la versión que llegará primero a iPhone.</p>
+          <p>These are real screens from the version launching first on iPhone.</p>
         </div>
         <div className="v2-shell v2-screen-grid">
           {screenshots.map(([src, title, text]) => (
             <article key={src} data-reveal-v2>
               <div className="v2-screen-shot">
-                <Image src={src} alt={`Pantalla ${title} de Ordivy`} width={1242} height={2688} sizes="(max-width: 560px) 78vw, 260px" />
+                <Image src={src} alt={`Ordivy ${title} screen`} width={1242} height={2688} sizes="(max-width: 560px) 78vw, 260px" />
               </div>
               <span>{title}</span>
               <p>{text}</p>
@@ -292,19 +290,19 @@ export default function OrdivyLanding() {
             <ShieldCheck />
           </i>
           <div>
-            <p className="v2-eyebrow v2-eyebrow--dark">PRIVACIDAD DESDE EL PRINCIPIO</p>
-            <h2>Tu inventario habla de tu vida. Por eso es tuyo.</h2>
+            <p className="v2-eyebrow v2-eyebrow--dark">PRIVACY FROM THE START</p>
+            <h2>Your inventory says a lot about your life. That is why it belongs to you.</h2>
           </div>
-          <p>Ordivy pide únicamente los permisos que necesita para funcionar y te explica para qué sirve cada uno.</p>
+          <p>Ordivy only asks for the permissions it needs and explains what each one is used for.</p>
         </div>
       </section>
 
       <section className="v2-faq v2-section" id="faq">
         <div className="v2-shell v2-faq-layout">
           <div data-reveal-v2>
-            <p className="v2-eyebrow v2-eyebrow--dark">PREGUNTAS FRECUENTES</p>
-            <h2>Antes de empezar.</h2>
-            <p>Lo esencial sobre Ordivy, explicado sin letra pequeña.</p>
+            <p className="v2-eyebrow v2-eyebrow--dark">FREQUENTLY ASKED QUESTIONS</p>
+            <h2>Before you start.</h2>
+            <p>The essentials about Ordivy, explained clearly.</p>
           </div>
           <div className="v2-faq-list" data-reveal-v2>
             {faqs.map(([question, answer], index) => (
@@ -320,19 +318,19 @@ export default function OrdivyLanding() {
         </div>
       </section>
 
-      <section className="v2-download" id="descargar">
+      <section className="v2-download" id="download">
         <div className="v2-download-orb v2-download-orb--a" />
         <div className="v2-download-orb v2-download-orb--b" />
         <div className="v2-shell v2-download-content" data-reveal-v2>
           <Logo light />
           <Sparkles />
           <h2>
-            Compra menos.
+            Buy less.
             <br />
-            Encuentra más.
+            Find more.
           </h2>
-          <p>Tu casa, tu inventario y tu lista de compra en un solo lugar.</p>
-          <span className="v2-launch-status"><i /> Versión para iPhone enviada a revisión</span>
+          <p>Your home, inventory, and shopping list in one place.</p>
+          <span className="v2-launch-status"><i /> iPhone version submitted for review</span>
           <div className="v2-store-row">
             <StoreBadge />
           </div>
@@ -340,13 +338,13 @@ export default function OrdivyLanding() {
       </section>
       <footer className="v2-footer v2-shell">
         <Logo />
-        <p>© 2026 Ordivy. Todos los derechos reservados.</p>
-        <nav aria-label="Enlaces del pie">
-          <Link href="/support">Soporte</Link>
-          <Link href="/privacy">Privacidad</Link>
-          <Link href="/terms">Condiciones</Link>
-          <Link href="/en" hrefLang="en">English</Link>
-          <a href="#inicio">Volver arriba ↑</a>
+        <p>© 2026 Ordivy. All rights reserved.</p>
+        <nav aria-label="Footer links">
+          <Link href="/en/support">Support</Link>
+          <Link href="/en/privacy">Privacy</Link>
+          <Link href="/en/terms">Terms</Link>
+          <Link href="/" hrefLang="es">Español</Link>
+          <a href="#home">Back to top ↑</a>
         </nav>
       </footer>
     </main>
