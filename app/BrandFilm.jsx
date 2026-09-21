@@ -96,6 +96,12 @@ export default function BrandFilm({ children, locale = 'es' }) {
     const signature = root.querySelector('.bf-signature');
     const promise = root.querySelector('.bf-promise');
     const scrollCue = root.querySelector('.bf-scroll-cue');
+    const progress = root.querySelector('.bf-progress');
+    const chapterWords = [...root.querySelectorAll('.bf-chapter-word')];
+    const chapterLabels = [...root.querySelectorAll('.bf-progress-label')];
+    const progressFill = root.querySelector('.bf-progress-fill');
+    const progressCount = root.querySelector('.bf-progress-count');
+    const storyParagraphs = [...scenes[2].querySelectorAll('p')];
     const order = [6,2,0,7,4,5,3,1];
     const boxes = order.map(i => tiles[i].getBBox());
     const defs = document.createElementNS('http://www.w3.org/2000/svg','defs');
@@ -144,7 +150,7 @@ export default function BrandFilm({ children, locale = 'es' }) {
       const lockupHeight=finalBrandHeight+8+closing.offsetHeight;
       const mobileStoryBottom=mobile ? 24+titleHeight*titleScale+scenes[2].offsetHeight+storyGap : 0;
       // The final brand has its own stage above the section's closing statement.
-      finalTop=mobile ? mobileStoryBottom+32 : Math.max(12,(availableHeight-lockupHeight)/2);
+      finalTop=mobile ? Math.max(52,(availableHeight-lockupHeight)/2) : Math.max(12,(availableHeight-lockupHeight)/2);
       finalStoryTop=mobile ? 24 : Math.max(24,(availableHeight-storyHeight*FINAL_STORY_SCALE)/2);
       finalCy=finalTop+finalLogoH/2;
       finalCategoriesTop=mobile ? finalTop+lockupHeight+36 : Math.max(24,(availableHeight-scenes[1].offsetHeight)/2);
@@ -183,10 +189,11 @@ export default function BrandFilm({ children, locale = 'es' }) {
       backdrop.style.opacity=center;
       backdrop.style.transform=`scale(${1.04-.04*center})`;
       root.classList.toggle('bf-light',move>.35);
-      show(scenes[0], smooth(t/TIMING.introReveal));
+      show(scenes[0], smooth(t/TIMING.introReveal)*(1-center));
       const cueFade=1-smooth((t-TIMING.introReveal)/1.4);
       scrollCue.style.opacity=cueFade;
       scrollCue.style.transform=`translateX(-50%) translateY(${(1-cueFade)*8}px)`;
+      const progressEnter=smooth((t-(TIMING.introMove-.8))/.8);
       const openingHeight=mobile ? Math.min(height,window.innerHeight-stage.offsetTop-24) : height;
       const initialX=(width-titleWidth)/2, initialY=Math.max(48,(openingHeight-titleHeight)/2);
       const targetX=story.offsetLeft+titleSlot.offsetLeft;
@@ -199,10 +206,16 @@ export default function BrandFilm({ children, locale = 'es' }) {
       const rightEnter=smooth((t-TIMING.categoriesStart)/.8);
       const leftEnter=smooth((t-TIMING.smallStart)/.8);
       show(scenes[1],rightEnter,(1-rightEnter)*14);
-      show(scenes[2],leftEnter);
+      show(scenes[2],leftEnter*(1-center));
+      storyParagraphs.forEach((paragraph,index)=>{
+        const reveal=smooth((t-(TIMING.smallStart+index*1.15))/.8);
+        paragraph.style.opacity=reveal;
+        paragraph.style.transform=`translateY(${(1-reveal)*22}px)`;
+      });
       // Let the brand finish settling in the centre before the categories
       // enter, keeping the movement itself focused on the logo.
-      scenes[1].style.left=`${mobile ? (width-scenes[1].offsetWidth)/2 : width-scenes[1].offsetWidth}px`;
+      const progressClearance=mobile ? 0 : Math.min(112,width*.09);
+      scenes[1].style.left=`${mobile ? (width-scenes[1].offsetWidth)/2 : width-scenes[1].offsetWidth-progressClearance}px`;
       scenes[1].style.top=`${finalCategoriesTop}px`;
       scenes[2].style.transform=`translateY(${(1-leftEnter)*24}px) scale(${quiet})`;
       categoryItems.forEach((item,i)=>{
@@ -274,9 +287,26 @@ export default function BrandFilm({ children, locale = 'es' }) {
         show(definitions[i],fade,(1-fade)*10);
       });
       const outroFade=smooth((t-TIMING.signature+.4)/1.2);
+      progress.style.opacity=mobile ? progressEnter*(1-outroFade) : 1;
       show(outro,outroFade,(1-outroFade)*32);
       show(signature,smooth((t-TIMING.signature)/1.1), (1-smooth((t-TIMING.signature)/1.1))*8);
       show(promise,smooth((t-TIMING.promise)/1));
+      const chapterTimes=[TIMING.introReveal,TIMING.introMove,TIMING.smallStart+2.2,TIMING.mosaicFade];
+      let activeChapter=0;
+      chapterTimes.forEach((start,index)=>{if(t>=start) activeChapter=index;});
+      chapterWords.forEach((word,index)=>{
+        const start=chapterTimes[index];
+        const end=chapterTimes[index+1] ?? TIMING.end;
+        const enter=smooth((t-start)/.85);
+        const leave=1-smooth((t-(end-.9))/.9);
+        const visibility=enter*leave;
+        word.style.opacity=visibility;
+        word.style.transform=`translate(-50%,-50%) scale(${.88+.12*enter}) translateY(${(1-enter)*28}px)`;
+      });
+      chapterLabels.forEach((label,index)=>label.classList.toggle('is-active',index===activeChapter));
+      progressCount.textContent=`0${activeChapter+1}`;
+      progressFill.style.setProperty('--bf-progress',clamp((t-TIMING.introReveal)/(TIMING.end-TIMING.introReveal)));
+      pin.style.setProperty('--bf-light-x',`${18+64*clamp((t-TIMING.introReveal)/(TIMING.end-TIMING.introReveal))}%`);
     };
     const updateFromScroll = () => {
       frame=0;
@@ -301,7 +331,9 @@ export default function BrandFilm({ children, locale = 'es' }) {
       cancelAnimationFrame(frame);resize.disconnect();defs.remove();
       window.removeEventListener('scroll',onScroll);
       // React can preserve DOM nodes during local edits; leave no old animation styles behind.
-      [logo,word,warm,backdrop,glow,closing,outro,signature,promise,scrollCue,story,introTitle,introEyebrow,introCaption,titleSlot,...scenes,...categoryItems,...parts,...definitions,...cards,...cardContents,...tiles].forEach(el=>el.removeAttribute('style'));
+      [logo,word,warm,backdrop,glow,closing,outro,signature,promise,scrollCue,progress,progressFill,progressCount,story,...chapterWords,...storyParagraphs,introTitle,introEyebrow,introCaption,titleSlot,...scenes,...categoryItems,...parts,...definitions,...cards,...cardContents,...tiles].forEach(el=>el.removeAttribute('style'));
+      chapterLabels.forEach(label=>label.classList.remove('is-active'));
+      pin.style.removeProperty('--bf-light-x');
       root.classList.remove('bf-light');
     };
   },[]);
@@ -312,6 +344,16 @@ export default function BrandFilm({ children, locale = 'es' }) {
     <div className="bf-final-backdrop" aria-hidden="true" />
     <div className="bf-topline"><span>ORDIVY</span><span>{english ? 'IT ALL STARTS AT HOME.' : 'TODO EMPIEZA EN CASA.'}</span></div>
     <div className="bf-scroll-cue" aria-hidden="true"><span>{english ? 'Scroll to explore' : 'Desliza para descubrir'}</span><i>↓</i></div>
+    <div className="bf-chapter-words" aria-hidden="true">
+      {(english ? ['LOST','FIND','ORGANIZE','REMEMBER'] : ['PERDER','ENCONTRAR','ORDENAR','RECORDAR']).map(word=><span className="bf-chapter-word" key={word}>{word}</span>)}
+    </div>
+    <div className="bf-progress" aria-hidden="true">
+      <div className="bf-progress-counter"><strong className="bf-progress-count">01</strong><span>/ 04</span></div>
+      <div className="bf-progress-track"><i className="bf-progress-fill" /></div>
+      <div className="bf-progress-labels">
+        {(english ? ['The clutter','The search','The system','The difference'] : ['El desorden','La búsqueda','El sistema','La diferencia']).map(label=><span className="bf-progress-label" key={label}>{label}</span>)}
+      </div>
+    </div>
     <div className="bf-stage" key="brand-film-stage-v10">
       <div className="bf-scene bf-opening">
         <span>{english ? 'A story that starts at home' : 'Una historia muy de casa'}</span>
