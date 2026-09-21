@@ -1363,8 +1363,8 @@
 @keyframes bf-scroll-hint { 50% { transform:translateY(4px); } }
 .bf-chapter-words { position:absolute; inset:0; z-index:0; pointer-events:none; overflow:hidden; }
 .bf-chapter-word { position:absolute; left:50%; top:52%; color:transparent; font-size:clamp(8rem,22vw,22rem); font-weight:850; line-height:.8; letter-spacing:-.075em; white-space:nowrap; -webkit-text-stroke:1px rgba(117,85,109,.16); text-shadow:0 35px 80px rgba(117,85,109,.06); opacity:0; }
-.bf-progress { position:absolute; z-index:8; right:clamp(18px,2.5vw,38px); top:50%; display:grid; grid-template-columns:auto 2px auto; gap:14px; align-items:center; transform:translateY(-50%); color:#745969; }
-.bf-progress-counter { align-self:start; display:flex; align-items:baseline; gap:4px; font-variant-numeric:tabular-nums; }
+.bf-progress { position:absolute; z-index:8; right:clamp(18px,2.5vw,38px); top:50%; display:grid; grid-template-columns:2px auto; gap:14px; align-items:center; transform:translateY(-50%); color:#745969; }
+.bf-progress-counter { display:none; }
 .bf-progress-counter strong { font-size:1rem; }
 .bf-progress-counter span { color:#927f8b; font-size:.65rem; }
 .bf-progress-track { width:2px; height:126px; overflow:hidden; border-radius:999px; background:#76516924; }
@@ -1443,8 +1443,8 @@
  .bf-category-list { gap:8px; }
  .bf-category-summary { display:none; }
  .bf-chapter-word { top:58%; font-size:clamp(5.6rem,28vw,10rem); -webkit-text-stroke-color:rgba(117,85,109,.13); }
- .bf-progress { top:auto; right:20px; bottom:20px; grid-template-columns:auto 100px; gap:10px; transform:none; }
- .bf-progress-track { width:100px; height:2px; grid-column:2; grid-row:1; }
+ .bf-progress { top:auto; right:20px; bottom:20px; grid-template-columns:100px; gap:0; transform:none; }
+ .bf-progress-track { width:100px; height:2px; grid-column:1; grid-row:1; }
  .bf-progress-fill { transform-origin:left; }
  .bf-progress-fill { transform:scaleX(var(--bf-progress)); }
  .bf-progress-labels { display:none; }
