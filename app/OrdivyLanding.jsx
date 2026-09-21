@@ -1,43 +1,45 @@
 import MotionV2 from "./MotionV2";
 import BrandFilm from "./BrandFilm";
 import BenefitMockup from "./BenefitMockup";
+import CategoryFace from "./CategoryFace";
 import Image from "next/image";
 import Link from "next/link";
-import {
-  ArrowDown,
-  ArrowRight,
-  Check,
-  ChevronDown,
-  MapPin,
-  PackageCheck,
-  ScanLine,
-  Search,
-  ShieldCheck,
-  ShoppingBasket,
-  Sparkles,
-} from "lucide-react";
+
+import { ArrowDown, ArrowRight, Check, ChevronDown, MapPin, ScanLine, Search, ShieldCheck, ShoppingBasket, Sparkles } from "lucide-react";
 
 const benefits = [
   {
-    number: "01", kind: "scan", Icon: ScanLine, title: "Registra lo que entra", text: "Escanea el código de barras o busca por nombre. Ordivy recupera el producto y tú solo confirmas la cantidad.",
+    number: "01",
+    kind: "scan",
+    Icon: ScanLine,
+    title: "Registra lo que entra",
+    text: "Escanea el código de barras o busca por nombre. Ordivy recupera el producto y tú solo confirmas la cantidad.",
   },
   {
-    number: "02", kind: "location", Icon: MapPin, title: "Dile dónde lo guardas", text: "Cada producto pertenece a un inventario y a una ubicación dentro de él. En Cocina, por ejemplo, puedes elegir Despensa.",
+    number: "02",
+    kind: "location",
+    Icon: MapPin,
+    title: "Dile dónde lo guardas",
+    text: "Cada producto pertenece a un inventario y a una ubicación dentro de él. En Cocina, por ejemplo, puedes elegir Despensa.",
   },
   {
-    number: "03", kind: "restock", Icon: ShoppingBasket, title: "Deja que vigile el mínimo", text: "Marca cuántas unidades quieres tener siempre. Si bajas de ese número, el producto aparece en tu lista de compra.",
+    number: "03",
+    kind: "restock",
+    Icon: ShoppingBasket,
+    title: "Deja que vigile el mínimo",
+    text: "Marca cuántas unidades quieres tener siempre. Si bajas de ese número, el producto aparece en tu lista de compra.",
   },
 ];
 
 const inventorySpaces = [
-  ["Despensa", "Inventario Cocina", "Bonito en aceite · 4 uds.", "1 por reponer"],
-  ["Congelador", "Inventario Cocina", "Verduras · 3 bolsas", "Todo localizado"],
-  ["Armario", "Inventario Casa", "Ropa de invierno", "Guardado por temporada"],
-  ["Botiquín", "Inventario Casa", "8 productos · 2 caducan pronto", "Revisar fechas"],
-  ["Trastero", "Inventario Casa", "Taladro y accesorios", "12 piezas"],
-  ["Oficina", "Inventario Trabajo", "Papel, tinta y cables", "2 con stock bajo"],
-  ["Vitrina", "Inventario Colecciones", "Ediciones y piezas", "36 registradas"],
-  ["Garaje", "Inventario Casa", "Limpieza y mantenimiento", "Todo localizado"],
+  ["Despensa", "Inventario Cocina", "Bonito en aceite · 4 uds.", "1 por reponer", "comida", "Comida"],
+  ["Congelador", "Inventario Cocina", "Verduras · 3 bolsas", "Todo localizado", "comida", "Comida"],
+  ["Armario", "Inventario Casa", "Ropa de invierno", "Guardado por temporada", "ropa", "Ropa"],
+  ["Botiquín", "Inventario Casa", "8 productos · 2 caducan pronto", "Revisar fechas", "botiquin", "Botiquín"],
+  ["Trastero", "Inventario Casa", "Taladro y accesorios", "12 piezas", "herramientas", "Herramientas"],
+  ["Oficina", "Inventario Trabajo", "Papel, tinta y cables", "2 con stock bajo", "oficina", "Oficina"],
+  ["Vitrina", "Inventario Colecciones", "Ediciones y piezas", "36 registradas", "colecciones", "Colecciones"],
+  ["Garaje", "Inventario Casa", "Limpieza y mantenimiento", "Todo localizado", "hogar", "Hogar"],
 ];
 
 const faqs = [
@@ -143,7 +145,9 @@ export default function OrdivyLanding() {
             <a href="#faq">Preguntas</a>
           </nav>
           <div className="v2-header-actions">
-            <Link className="v2-lang-switch" href="/en" hrefLang="en" aria-label="View the website in English">EN</Link>
+            <Link className="v2-lang-switch" href="/en" hrefLang="en" aria-label="View the website in English">
+              EN
+            </Link>
             <a className="v2-header-cta" href="#descargar">
               Próximamente <ArrowRight size={16} />
             </a>
@@ -188,7 +192,9 @@ export default function OrdivyLanding() {
         </div>
       </section>
 
-      <BrandFilm><LogoSymbol /></BrandFilm>
+      <BrandFilm>
+        <LogoSymbol />
+      </BrandFilm>
       <section className="v2-statement v2-section" id="como-funciona">
         <div className="v2-shell v2-statement-head">
           <div data-reveal-v2>
@@ -272,11 +278,12 @@ export default function OrdivyLanding() {
         </div>
         <div className="v2-rail">
           <div>
-            {inventorySpaces.map(([item, path, example, status], index) => (
+            {inventorySpaces.map(([item, path, example, status, categoryId, categoryName], index) => (
               <article className={`v2-rail-card v2-rail-card--${(index % 4) + 1}`} key={item} data-reveal-v2>
                 <span>0{index + 1}</span>
-                <PackageCheck />
-                <small>{path}</small>
+                <div className="v2-space-drawing">
+                  <CategoryFace id={categoryId} name={item} />
+                </div>
                 <h3>{item}</h3>
                 <p>{example}</p>
                 <strong>{status}</strong>
@@ -317,9 +324,15 @@ export default function OrdivyLanding() {
             <h2>Tus cosas no salen de casa sin que tú lo decidas.</h2>
           </div>
           <div className="v2-privacy-facts">
-            <span><b>Inventario</b> guardado en tu iPhone durante esta primera versión.</span>
-            <span><b>Cuenta</b> utilizada para proteger tu acceso y tu estado Premium.</span>
-            <span><b>Cámara</b> activada únicamente cuando decides escanear un código.</span>
+            <span>
+              <b>Inventario</b> guardado en tu iPhone durante esta primera versión.
+            </span>
+            <span>
+              <b>Cuenta</b> utilizada para proteger tu acceso y tu estado Premium.
+            </span>
+            <span>
+              <b>Cámara</b> activada únicamente cuando decides escanear un código.
+            </span>
           </div>
         </div>
       </section>
@@ -357,7 +370,9 @@ export default function OrdivyLanding() {
             Encuentra más.
           </h2>
           <p>Tu casa, tu inventario y tu lista de compra en un solo lugar.</p>
-          <span className="v2-launch-status"><i /> Versión para iPhone enviada a revisión</span>
+          <span className="v2-launch-status">
+            <i /> Versión para iPhone enviada a revisión
+          </span>
           <div className="v2-store-row">
             <StoreBadge />
           </div>
@@ -370,16 +385,12 @@ export default function OrdivyLanding() {
           <Link href="/support">Soporte</Link>
           <Link href="/privacy">Privacidad</Link>
           <Link href="/terms">Condiciones</Link>
-          <Link href="/en" hrefLang="en">English</Link>
+          <Link href="/en" hrefLang="en">
+            English
+          </Link>
           <a href="#inicio">Volver arriba ↑</a>
         </nav>
       </footer>
     </main>
   );
 }
-
-
-
-
-
-

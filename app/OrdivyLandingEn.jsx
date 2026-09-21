@@ -6,14 +6,21 @@ import Link from "next/link";
 import {
   ArrowDown,
   ArrowRight,
+  BriefcaseBusiness,
+  CarFront,
   Check,
   ChevronDown,
+  CookingPot,
+  Drill,
+  Gem,
+  HeartPulse,
   MapPin,
-  PackageCheck,
   ScanLine,
   Search,
   ShieldCheck,
+  Shirt,
   ShoppingBasket,
+  Snowflake,
   Sparkles,
 } from "lucide-react";
 
@@ -30,14 +37,14 @@ const benefits = [
 ];
 
 const inventorySpaces = [
-  ["Pantry", "Kitchen inventory", "Tuna in olive oil · 4 units", "1 to restock"],
-  ["Freezer", "Kitchen inventory", "Vegetables · 3 bags", "Everything located"],
-  ["Wardrobe", "Home inventory", "Winter clothes", "Stored by season"],
-  ["Medicine cabinet", "Home inventory", "8 products · 2 expire soon", "Check dates"],
-  ["Storage room", "Home inventory", "Drill and accessories", "12 pieces"],
-  ["Office", "Work inventory", "Paper, ink, and cables", "2 low-stock items"],
-  ["Display case", "Collections inventory", "Editions and pieces", "36 recorded"],
-  ["Garage", "Home inventory", "Cleaning and maintenance", "Everything located"],
+  ["Pantry", "Kitchen inventory", "Tuna in olive oil · 4 units", "1 to restock", CookingPot],
+  ["Freezer", "Kitchen inventory", "Vegetables · 3 bags", "Everything located", Snowflake],
+  ["Wardrobe", "Home inventory", "Winter clothes", "Stored by season", Shirt],
+  ["Medicine cabinet", "Home inventory", "8 products · 2 expire soon", "Check dates", HeartPulse],
+  ["Storage room", "Home inventory", "Drill and accessories", "12 pieces", Drill],
+  ["Office", "Work inventory", "Paper, ink, and cables", "2 low-stock items", BriefcaseBusiness],
+  ["Display case", "Collections inventory", "Editions and pieces", "36 recorded", Gem],
+  ["Garage", "Home inventory", "Cleaning and maintenance", "Everything located", CarFront],
 ];
 
 const faqs = [
@@ -270,10 +277,13 @@ export default function OrdivyLandingEn() {
         </div>
         <div className="v2-rail">
           <div>
-            {inventorySpaces.map(([item, path, example, status], index) => (
+            {inventorySpaces.map(([item, path, example, status, SpaceIcon], index) => (
               <article className={`v2-rail-card v2-rail-card--${(index % 4) + 1}`} key={item} data-reveal-v2>
                 <span>0{index + 1}</span>
-                <PackageCheck />
+                <div className="v2-space-drawing" aria-hidden="true">
+                  <i /><i /><i />
+                  <SpaceIcon />
+                </div>
                 <small>{path}</small>
                 <h3>{item}</h3>
                 <p>{example}</p>

@@ -764,7 +764,7 @@
 }
 .v2-rail-card {
   width: 260px;
-  height: 330px;
+  height: 360px;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -786,12 +786,60 @@
   font-weight: 850;
   letter-spacing: 0.15em;
 }
-.v2-rail-card > svg {
+.v2-space-drawing {
   position: absolute;
-  right: 22px;
-  top: 22px;
-  width: 31px;
-  height: 31px;
+  top: 54px;
+  left: 24px;
+  right: 24px;
+  height: 138px;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  border: 1px solid rgba(36, 27, 34, .08);
+  border-radius: 22px;
+  background: rgba(255, 255, 255, .42);
+}
+.v2-space-drawing::before {
+  content: "";
+  width: 86px;
+  height: 86px;
+  position: absolute;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  opacity: .1;
+}
+.v2-space-drawing > svg {
+  width: 55px;
+  height: 55px;
+  position: relative;
+  z-index: 2;
+  stroke-width: 1.35;
+}
+.v2-space-drawing > i {
+  position: absolute;
+  display: block;
+  border-radius: 999px;
+  background: currentColor;
+  opacity: .12;
+}
+.v2-space-drawing > i:nth-child(1) {
+  width: 48px;
+  height: 48px;
+  left: -13px;
+  top: 18px;
+}
+.v2-space-drawing > i:nth-child(2) {
+  width: 22px;
+  height: 22px;
+  right: 17px;
+  top: 15px;
+}
+.v2-space-drawing > i:nth-child(3) {
+  width: 64px;
+  height: 18px;
+  right: -14px;
+  bottom: 16px;
+  transform: rotate(-22deg);
 }
 .v2-rail-card h3 {
   margin: 0;
