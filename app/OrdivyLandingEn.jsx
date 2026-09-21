@@ -17,9 +17,29 @@ import {
 } from "lucide-react";
 
 const benefits = [
-  ["01", ScanLine, "Add items in seconds", "Scan a code, search for a product, or create one manually. You decide how much detail you need."],
-  ["02", MapPin, "Everything in its place", "Organize by home, room, cupboard, box, or any location that makes sense to you."],
-  ["03", ShoppingBasket, "Shop with a plan", "Track quantities and minimums so you know what is missing before you buy it again."],
+  {
+    number: "01", Icon: ScanLine, title: "Record what comes in", text: "Scan the barcode or search by name. Ordivy finds the product and you only confirm the quantity.",
+    label: "PRODUCT FOUND", value: "Tuna in olive oil", note: "Pincha · 400 g",
+  },
+  {
+    number: "02", Icon: MapPin, title: "Say where you keep it", text: "Assign a location that makes sense in your home: a room, cupboard, shelf, box, or drawer.",
+    label: "LOCATION", value: "Kitchen › Pantry", note: "Tinned food shelf · 4 units",
+  },
+  {
+    number: "03", Icon: ShoppingBasket, title: "Let Ordivy watch the minimum", text: "Choose how many units you always want available. Drop below that number and the item appears on your shopping list.",
+    label: "AUTOMATIC RESTOCK", value: "4 left · minimum 5", note: "1 missing from the shopping list",
+  },
+];
+
+const inventorySpaces = [
+  ["Pantry", "Kitchen › Tinned food shelf", "Tuna in olive oil · 4 units", "1 to restock"],
+  ["Freezer", "Kitchen › Bottom drawer", "Vegetables · 3 bags", "Everything located"],
+  ["Wardrobe", "Bedroom › Top shelf", "Winter clothes", "Stored by season"],
+  ["Medicine cabinet", "Bathroom › Cabinet", "8 products · 2 expire soon", "Check dates"],
+  ["Storage room", "Box 04 › Tools", "Drill and accessories", "12 pieces"],
+  ["Office", "Drawer unit › Supplies", "Paper, ink, and cables", "2 low-stock items"],
+  ["Collections", "Display case › Shelf 03", "Editions and pieces", "36 recorded"],
+  ["Garage", "Metal cupboard", "Cleaning and maintenance", "5 locations"],
 ];
 
 const faqs = [
@@ -50,10 +70,10 @@ const faqs = [
 ];
 
 const screenshots = [
-  ["/screenshots/01-inicio.jpg", "Home", "A clear overview of your inventories, locations, and products that need restocking."],
-  ["/screenshots/02-inventario-general.jpg", "Inventory", "Check quantities, minimums, and locations without getting lost in lists."],
-  ["/screenshots/04-buscar-producto.jpg", "Search", "Find products by name or brand and reuse the ones you have already saved."],
-  ["/screenshots/05-lista-compra.jpg", "Shopping", "Turn low stock into a practical, organized shopping list."],
+  ["/screenshots/01-inicio.jpg", "Home", "See which space has low stock and which products are currently in use."],
+  ["/screenshots/02-inventario-general.jpg", "Inventory", "Add, remove, move, set a minimum, or check expiry from the product card."],
+  ["/screenshots/04-buscar-producto.jpg", "Search", "Reuse products you saved before or browse suggestions from Open Food Facts."],
+  ["/screenshots/05-lista-compra.jpg", "Shopping", "Calculate how much is missing to restore your minimums and tick items off as you shop."],
 ];
 
 function LogoSymbol({ className = "" }) {
@@ -172,23 +192,28 @@ export default function OrdivyLandingEn() {
       <section className="v2-statement v2-section" id="how-it-works">
         <div className="v2-shell v2-statement-head">
           <div data-reveal-v2>
-            <p className="v2-eyebrow v2-eyebrow--dark">LESS TO REMEMBER. MORE CLARITY.</p>
-            <h2>Your home stops being a mystery.</h2>
+            <p className="v2-eyebrow v2-eyebrow--dark">ONE PRODUCT. THREE DECISIONS.</p>
+            <h2>From putting it away to knowing when to buy it.</h2>
           </div>
           <p data-reveal-v2>
-            The packet you buy twice. The tool you can never find. The food expiring at the back of a cupboard. Ordivy turns every corner into useful
-            information.
+            Add a product once. From then on, Ordivy remembers where it is, how many units remain, and when you need to restock it.
           </p>
         </div>
         <div className="v2-shell v2-benefits">
-          {benefits.map(([number, Icon, title, text]) => (
+          {benefits.map(({ number, Icon, title, text, label, value, note }, index) => (
             <article data-reveal-v2 key={number}>
-              <span className="v2-benefit-num">{number}</span>
+              <span className="v2-benefit-num">STEP {number}</span>
               <i>
                 <Icon />
               </i>
               <h3>{title}</h3>
               <p>{text}</p>
+              <div className="v2-benefit-proof">
+                <small>{label}</small>
+                <strong>{value}</strong>
+                <span>{note}</span>
+              </div>
+              {index < benefits.length - 1 && <ArrowRight className="v2-benefit-arrow" aria-hidden="true" />}
             </article>
           ))}
         </div>
@@ -221,18 +246,18 @@ export default function OrdivyLandingEn() {
             </div>
           </div>
           <div className="v2-search-copy" data-reveal-v2>
-            <p className="v2-eyebrow v2-eyebrow--dark">EVERYTHING LOCATED</p>
-            <h2>Find a needle in your own haystack.</h2>
-            <p>Search across all your inventories and instantly see where everything is and how many units remain.</p>
+            <p className="v2-eyebrow v2-eyebrow--dark">A SEARCH THAT ANSWERS</p>
+            <h2>Stop searching drawers. Search Ordivy.</h2>
+            <p>Type “drill” and you do not get a generic list: you see the item you own, its exact location, and the quantity available.</p>
             <ul>
               <li>
-                <Check /> Search across all your spaces
+                <Check /> “Storage room · Top shelf”, instead of just “at home”
               </li>
               <li>
-                <Check /> Quantities and minimums always visible
+                <Check /> Tool, battery, and accessories in one search
               </li>
               <li>
-                <Check /> Inventory and shopping list connected
+                <Check /> Quantities visible before buying another one
               </li>
             </ul>
           </div>
@@ -241,22 +266,24 @@ export default function OrdivyLandingEn() {
 
       <section className="v2-inventory v2-section">
         <div className="v2-shell v2-inventory-head" data-reveal-v2>
-          <p className="v2-eyebrow">A SYSTEM THAT ADAPTS TO YOU</p>
+          <p className="v2-eyebrow">THE REAL STRUCTURE OF YOUR HOME</p>
           <h2>
-            A pantry. A wardrobe.
+            Your home is not a flat list.
             <br />
-            An entire home.
+            Neither is Ordivy.
           </h2>
-          <p>Start with what you most need to organize and expand whenever you want.</p>
+          <p>Create inventories, locations, and nested locations using the names you actually use: Kitchen, Pantry, tinned food shelf.</p>
         </div>
         <div className="v2-rail">
           <div>
-            {["Pantry", "Freezer", "Wardrobe", "Medicine cabinet", "Storage room", "Office", "Collections", "Garage"].map((item, index) => (
+            {inventorySpaces.map(([item, path, example, status], index) => (
               <article className={`v2-rail-card v2-rail-card--${(index % 4) + 1}`} key={item} data-reveal-v2>
                 <span>0{index + 1}</span>
                 <PackageCheck />
+                <small>{path}</small>
                 <h3>{item}</h3>
-                <p>Every item, quantity, and location under control.</p>
+                <p>{example}</p>
+                <strong>{status}</strong>
               </article>
             ))}
           </div>
@@ -266,10 +293,10 @@ export default function OrdivyLandingEn() {
       <section className="v2-screens v2-section" id="capturas">
         <div className="v2-shell v2-screens-head" data-reveal-v2>
           <div>
-            <p className="v2-eyebrow v2-eyebrow--dark">INSIDE ORDIVY</p>
-            <h2>Designed to make sense at first glance.</h2>
+            <p className="v2-eyebrow v2-eyebrow--dark">THE COMPLETE LOOP, IN THE APP</p>
+            <h2>Check, update, restock. No parallel spreadsheets.</h2>
           </div>
-          <p>These are real screens from the version launching first on iPhone.</p>
+          <p>Home summarizes your household; Inventory lets you act; Search finds; Shopping collects what is missing.</p>
         </div>
         <div className="v2-shell v2-screen-grid">
           {screenshots.map(([src, title, text]) => (
@@ -290,10 +317,14 @@ export default function OrdivyLandingEn() {
             <ShieldCheck />
           </i>
           <div>
-            <p className="v2-eyebrow v2-eyebrow--dark">PRIVACY FROM THE START</p>
-            <h2>Your inventory says a lot about your life. That is why it belongs to you.</h2>
+            <p className="v2-eyebrow v2-eyebrow--dark">WHAT IS STORED, AND WHERE</p>
+            <h2>Your belongings do not leave home unless you decide.</h2>
           </div>
-          <p>Ordivy only asks for the permissions it needs and explains what each one is used for.</p>
+          <div className="v2-privacy-facts">
+            <span><b>Inventory</b> stored on your iPhone in this first version.</span>
+            <span><b>Account</b> used to protect your access and Premium status.</span>
+            <span><b>Camera</b> activated only when you choose to scan a barcode.</span>
+          </div>
         </div>
       </section>
 

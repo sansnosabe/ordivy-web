@@ -347,12 +347,14 @@
 .v2-benefits {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
+  gap: 24px;
   margin-top: 75px;
 }
 .v2-benefits article {
   position: relative;
-  min-height: 340px;
+  min-height: 480px;
+  display: flex;
+  flex-direction: column;
   padding: 30px;
   border: 1px solid #e5dde2;
   border-radius: 28px;
@@ -387,7 +389,7 @@
   width: 28px;
 }
 .v2-benefits h3 {
-  margin: 75px 0 12px;
+  margin: 58px 0 12px;
   font-size: 1.35rem;
   letter-spacing: -0.035em;
 }
@@ -396,6 +398,45 @@
   color: #777076;
   font-size: 0.92rem;
   line-height: 1.65;
+}
+.v2-benefit-proof {
+  display: grid;
+  gap: 5px;
+  margin-top: auto;
+  padding: 18px;
+  border: 1px solid #eadfe5;
+  border-radius: 18px;
+  background: linear-gradient(145deg, #faf6f8, #f3edf1);
+}
+.v2-benefit-proof small {
+  color: var(--v2-plum);
+  font-size: .57rem;
+  font-weight: 850;
+  letter-spacing: .13em;
+}
+.v2-benefit-proof strong {
+  color: var(--v2-deep);
+  font-size: .96rem;
+  letter-spacing: -.02em;
+}
+.v2-benefit-proof span {
+  color: #80747b;
+  font-size: .72rem;
+  line-height: 1.4;
+}
+.v2-benefit-arrow {
+  position: absolute;
+  z-index: 3;
+  top: 50%;
+  right: -37px;
+  width: 48px;
+  height: 48px;
+  padding: 14px;
+  border: 1px solid #dfd3da;
+  border-radius: 50%;
+  background: var(--v2-cream);
+  color: var(--v2-plum);
+  transform: translateY(-50%);
 }
 .v2-search-story {
   background: #fff;
@@ -550,7 +591,7 @@
 }
 .v2-rail-card {
   width: 260px;
-  height: 300px;
+  height: 330px;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -584,11 +625,28 @@
   font-size: 1.45rem;
   letter-spacing: -0.04em;
 }
+.v2-rail-card > small {
+  display: block;
+  margin-bottom: 10px;
+  font-size: .63rem;
+  font-weight: 750;
+  line-height: 1.4;
+  opacity: .55;
+}
 .v2-rail-card p {
   margin: 8px 0 0;
   font-size: 0.75rem;
   line-height: 1.55;
   opacity: 0.6;
+}
+.v2-rail-card > strong {
+  width: fit-content;
+  margin-top: 14px;
+  padding: 7px 10px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.48);
+  font-size: .61rem;
+  line-height: 1;
 }
 .v2-rail-card--2 {
   background: #d9e4e9;
@@ -699,9 +757,25 @@
   line-height: 1.08;
   letter-spacing: -0.06em;
 }
-.v2-privacy-panel > p {
+.v2-privacy-facts {
+  display: grid;
+  gap: 9px;
+}
+.v2-privacy-facts span {
+  padding: 12px 14px;
+  border: 1px solid rgba(117,85,109,.13);
+  border-radius: 14px;
+  background: rgba(255,255,255,.52);
   color: #716a70;
-  line-height: 1.7;
+  font-size: .75rem;
+  line-height: 1.45;
+}
+.v2-privacy-facts b {
+  display: block;
+  margin-bottom: 2px;
+  color: var(--v2-deep);
+  font-size: .66rem;
+  letter-spacing: .05em;
 }
 .v2-faq {
   background: #fff;
@@ -933,7 +1007,10 @@
     grid-template-columns: 1fr;
   }
   .v2-benefits article {
-    min-height: 250px;
+    min-height: 410px;
+  }
+  .v2-benefit-arrow {
+    display: none;
   }
   .v2-benefits h3 {
     margin-top: 45px;
@@ -941,9 +1018,8 @@
   .v2-privacy-panel {
     grid-template-columns: 80px 1fr;
   }
-  .v2-privacy-panel > p {
+  .v2-privacy-facts {
     grid-column: 1/-1;
-    margin: 0;
   }
   .v2-footer {
     grid-template-columns: 1fr 1fr;
@@ -1015,6 +1091,9 @@
   .v2-benefits {
     margin-top: 48px;
   }
+  .v2-benefits article {
+    min-height: 430px;
+  }
   .v2-search-demo {
     min-height: auto;
     padding: 25px 18px;
@@ -1059,7 +1138,7 @@
     grid-template-columns: 1fr;
     padding: 30px 24px;
   }
-  .v2-privacy-panel > p {
+  .v2-privacy-facts {
     grid-column: auto;
   }
   .v2-download {
