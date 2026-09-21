@@ -1,5 +1,6 @@
 import MotionV2 from "./MotionV2";
 import BrandFilm from "./BrandFilm";
+import BenefitMockup from "./BenefitMockup";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -18,16 +19,13 @@ import {
 
 const benefits = [
   {
-    number: "01", Icon: ScanLine, title: "Record what comes in", text: "Scan the barcode or search by name. Ordivy finds the product and you only confirm the quantity.",
-    label: "PRODUCT FOUND", value: "Tuna in olive oil", note: "Pincha · 400 g",
+    number: "01", kind: "scan", Icon: ScanLine, title: "Record what comes in", text: "Scan the barcode or search by name. Ordivy finds the product and you only confirm the quantity.",
   },
   {
-    number: "02", Icon: MapPin, title: "Say where you keep it", text: "Each product belongs to one inventory and one location inside it. In Kitchen, for example, you can choose Pantry.",
-    label: "KITCHEN INVENTORY", value: "Location: Pantry", note: "Tuna in olive oil · 4 units",
+    number: "02", kind: "location", Icon: MapPin, title: "Say where you keep it", text: "Each product belongs to one inventory and one location inside it. In Kitchen, for example, you can choose Pantry.",
   },
   {
-    number: "03", Icon: ShoppingBasket, title: "Let Ordivy watch the minimum", text: "Choose how many units you always want available. Drop below that number and the item appears on your shopping list.",
-    label: "AUTOMATIC RESTOCK", value: "4 left · minimum 5", note: "1 missing from the shopping list",
+    number: "03", kind: "restock", Icon: ShoppingBasket, title: "Let Ordivy watch the minimum", text: "Choose how many units you always want available. Drop below that number and the item appears on your shopping list.",
   },
 ];
 
@@ -200,7 +198,7 @@ export default function OrdivyLandingEn() {
           </p>
         </div>
         <div className="v2-shell v2-benefits">
-          {benefits.map(({ number, Icon, title, text, label, value, note }, index) => (
+          {benefits.map(({ number, kind, Icon, title, text }, index) => (
             <article data-reveal-v2 key={number}>
               <span className="v2-benefit-num">STEP {number}</span>
               <i>
@@ -208,11 +206,7 @@ export default function OrdivyLandingEn() {
               </i>
               <h3>{title}</h3>
               <p>{text}</p>
-              <div className="v2-benefit-proof">
-                <small>{label}</small>
-                <strong>{value}</strong>
-                <span>{note}</span>
-              </div>
+              <BenefitMockup kind={kind} locale="en" />
               {index < benefits.length - 1 && <ArrowRight className="v2-benefit-arrow" aria-hidden="true" />}
             </article>
           ))}

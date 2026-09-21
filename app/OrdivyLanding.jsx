@@ -1,5 +1,6 @@
 import MotionV2 from "./MotionV2";
 import BrandFilm from "./BrandFilm";
+import BenefitMockup from "./BenefitMockup";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -18,16 +19,13 @@ import {
 
 const benefits = [
   {
-    number: "01", Icon: ScanLine, title: "Registra lo que entra", text: "Escanea el código de barras o busca por nombre. Ordivy recupera el producto y tú solo confirmas la cantidad.",
-    label: "PRODUCTO DETECTADO", value: "Bonito en aceite", note: "Pincha · 400 g",
+    number: "01", kind: "scan", Icon: ScanLine, title: "Registra lo que entra", text: "Escanea el código de barras o busca por nombre. Ordivy recupera el producto y tú solo confirmas la cantidad.",
   },
   {
-    number: "02", Icon: MapPin, title: "Dile dónde lo guardas", text: "Cada producto pertenece a un inventario y a una ubicación dentro de él. En Cocina, por ejemplo, puedes elegir Despensa.",
-    label: "INVENTARIO COCINA", value: "Ubicación: Despensa", note: "Bonito en aceite · 4 unidades",
+    number: "02", kind: "location", Icon: MapPin, title: "Dile dónde lo guardas", text: "Cada producto pertenece a un inventario y a una ubicación dentro de él. En Cocina, por ejemplo, puedes elegir Despensa.",
   },
   {
-    number: "03", Icon: ShoppingBasket, title: "Deja que vigile el mínimo", text: "Marca cuántas unidades quieres tener siempre. Si bajas de ese número, el producto aparece en tu lista de compra.",
-    label: "REPOSICIÓN AUTOMÁTICA", value: "Quedan 4 · mínimo 5", note: "Falta 1 en la lista de compra",
+    number: "03", kind: "restock", Icon: ShoppingBasket, title: "Deja que vigile el mínimo", text: "Marca cuántas unidades quieres tener siempre. Si bajas de ese número, el producto aparece en tu lista de compra.",
   },
 ];
 
@@ -202,7 +200,7 @@ export default function OrdivyLanding() {
           </p>
         </div>
         <div className="v2-shell v2-benefits">
-          {benefits.map(({ number, Icon, title, text, label, value, note }, index) => (
+          {benefits.map(({ number, kind, Icon, title, text }, index) => (
             <article data-reveal-v2 key={number}>
               <span className="v2-benefit-num">PASO {number}</span>
               <i>
@@ -210,11 +208,7 @@ export default function OrdivyLanding() {
               </i>
               <h3>{title}</h3>
               <p>{text}</p>
-              <div className="v2-benefit-proof">
-                <small>{label}</small>
-                <strong>{value}</strong>
-                <span>{note}</span>
-              </div>
+              <BenefitMockup kind={kind} />
               {index < benefits.length - 1 && <ArrowRight className="v2-benefit-arrow" aria-hidden="true" />}
             </article>
           ))}
