@@ -71,6 +71,7 @@ export default function BrandFilm({ children, locale = 'es' }) {
   const rootRef = useRef(null);
   useEffect(() => {
     const root = rootRef.current;
+    const pin = root.querySelector('.bf-pin');
     const stage = root.querySelector('.bf-stage');
     const logo = root.querySelector('.bf-symbol');
     const svg = logo.querySelector('svg');
@@ -94,6 +95,7 @@ export default function BrandFilm({ children, locale = 'es' }) {
     const outro = root.querySelector('.bf-outro');
     const signature = root.querySelector('.bf-signature');
     const promise = root.querySelector('.bf-promise');
+    const scrollCue = root.querySelector('.bf-scroll-cue');
     const order = [6,2,0,7,4,5,3,1];
     const boxes = order.map(i => tiles[i].getBBox());
     const defs = document.createElementNS('http://www.w3.org/2000/svg','defs');
@@ -141,8 +143,6 @@ export default function BrandFilm({ children, locale = 'es' }) {
       finalBrandHeight=finalLogoH+12+wordHeight;
       const lockupHeight=finalBrandHeight+8+closing.offsetHeight;
       const mobileStoryBottom=mobile ? 24+titleHeight*titleScale+scenes[2].offsetHeight+storyGap : 0;
-      const mobileMinimum=stage.offsetTop+mobileStoryBottom+32+lockupHeight+36+scenes[1].offsetHeight+outro.offsetHeight+48;
-      root.style.minHeight=mobile ? `${Math.max(window.innerHeight,mobileMinimum)}px` : '';
       // The final brand has its own stage above the section's closing statement.
       finalTop=mobile ? mobileStoryBottom+32 : Math.max(12,(availableHeight-lockupHeight)/2);
       finalStoryTop=mobile ? 24 : Math.max(24,(availableHeight-storyHeight*FINAL_STORY_SCALE)/2);
@@ -155,11 +155,11 @@ export default function BrandFilm({ children, locale = 'es' }) {
       formationStoryLeft=mobile ? 0 : (width-story.offsetWidth-pairGap-mosaicSize)/2;
       formationLogoLeft=mobile ? (width-mosaicSize)/2 : formationStoryLeft+story.offsetWidth+pairGap;
       formationLogoCx=formationLogoLeft+mosaicSize/2;
-      formationCy=mobile ? mobileStoryBottom+32+mosaicSize*380.57/363.88/2 : root.clientHeight/2-stage.offsetTop;
+      formationCy=mobile ? mobileStoryBottom+32+mosaicSize*380.57/363.88/2 : pin.clientHeight/2-stage.offsetTop;
       formationStoryTop=mobile ? 24 : Math.max(24,formationCy-storyHeight/2);
     };
     measure();
-    let time=0, frame=0, last=0, startTimer=0, running=false, visible=false, framed=false;
+    let time=0, frame=0;
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const show = (el,opacity,y=0) => {
       el.style.opacity=opacity;
@@ -184,6 +184,9 @@ export default function BrandFilm({ children, locale = 'es' }) {
       backdrop.style.transform=`scale(${1.04-.04*center})`;
       root.classList.toggle('bf-light',move>.35);
       show(scenes[0], smooth(t/TIMING.introReveal));
+      const cueFade=1-smooth((t-TIMING.introReveal)/1.4);
+      scrollCue.style.opacity=cueFade;
+      scrollCue.style.transform=`translateX(-50%) translateY(${(1-cueFade)*8}px)`;
       const openingHeight=mobile ? Math.min(height,window.innerHeight-stage.offsetTop-24) : height;
       const initialX=(width-titleWidth)/2, initialY=Math.max(48,(openingHeight-titleHeight)/2);
       const targetX=story.offsetLeft+titleSlot.offsetLeft;
@@ -275,59 +278,40 @@ export default function BrandFilm({ children, locale = 'es' }) {
       show(signature,smooth((t-TIMING.signature)/1.1), (1-smooth((t-TIMING.signature)/1.1))*8);
       show(promise,smooth((t-TIMING.promise)/1));
     };
-    const pause = () => {
-      running=false;cancelAnimationFrame(frame);
-      window.clearTimeout(startTimer);startTimer=0;
-    };
-    const tick = now => {
-      time=Math.min(TIMING.end,time+(now-last)/1000);last=now;draw();
-      if(time<TIMING.end && running) frame=requestAnimationFrame(tick); else pause();
-    };
-    const play = () => {
-      if(running || reduced || document.hidden || time>=TIMING.end)return;
-      running=true;last=performance.now();frame=requestAnimationFrame(tick);
-    };
-    time=reduced ? TIMING.end : 0;draw();
-    const updatePlayback = () => {
-      if(document.hidden || !visible) { pause(); return; }
-      if(reduced || time>=TIMING.end) return;
-      if(time>0) { play(); return; }
-      if(!framed) { pause(); return; }
-      if(!startTimer && !running) {
-        startTimer=window.setTimeout(()=>{
-          startTimer=0;
-          if(framed && visible && !document.hidden) play();
-        },220);
+    const updateFromScroll = () => {
+      frame=0;
+      if(reduced) {
+        time=TIMING.end;
+      } else {
+        const rect=root.getBoundingClientRect();
+        const distance=Math.max(1,root.offsetHeight-window.innerHeight);
+        const progress=clamp(-rect.top/distance);
+        time=TIMING.introReveal+progress*(TIMING.end-TIMING.introReveal);
       }
+      draw();
     };
-    const observer=new IntersectionObserver(entries=>{
-      const entry=entries[entries.length-1];
-      // On mobile the section is taller than the viewport: measure against the
-      // available screen, so the opening can still start without scrolling past it.
-      const available=Math.min(entry.boundingClientRect.height,entry.rootBounds?.height || window.innerHeight);
-      const coverage=available>0 ? entry.intersectionRect.height/available : 0;
-      visible=entry.isIntersecting && coverage>=.35;
-      framed=entry.isIntersecting && coverage>=.9;
-      updatePlayback();
-    },{threshold:Array.from({length:51},(_,i)=>i/50)});
-    observer.observe(root);
-    const resize=new ResizeObserver(()=>{measure();draw();});
+    const onScroll = () => {
+      if(!frame) frame=requestAnimationFrame(updateFromScroll);
+    };
+    const resize=new ResizeObserver(()=>{measure();updateFromScroll();});
     resize.observe(stage);resize.observe(closing);resize.observe(outro);resize.observe(introTitle);resize.observe(scenes[1]);resize.observe(scenes[2]);
-    const onVisibility=()=>updatePlayback();document.addEventListener('visibilitychange',onVisibility);
+    window.addEventListener('scroll',onScroll,{passive:true});
+    updateFromScroll();
     return()=>{
-      pause();observer.disconnect();resize.disconnect();defs.remove();
-      document.removeEventListener('visibilitychange',onVisibility);
+      cancelAnimationFrame(frame);resize.disconnect();defs.remove();
+      window.removeEventListener('scroll',onScroll);
       // React can preserve DOM nodes during local edits; leave no old animation styles behind.
-      [logo,word,warm,backdrop,glow,closing,outro,signature,promise,story,introTitle,introEyebrow,introCaption,titleSlot,...scenes,...categoryItems,...parts,...definitions,...cards,...cardContents,...tiles].forEach(el=>el.removeAttribute('style'));
-      root.style.removeProperty('min-height');
+      [logo,word,warm,backdrop,glow,closing,outro,signature,promise,scrollCue,story,introTitle,introEyebrow,introCaption,titleSlot,...scenes,...categoryItems,...parts,...definitions,...cards,...cardContents,...tiles].forEach(el=>el.removeAttribute('style'));
       root.classList.remove('bf-light');
     };
   },[]);
 
   return <section className="brand-film" id={english ? 'story' : 'marca'} ref={rootRef} aria-label={english ? 'The story behind Ordivy' : 'De dónde nace Ordivy: nuestra historia'}>
+    <div className="bf-pin">
     <div className="bf-warm" />
     <div className="bf-final-backdrop" aria-hidden="true" />
     <div className="bf-topline"><span>ORDIVY</span><span>{english ? 'IT ALL STARTS AT HOME.' : 'TODO EMPIEZA EN CASA.'}</span></div>
+    <div className="bf-scroll-cue" aria-hidden="true"><span>{english ? 'Scroll to explore' : 'Desliza para descubrir'}</span><i>↓</i></div>
     <div className="bf-stage" key="brand-film-stage-v10">
       <div className="bf-scene bf-opening">
         <span>{english ? 'A story that starts at home' : 'Una historia muy de casa'}</span>
@@ -362,6 +346,7 @@ export default function BrandFilm({ children, locale = 'es' }) {
     <div className="bf-outro">
       <p className="bf-signature">{english ? <>Order<br /><span>makes the difference.</span></> : <>El orden<br /><span>marca la diferencia.</span></>}</p>
       <p className="bf-promise">{english ? <>Remember what you own.<br /><strong>Buy only what you need.</strong></> : <>Recuerda lo que tienes.<br /><strong>Compra solo lo que necesitas.</strong></>}</p>
+    </div>
     </div>
   </section>;
 }
