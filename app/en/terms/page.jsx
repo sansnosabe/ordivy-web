@@ -13,7 +13,7 @@ export default function TermsPage() {
       page="terms"
       eyebrow="TERMS OF USE"
       title="Clear rules for using Ordivy."
-      intro={<p>These terms apply to Ordivy 1.0.0. Last updated: September 21, 2026.</p>}
+      intro={<p>These terms apply to Ordivy 1.0.0. Last updated: October 1, 2026.</p>}
     >
 
       <LanguageSection id="en" language="English" title="Terms of use">
@@ -35,15 +35,15 @@ export default function TermsPage() {
         </LegalSection>
 
         <LegalSection title="5. Ordivy Premium">
-          <p>In the first version, Premium is granted with invitation codes managed by Ordivy. A code must be redeemed from an Ordivy account and does not create a charge or enable automatic renewal.</p>
+          <p>On iOS, Premium requires an Ordivy account with a verified email and a monthly or annual subscription purchased through the App Store. Ordivy invitation codes do not activate Premium on iOS. The purchase screen shows the features, price, duration, and any trial before you confirm payment.</p>
         </LegalSection>
 
-        <LegalSection title="6. Future purchases">
-          <p>In-app purchases and subscriptions are not available yet. If they become available later, Ordivy will show the price, duration, renewal terms, and any trial before asking you to confirm payment, and will update these terms where appropriate.</p>
+        <LegalSection title="6. Renewal, cancellation, and restoration">
+          <p>Subscriptions renew automatically unless cancelled. You can manage or cancel them through your Apple account; cancellation keeps access active until the end of the paid period. Apple processes payments and refunds under its terms. You can restore purchases in Ordivy using the corresponding Ordivy and store accounts. Deleting your Ordivy account does not cancel your subscription.</p>
         </LegalSection>
 
         <LegalSection title="7. When Premium ends">
-          <p>Access granted by invitation remains available under the conditions shown when the code is redeemed. If it becomes unavailable, Ordivy does not delete your inventories, locations, or products; free version limits apply.</p>
+          <p>Premium remains available while your subscription is active. If it ends, Ordivy does not delete your inventories, locations, or products; free version limits apply.</p>
         </LegalSection>
 
         <LegalSection title="8. Availability">
