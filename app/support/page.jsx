@@ -34,8 +34,8 @@ export default function SupportPage() {
           <p>Puedes revisar o cambiar los permisos desde los ajustes del dispositivo. Si deniegas uno, las demás funciones de Ordivy siguen disponibles.</p>
         </LegalSection>
 
-        <LegalSection title="Premium de lanzamiento">
-          <p>En la primera versión, Premium se activa mediante códigos de invitación de Ordivy. Las compras y suscripciones dentro de la app todavía no están disponibles. Si tu código no funciona, escríbenos indicando tu nombre de usuario; no envíes contraseñas.</p>
+        <LegalSection title="Suscripciones Premium en iOS">
+          <p>Premium en iOS requiere una cuenta Ordivy con el correo verificado y una suscripción mensual o anual de App Store. Puedes restaurar compras desde la pantalla Premium y gestionar o cancelar la suscripción desde tu cuenta de Apple. Los códigos propios de Ordivy no activan Premium en iOS. Si necesitas ayuda, indica tu nombre de usuario; no envíes contraseñas ni datos de pago.</p>
         </LegalSection>
 
         <LegalSection title="Privacidad y condiciones">
