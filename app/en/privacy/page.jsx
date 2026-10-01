@@ -15,7 +15,7 @@ export default function PrivacyPage() {
       title="Your inventory remains yours."
       intro={
         <p>
-          This policy explains what information Ordivy uses, where it is stored, and which external services are involved. Last updated: September 21, 2026.
+          This policy explains what information Ordivy uses, where it is stored, and which external services are involved. Last updated: October 1, 2026.
         </p>
       }
     >
@@ -56,7 +56,7 @@ export default function PrivacyPage() {
             <strong>Speech recognition.</strong> Depending on your device and settings, Apple, Google, or the device manufacturer&apos;s recognition service may process audio to convert it into text. Ordivy receives the resulting text so that you can review it.
           </p>
           <p>
-            <strong>Premium and future purchases.</strong> The initial version does not offer in-app purchases or subscriptions. Launch Premium is granted through invitations managed by Ordivy. Although the app includes technical preparation for future purchases, no payments are processed while this feature remains disabled.
+            <strong>Premium and RevenueCat.</strong> On iOS, Apple processes subscription payments. RevenueCat receives your internal Ordivy account identifier, product identifiers, and purchase status to activate and restore Premium. Ordivy does not receive or store your payment card details. See <a href="https://www.revenuecat.com/privacy/">RevenueCat&apos;s privacy policy</a>.
           </p>
         </LegalSection>
 
@@ -71,7 +71,7 @@ export default function PrivacyPage() {
             Local information is retained until you modify or delete it, erase the app&apos;s data, or uninstall Ordivy. Device backups managed by Apple or Google may retain information according to your own backup settings.
           </p>
           <p>
-            Supabase, Open Food Facts, and the system services you use retain the information they process according to their policies and legal obligations. You can withdraw permissions in device settings and delete your account from Ordivy.
+            Supabase, RevenueCat, Open Food Facts, and the system services you use retain the information they process according to their policies and legal obligations. You can withdraw permissions in device settings and delete your account from Ordivy. Deleting your account does not cancel an App Store subscription; you must also cancel it through your Apple account.
           </p>
         </LegalSection>
 
@@ -82,7 +82,7 @@ export default function PrivacyPage() {
         </LegalSection>
 
         <LegalSection title="8. Services that are not active">
-          <p>Ordivy accounts are active. Cloud inventory sync, collaboration, purchases and subscriptions, advertising, and usage analytics are not active.</p>
+          <p>Cloud inventory sync, collaboration, advertising, and usage analytics are not active. Ordivy accounts and App Store Premium subscriptions use the services described in this policy.</p>
         </LegalSection>
 
         <LegalSection title="9. Questions and requests">
