@@ -13,7 +13,7 @@ export default function TermsPage() {
       page="terms"
       eyebrow="CONDICIONES DE USO"
       title="Reglas claras para usar Ordivy."
-      intro={<p>Estas condiciones se aplican a Ordivy 1.0.0. Última actualización: 21 de septiembre de 2026.</p>}
+      intro={<p>Estas condiciones se aplican a Ordivy 1.0.0. Última actualización: 1 de octubre de 2026.</p>}
     >
       <LanguageSection id="es" language="Español" title="Condiciones de uso">
         <LegalSection title="1. El servicio">
@@ -34,15 +34,15 @@ export default function TermsPage() {
         </LegalSection>
 
         <LegalSection title="5. Ordivy Premium">
-          <p>En la primera versión, Premium se concede mediante códigos de invitación administrados por Ordivy. El código debe canjearse desde una cuenta de Ordivy y no supone un cobro ni activa una renovación automática.</p>
+          <p>En iOS, Premium requiere una cuenta Ordivy con el correo verificado y una suscripción mensual o anual contratada desde App Store. Los códigos propios de Ordivy no activan Premium en iOS. La pantalla de compra muestra las funciones, el precio, la duración y cualquier prueba antes de confirmar el pago.</p>
         </LegalSection>
 
-        <LegalSection title="6. Compras futuras">
-          <p>Las compras y suscripciones dentro de la aplicación todavía no están disponibles. Si se activan más adelante, Ordivy mostrará el precio, la duración, la renovación y cualquier prueba antes de pedirte que confirmes el pago, y actualizará estas condiciones cuando corresponda.</p>
+        <LegalSection title="6. Renovación, cancelación y restauración">
+          <p>Las suscripciones se renuevan automáticamente salvo cancelación. Puedes gestionarlas o cancelarlas desde tu cuenta de Apple; la cancelación conserva el acceso hasta el final del periodo pagado. Apple procesa pagos y reembolsos conforme a sus condiciones. Puedes restaurar compras desde Ordivy con la cuenta Ordivy y la cuenta de la tienda correspondientes. Eliminar la cuenta Ordivy no cancela la suscripción.</p>
         </LegalSection>
 
         <LegalSection title="7. Cuando termina Premium">
-          <p>El acceso concedido por invitación se mantiene según las condiciones indicadas al canjear el código. Si deja de estar disponible, Ordivy no elimina tus inventarios, ubicaciones ni productos; se aplican los límites de la versión gratuita.</p>
+          <p>Premium permanece disponible mientras la suscripción esté activa. Si termina, Ordivy no elimina tus inventarios, ubicaciones ni productos; se aplican los límites de la versión gratuita.</p>
         </LegalSection>
 
         <LegalSection title="8. Disponibilidad">
