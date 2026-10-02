@@ -1794,3 +1794,135 @@
   .v2-inventory .iv-location { line-height: 1.2; }
   .v2-inventory .iv-chips { margin-top: 0; gap: 3px; }
 }
+
+/* A full screen for each main landing-page chapter. */
+.v2-site > section:not(.v2-inventory) { height: 100vh; height: 100svh; min-height: 0; box-sizing: border-box; }
+.v2-site > .v2-section:not(.v2-inventory) { padding-block: clamp(20px, 4svh, 44px); display: flex; flex-direction: column; justify-content: center; gap: 24px; }
+.v2-site > .v2-section .v2-eyebrow { margin-bottom: 12px; font-size: 12px; }
+.v2-statement h2, .v2-search-copy h2, .v2-faq h2, .v2-screens-head h2 { font-size: clamp(28px, min(4vw, 6svh), 58px); line-height: 1.08; }
+.v2-statement-head, .v2-screens-head { gap: 40px; }
+.v2-statement-head > p, .v2-screens-head > p { font-size: 14px; line-height: 1.5; }
+.v2-statement .v2-benefits { min-height: 0; flex: 1; margin-top: 0; gap: 16px; }
+.v2-statement .v2-benefits article { min-height: 0; padding: 22px; }
+.v2-statement .v2-benefits article > i { width: 44px; height: 44px; border-radius: 14px; flex-shrink: 0; }
+.v2-statement .v2-benefits h3 { margin: 20px 0 8px; font-size: 20px; }
+.v2-statement .v2-benefits p { font-size: 13px; line-height: 1.5; }
+.v2-statement .v2-benefit-proof { min-height: 0; margin-top: 18px; flex: 1; align-content: center; }
+.v2-search-story .v2-search-layout { gap: 48px; min-height: 0; }
+.v2-search-story .v2-search-demo { min-height: 0; padding: 30px; }
+.v2-search-story .v2-search-copy > p:not(.v2-eyebrow) { font-size: 14px; line-height: 1.6; }
+.v2-search-story .v2-search-copy ul { margin-top: 20px; gap: 12px; }
+.v2-screens .v2-screen-grid { margin-top: 0; gap: 20px; }
+.v2-screens .v2-screen-shot { height: min(49svh, 480px); width: fit-content; aspect-ratio: 1242 / 2688; max-width: 100%; margin-inline: auto; padding: 6px; border-radius: 24px; }
+.v2-screens .v2-screen-shot img { width: 100%; height: 100%; object-fit: contain; border-radius: 18px; }
+.v2-screens .v2-screen-grid article > span { margin-top: 14px; }
+.v2-screens .v2-screen-grid article > p { font-size: 12px; line-height: 1.45; }
+.v2-privacy .v2-privacy-panel { padding: 36px; gap: 28px; }
+.v2-faq .v2-faq-layout { gap: 48px; }
+.v2-faq .v2-faq-list summary { padding: 18px 0; font-size: 14px; }
+.v2-faq .v2-faq-list details p { margin: 0 0 16px; font-size: 13px; line-height: 1.5; }
+.v2-download { padding: 28px 20px; }
+.brand-viewport { background: linear-gradient(145deg,#eee7ed,#faf6f1); color:#302735; padding: clamp(20px,4svh,44px) 0; }
+.brand-viewport-inner { height:100%; display:flex; flex-direction:column; gap:22px; }
+.brand-viewport-head h2 { margin:0; font-size:clamp(30px,min(5vw,7svh),64px); line-height:1.08; letter-spacing:-.055em; }
+.brand-viewport .v2-eyebrow { font-size:12px; margin-bottom:10px; }
+.brand-chapters { display:flex; gap:8px; flex-shrink:0; }
+.brand-chapters button { padding:10px 18px; border:1px solid #75556d35; border-radius:999px; background:transparent; color:#75556d; font:inherit; font-size:13px; cursor:pointer; }
+.brand-chapters button[aria-selected=true] { background:#75556d; color:#fff; }
+.brand-chapters button:focus-visible { outline:3px solid #aa83a0; outline-offset:3px; }
+.brand-chapter { min-height:0; flex:1; display:grid; align-items:center; animation:brand-chapter-in .3s ease-out; }
+.brand-story-content { display:grid; grid-template-columns:1.2fr .8fr; gap:64px; align-items:center; }
+.brand-story-content p { margin:0 0 16px; color:#62525e; font-size:clamp(15px,1.4vw,20px); line-height:1.6; }
+.brand-story-content p:last-child { margin-bottom:0; }
+.brand-story-logo { width:min(260px,24svh); justify-self:center; }
+.brand-story-logo svg { width:100%; height:auto; fill:#75556d; }
+.brand-name-content { display:grid; gap:32px; }
+.brand-name-mark { width:min(500px,65%); margin:auto; }
+.brand-name-definitions { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:20px; }
+.brand-name-definitions h3 { margin:0 0 8px; color:#75556d; font-size:clamp(22px,3vw,40px); letter-spacing:-.04em; }
+.brand-name-definitions p { margin:0; color:#62525e; font-size:16px; line-height:1.5; }
+.brand-viewport-categories { margin:0; padding:0; list-style:none; display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:14px; }
+.brand-viewport-categories li { height: min(19svh,170px); min-width:0; overflow:hidden; border-radius:16px; }
+.brand-viewport-categories .bf-card-content span { font-size:12px; white-space:normal; text-align:center; }
+.brand-viewport-outro { display:flex; align-items:center; justify-content:space-between; gap:24px; padding-top:16px; border-top:1px solid #75556d30; color:#75556d; }
+.brand-viewport-outro strong { font-size:22px; letter-spacing:-.03em; }
+.brand-viewport-outro span { font-size:14px; line-height:1.4; }
+@keyframes brand-chapter-in { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:none; } }
+@media (max-width:900px) {
+ .v2-hero { display:flex; flex-direction:column; }
+ .v2-hero .v2-header { height:60px; flex-shrink:0; }
+ .v2-hero .v2-hero-layout { flex:1; min-height:0; padding:16px 0; display:flex; flex-direction:column; gap:16px; }
+ .v2-hero .v2-hero-copy { padding:0; }
+ .v2-hero .v2-hero-copy h1 { font-size:clamp(30px,min(9vw,5.7svh),48px); }
+ .v2-hero .v2-eyebrow { margin-bottom:10px; font-size:11px; }
+ .v2-hero .v2-hero-lede { margin:12px auto; font-size:12px; line-height:1.5; max-width:480px; }
+ .v2-hero .v2-primary { min-height:40px; padding:0 14px; font-size:12px; }
+ .v2-hero .v2-text-link { font-size:12px; }
+ .v2-hero .v2-hero-actions { gap:16px; }
+ .v2-hero .v2-trust { margin-top:10px; font-size:10px; }
+ .v2-hero .v2-phone-wrap { flex:1; min-height:0; height:auto; width:100%; }
+ .v2-hero .v2-phone--real { height:100%; max-height:38svh; width:auto; aspect-ratio:944/2048; border-radius:26px; padding:4px; }
+ .v2-hero .v2-phone--real img { border-radius:20px; padding:2px; }
+ .v2-hero .v2-orbit--a { width: min(55vw,35svh); height: min(55vw,35svh); }
+ .v2-hero .v2-orbit--b { width:min(45vw,28svh); height:min(45vw,28svh); }
+ .v2-hero .v2-marquee { position:relative; flex-shrink:0; }
+ .v2-hero .v2-marquee > .v2-ticker-track { padding:7px 0; }
+ .v2-hero .v2-marquee .v2-ticker-group > span { font-size:12px; }
+ .v2-site > .v2-section:not(.v2-inventory) { padding-block:20px; gap:16px; }
+ .v2-statement h2, .v2-search-copy h2, .v2-faq h2, .v2-screens-head h2 { font-size:clamp(24px,min(6.4vw,4.6svh),34px); }
+ .v2-statement-head, .v2-screens-head { gap:10px; }
+ .v2-statement-head > p, .v2-screens-head > p { font-size:12px; line-height:1.45; margin-bottom:0; }
+ .v2-statement .v2-benefits { display:flex; overflow-x:auto; scroll-snap-type:x mandatory; gap:14px; padding-bottom:8px; }
+ .v2-statement .v2-benefits article { flex:0 0 88%; scroll-snap-align:start; padding:18px; }
+ .v2-statement .v2-benefits h3 { margin-top:14px; }
+ .v2-statement .v2-benefit-proof { margin-top:14px; padding:12px; }
+ .v2-search-story .v2-search-layout { height:100%; grid-template-columns:1fr; grid-template-rows:auto minmax(0,1fr); gap:16px; }
+ .v2-search-story .v2-search-copy { grid-row:1; }
+ .v2-search-story .v2-search-copy > p:not(.v2-eyebrow) { font-size:12px; line-height:1.45; margin-block:10px; }
+ .v2-search-story .v2-search-copy ul { gap:6px; margin-top:10px; }
+ .v2-search-story .v2-search-copy li { font-size:11px; gap:7px; }
+ .v2-search-story .v2-search-demo { padding:18px; border-radius:24px; align-self:center; }
+ .v2-search-story .v2-search-demo > p { margin-bottom:10px; font-size:10px; }
+ .v2-search-story .v2-big-search { height:40px; padding-inline:12px; }
+ .v2-search-story .v2-results { margin-top:10px; gap:7px; }
+ .v2-search-story .v2-results article { grid-template-columns:34px minmax(0,1fr) auto; padding:10px; gap:8px; }
+ .v2-search-story .v2-results article > span { width:32px; height:32px; font-size:16px; }
+ .v2-search-story .v2-results b { font-size:11px; }
+ .v2-screens .v2-screen-grid { display:flex; overflow-x:auto; width:calc(100% - 30px); margin-inline:auto; scroll-snap-type:x mandatory; padding:0 0 12px; }
+ .v2-screens .v2-screen-grid article { width:min(240px,29svh); flex:0 0 min(240px,29svh); scroll-snap-align:start; }
+ .v2-screens .v2-screen-shot { height: min(43svh,400px); }
+ .v2-screens .v2-screen-grid article > p { font-size:11px; }
+ .v2-privacy .v2-privacy-panel { padding:24px; gap:18px; grid-template-columns:48px 1fr; }
+ .v2-privacy .v2-privacy-panel > i { width:48px; height:48px; border-radius:15px; }
+ .v2-privacy .v2-privacy-panel > i svg { width:26px; }
+ .v2-privacy .v2-privacy-panel h2 { font-size:clamp(24px,6vw,34px); }
+ .v2-privacy .v2-privacy-panel .v2-eyebrow { font-size:10px; }
+ .v2-privacy .v2-privacy-facts { grid-column:1/-1; }
+ .v2-faq .v2-faq-layout { gap:16px; grid-template-columns:1fr; }
+ .v2-faq .v2-faq-layout > div:first-child > p:last-child { font-size:12px; margin-block:10px; }
+ .v2-faq .v2-faq-list summary { padding:13px 0; font-size:12px; gap:10px; }
+ .v2-faq .v2-faq-list details p { font-size:12px; margin-bottom:12px; }
+ .v2-download h2 { font-size:clamp(38px,10vw,64px); }
+ .v2-download .v2-download-content > .v2-brand { margin-bottom:24px; }
+ .v2-download .v2-download-content > p { font-size:13px; }
+ .brand-viewport { padding:20px 0; }
+ .brand-viewport-inner { gap:16px; }
+ .brand-viewport-head h2 { font-size:clamp(28px,7vw,38px); }
+ .brand-viewport .v2-eyebrow { font-size:10px; margin-bottom:8px; }
+ .brand-chapters { gap:6px; }
+ .brand-chapters button { padding:8px 12px; font-size:11px; }
+ .brand-story-content { grid-template-columns:1fr; gap:20px; }
+ .brand-story-content p { font-size:13px; line-height:1.5; margin-bottom:12px; }
+ .brand-story-logo { width:min(125px,16svh); }
+ .brand-name-definitions { gap:10px; }
+ .brand-name-definitions h3 { font-size:18px; }
+ .brand-name-definitions p { font-size:11px; }
+ .brand-name-mark { width:80%; }
+ .brand-viewport-categories { gap:8px; grid-template-columns:repeat(2,minmax(0,1fr)); }
+ .brand-viewport-categories li { height: min(13svh,110px); }
+ .brand-viewport-categories .bf-card-content span { font-size:10px; }
+ .brand-viewport-outro { flex-direction:column; align-items:flex-start; gap:6px; padding-top:12px; }
+ .brand-viewport-outro strong { font-size:18px; }
+ .brand-viewport-outro span { font-size:11px; }
+}
+@media (prefers-reduced-motion:reduce) { .brand-chapter { animation:none; } }
