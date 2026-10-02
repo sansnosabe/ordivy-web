@@ -280,9 +280,8 @@ export default function OrdivyLanding() {
           <div>
             {inventorySpaces.map(([item, path, example, status, categoryId, categoryName], index) => (
               <article className={`v2-rail-card v2-rail-card--${(index % 4) + 1}`} key={item} data-reveal-v2>
-                <span>0{index + 1}</span>
                 <div className="v2-space-drawing">
-                  <CategoryFace id={categoryId} name={item} />
+                  <CategoryFace id={categoryId} name={item} illustrated />
                 </div>
                 <h3>{item}</h3>
                 <p>{example}</p>
