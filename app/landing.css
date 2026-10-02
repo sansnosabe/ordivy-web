@@ -1707,8 +1707,8 @@
   }
   .v2-screens-head > p { margin-bottom: 0; }
   .v2-screen-grid {
-    width: 100%;
-    margin-inline: 0;
+    width: calc(100% - 30px);
+    margin-inline: auto;
     padding: 0 0 24px;
     gap: 20px;
     scroll-padding-inline: 0;
