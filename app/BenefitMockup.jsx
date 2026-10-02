@@ -17,20 +17,29 @@ const content = {
   },
 };
 
-function ProductThumb() {
-  return <i className="v2-app-product-thumb" aria-hidden="true"><span>🥫</span></i>;
+function ProductThumb({ icon }) {
+  return <i className="v2-app-product-thumb" aria-hidden="true"><span>{icon}</span></i>;
 }
 
 function ProductHeader({ copy, quantity = false }) {
   return <div className="v2-app-product-head">
-    <ProductThumb />
+    <ProductThumb icon={copy.icon} />
     <span><strong>{copy.product}</strong><small>{copy.productMeta}</small><em><MapPin /> {copy.location}</em></span>
     {quantity && <b>4/5<small>{copy.units.toLowerCase()}</small></b>}
   </div>;
 }
 
 export default function BenefitMockup({ kind, locale = "es" }) {
-  const copy = content[locale];
+  const examples = locale === "es" ? {
+    scan: { kitchen: "Tecnología", query: "cable", product: "Cable USB-C", productMeta: "1 m", location: "Cajón de cables", icon: "🔌" },
+    location: { kitchen: "Ropa", query: "camiseta", product: "Camiseta de algodón", productMeta: "Talla M", location: "Armario", icon: "👕" },
+    restock: { kitchen: "Material de oficina", query: "cuaderno", product: "Cuaderno A5", productMeta: "80 hojas", location: "Estantería", icon: "📓" },
+  } : {
+    scan: { kitchen: "Technology", query: "cable", product: "USB-C cable", productMeta: "1 m", location: "Cable drawer", icon: "🔌" },
+    location: { kitchen: "Clothes", query: "t-shirt", product: "Cotton T-shirt", productMeta: "Size M", location: "Wardrobe", icon: "👕" },
+    restock: { kitchen: "Office supplies", query: "notebook", product: "A5 notebook", productMeta: "80 pages", location: "Shelf", icon: "📓" },
+  };
+  const copy = { ...content[locale], ...examples[kind] };
 
   return (
     <div className={`v2-benefit-proof v2-benefit-proof--${kind}`} aria-hidden="true">
@@ -45,7 +54,7 @@ export default function BenefitMockup({ kind, locale = "es" }) {
           <span className="is-active"><Search /> {copy.searchProduct}</span>
         </div>
         <div className="v2-app-search"><Search /><span>{copy.query}</span></div>
-        <div className="v2-app-search-result"><ProductThumb /><span><strong>{copy.product}</strong><small>{copy.productMeta}</small></span><ChevronRight /></div>
+        <div className="v2-app-search-result"><ProductThumb icon={copy.icon} /><span><strong>{copy.product}</strong><small>{copy.productMeta}</small></span><ChevronRight /></div>
       </>}
 
       {kind === "location" && <div className="v2-app-product-card">
