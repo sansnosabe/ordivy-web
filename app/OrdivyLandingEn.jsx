@@ -1,3 +1,4 @@
+import InventoryDemo from "./InventoryDemo";
 import MotionV2 from "./MotionV2";
 import BrandFilm from "./BrandFilm";
 import BenefitMockup from "./BenefitMockup";
@@ -36,16 +37,6 @@ const benefits = [
   },
 ];
 
-const inventorySpaces = [
-  ["Wardrobe", "Home inventory", "Winter clothes", "Stored by season", Shirt],
-  ["Medicine cabinet", "Home inventory", "8 products · 2 expire soon", "Check dates", HeartPulse],
-  ["Storage room", "Home inventory", "Drill and accessories", "12 pieces", Drill],
-  ["Office", "Work inventory", "Paper, ink, and cables", "2 low-stock items", BriefcaseBusiness],
-  ["Display case", "Collections inventory", "Editions and pieces", "36 recorded", Gem],
-  ["Garage", "Home inventory", "Cleaning and maintenance", "Everything located", CarFront],
-  ["Pantry", "Kitchen inventory", "Tuna in olive oil · 4 units", "1 to restock", CookingPot],
-  ["Freezer", "Kitchen inventory", "Vegetables · 3 bags", "Everything located", Snowflake],
-];
 
 const faqs = [
   [
@@ -273,24 +264,9 @@ export default function OrdivyLandingEn() {
             <br />
             Neither is Ordivy.
           </h2>
-          <p>Create an inventory —Kitchen, for example— and add separate locations inside it such as Pantry, Fridge, or Freezer.</p>
+          <p>Clothes, tools, office supplies or collections. Explore these examples and see how to organise your things in Ordivy.</p>
         </div>
-        <div className="v2-rail">
-          <div>
-            {inventorySpaces.map(([item, path, example, status, SpaceIcon], index) => (
-              <article className={`v2-rail-card v2-rail-card--${(index % 4) + 1}`} key={item} data-reveal-v2>
-                <div className="v2-space-drawing" aria-hidden="true">
-                  <i /><i /><i />
-                  <SpaceIcon />
-                </div>
-                <small>{path}</small>
-                <h3>{item}</h3>
-                <p>{example}</p>
-                <strong>{status}</strong>
-              </article>
-            ))}
-          </div>
-        </div>
+        <InventoryDemo locale="en" />
       </section>
 
       <section className="v2-screens v2-section" id="capturas">
