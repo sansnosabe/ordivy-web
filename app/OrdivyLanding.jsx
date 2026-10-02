@@ -1,7 +1,7 @@
 import MotionV2 from "./MotionV2";
 import BrandFilm from "./BrandFilm";
 import BenefitMockup from "./BenefitMockup";
-import CategoryFace from "./CategoryFace";
+import InventoryDemo from "./InventoryDemo";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -31,16 +31,6 @@ const benefits = [
   },
 ];
 
-const inventorySpaces = [
-  ["Armario", "Inventario Casa", "Ropa de invierno", "Guardado por temporada", "ropa", "Ropa"],
-  ["Botiquín", "Inventario Casa", "8 productos · 2 caducan pronto", "Revisar fechas", "botiquin", "Botiquín"],
-  ["Trastero", "Inventario Casa", "Taladro y accesorios", "12 piezas", "herramientas", "Herramientas"],
-  ["Oficina", "Inventario Trabajo", "Papel, tinta y cables", "2 con stock bajo", "oficina", "Oficina"],
-  ["Vitrina", "Inventario Colecciones", "Ediciones y piezas", "36 registradas", "colecciones", "Colecciones"],
-  ["Garaje", "Inventario Casa", "Limpieza y mantenimiento", "Todo localizado", "hogar", "Hogar"],
-  ["Despensa", "Inventario Cocina", "Bonito en aceite · 4 uds.", "1 por reponer", "comida", "Comida"],
-  ["Congelador", "Inventario Cocina", "Verduras · 3 bolsas", "Todo localizado", "comida", "Comida"],
-];
 
 const faqs = [
   [
@@ -157,7 +147,7 @@ export default function OrdivyLanding() {
           <div className="v2-hero-copy" data-hero>
             <p className="v2-eyebrow">TU INVENTARIO PERSONAL</p>
             <h1>
-              Saber qué tienes cambia <em>lo que compras.</em>
+              Saber qué tienes, cambia <em>lo que compras.</em>
             </h1>
             <p className="v2-hero-lede">
               Ordivy pone orden en tus cosas para que encuentres todo, repongas a tiempo y dejes de comprar lo que ya tenías.
@@ -274,22 +264,9 @@ export default function OrdivyLanding() {
             <br />
             Ordivy tampoco.
           </h2>
-          <p>Crea un inventario —por ejemplo, Cocina— y añade dentro ubicaciones independientes como Despensa, Nevera o Congelador.</p>
+          <p>Ropa, herramientas, material de oficina o colecciones. Explora estos ejemplos y descubre cómo organizar tus cosas en Ordivy.</p>
         </div>
-        <div className="v2-rail">
-          <div>
-            {inventorySpaces.map(([item, path, example, status, categoryId, categoryName], index) => (
-              <article className={`v2-rail-card v2-rail-card--${(index % 4) + 1}`} key={item} data-reveal-v2>
-                <div className="v2-space-drawing">
-                  <CategoryFace id={categoryId} name={item} illustrated />
-                </div>
-                <h3>{item}</h3>
-                <p>{example}</p>
-                <strong>{status}</strong>
-              </article>
-            ))}
-          </div>
-        </div>
+        <InventoryDemo locale="es" />
       </section>
 
       <section className="v2-screens v2-section" id="capturas">
