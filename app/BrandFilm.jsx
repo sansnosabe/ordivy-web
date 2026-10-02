@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import OriginalWordmark from "./OriginalWordmark";
 import CategoryFace from "./CategoryFace";
 
@@ -76,8 +76,20 @@ export default function BrandFilm({ children, locale = "es" }) {
   const english = locale === "en";
   const categories = english ? categoriesEn : categoriesEs;
   const rootRef = useRef(null);
+  const [compact, setCompact] = useState(false);
+  useEffect(() => {
+    const media = window.matchMedia("(max-width: 1000px)");
+    const update = () => setCompact(media.matches);
+    update();
+    media.addEventListener("change", update);
+    return () => media.removeEventListener("change", update);
+  }, []);
   useEffect(() => {
     const root = rootRef.current;
+    if (compact) {
+      root.querySelectorAll(".bf-scene, .bf-category-item, .bf-definition, .v2-origin-part, .bf-outro, .bf-signature, .bf-promise").forEach((element) => element.removeAttribute("aria-hidden"));
+      return;
+    }
     const pin = root.querySelector(".bf-pin");
     const stage = root.querySelector(".bf-stage");
     const logo = root.querySelector(".bf-symbol");
@@ -423,7 +435,7 @@ export default function BrandFilm({ children, locale = "es" }) {
       pin.style.removeProperty("--bf-light-x");
       root.classList.remove("bf-light");
     };
-  }, []);
+  }, [compact]);
 
   return (
     <section
@@ -432,6 +444,7 @@ export default function BrandFilm({ children, locale = "es" }) {
       ref={rootRef}
       aria-label={english ? "The story behind Ordivy" : "De dónde nace Ordivy: nuestra historia"}
     >
+      <style>{"@media(max-width:1000px){.brand-film{height:auto!important;min-height:0!important;background:#eee7ed;color:#302735}.brand-film .bf-pin{position:relative;top:auto;height:auto;min-height:0;overflow:visible;display:block;padding:28px 22px 0;background:linear-gradient(145deg,#eee7ed,#faf6f1)}.brand-film .bf-pin::after,.brand-film .bf-warm,.brand-film .bf-final-backdrop,.brand-film .bf-glow,.brand-film .bf-cards,.brand-film .bf-chapter-words,.brand-film .bf-progress,.brand-film .bf-scroll-cue,.brand-film .bf-title-slot{display:none!important}.brand-film .bf-topline{color:#75556d;border-color:#75556d22;gap:12px;font-size:10px}.brand-film .bf-stage{display:flex;flex-direction:column;gap:28px;padding:36px 0;min-height:0}.brand-film .bf-scene,.brand-film .bf-story,.brand-film .bf-symbol,.brand-film .bf-word,.brand-film .bf-closing,.brand-film .bf-outro{position:relative!important;inset:auto!important;width:100%!important;height:auto!important;opacity:1!important;transform:none!important}.brand-film .bf-opening{display:block}.brand-film .bf-opening h2{position:relative!important;inset:auto!important;width:auto;white-space:normal;transform:none!important;font-size:clamp(38px,10vw,58px)!important;line-height:1.1;color:#302735}.brand-film .bf-opening h2 em{color:#75556d}.brand-film .bf-opening>span,.brand-film .bf-opening>p{position:relative!important;inset:auto!important;text-align:left;color:#75556d}.brand-film .bf-opening>span{display:block;font-size:13px;margin:0 0 16px}.brand-film .bf-opening>p{font-size:15px;margin:16px 0 0}.brand-film .bf-story{display:block}.brand-film .bf-order{display:block!important;pointer-events:auto}.brand-film .bf-order p{opacity:1!important;transform:none!important;font-size:17px;line-height:1.65;max-width:none;margin:0 0 18px;color:#62525e}.brand-film .bf-order p:last-child{margin-bottom:0}.brand-film .bf-symbol{max-width:142px;margin:8px auto 0}.brand-film .bf-symbol svg>:not(defs){opacity:1!important}.brand-film .bf-word{max-width:230px;margin:-14px auto 0}.brand-film .v2-origin-part,.brand-film .bf-definition{opacity:1!important;transform:none!important}.brand-film .bf-closing{margin:0 auto}.brand-film .bf-definitions{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;width:100%}.brand-film .bf-definition b{font-size:clamp(16px,4vw,26px)}.brand-film .bf-definition p{font-size:12px;line-height:1.5}.brand-film .bf-category-summary{display:block!important;pointer-events:auto;margin-top:8px}.brand-film .bf-category-list{grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}.brand-film .bf-category-item{opacity:1!important;transform:none!important;border-radius:12px;aspect-ratio:auto;height:100px;box-shadow:0 5px 15px #49324212}.brand-film .bf-category-item .bf-card-content img{height:68%;object-fit:cover}.brand-film .bf-category-item .bf-card-content span{font-size:10px!important;line-height:1.2;padding:3px;white-space:normal}.brand-film .bf-outro{margin:0 -22px;width:calc(100% + 44px)!important;padding:28px 22px;display:flex;gap:18px}.brand-film .bf-signature,.brand-film .bf-promise{opacity:1!important;transform:none!important}.brand-film .bf-signature{font-size:30px}.brand-film .bf-promise{font-size:16px}@media(max-width:360px){.brand-film .bf-category-list{grid-template-columns:repeat(2,minmax(0,1fr))}.brand-film .bf-category-item{height:130px}}}"}</style>
       <div className="bf-pin">
         <div className="bf-warm" />
         <div className="bf-final-backdrop" aria-hidden="true" />
