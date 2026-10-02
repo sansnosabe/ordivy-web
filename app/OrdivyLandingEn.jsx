@@ -29,7 +29,7 @@ const benefits = [
     number: "01", kind: "scan", Icon: ScanLine, title: "Record what comes in", text: "Scan the barcode or search by name. Ordivy finds the product and you only confirm the quantity.",
   },
   {
-    number: "02", kind: "location", Icon: MapPin, title: "Say where you keep it", text: "Each product belongs to one inventory and one location inside it. In Kitchen, for example, you can choose Pantry.",
+    number: "02", kind: "location", Icon: MapPin, title: "Say where you keep it", text: "Each product belongs to one inventory and one location inside it. For example: cables in a drawer, clothes in a wardrobe or tools in a storage room.",
   },
   {
     number: "03", kind: "restock", Icon: ShoppingBasket, title: "Let Ordivy watch the minimum", text: "Choose how many units you always want available. Drop below that number and the item appears on your shopping list.",
@@ -37,14 +37,14 @@ const benefits = [
 ];
 
 const inventorySpaces = [
-  ["Pantry", "Kitchen inventory", "Tuna in olive oil · 4 units", "1 to restock", CookingPot],
-  ["Freezer", "Kitchen inventory", "Vegetables · 3 bags", "Everything located", Snowflake],
   ["Wardrobe", "Home inventory", "Winter clothes", "Stored by season", Shirt],
   ["Medicine cabinet", "Home inventory", "8 products · 2 expire soon", "Check dates", HeartPulse],
   ["Storage room", "Home inventory", "Drill and accessories", "12 pieces", Drill],
   ["Office", "Work inventory", "Paper, ink, and cables", "2 low-stock items", BriefcaseBusiness],
   ["Display case", "Collections inventory", "Editions and pieces", "36 recorded", Gem],
   ["Garage", "Home inventory", "Cleaning and maintenance", "Everything located", CarFront],
+  ["Pantry", "Kitchen inventory", "Tuna in olive oil · 4 units", "1 to restock", CookingPot],
+  ["Freezer", "Kitchen inventory", "Vegetables · 3 bags", "Everything located", Snowflake],
 ];
 
 const faqs = [
