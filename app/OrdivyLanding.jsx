@@ -20,7 +20,7 @@ const benefits = [
     kind: "location",
     Icon: MapPin,
     title: "Dile dónde lo guardas",
-    text: "Cada producto pertenece a un inventario y a una ubicación dentro de él. En Cocina, por ejemplo, puedes elegir Despensa.",
+    text: "Cada producto pertenece a un inventario y a una ubicación dentro de él. Por ejemplo: cables en un cajón, ropa en el armario o herramientas en el trastero.",
   },
   {
     number: "03",
@@ -32,14 +32,14 @@ const benefits = [
 ];
 
 const inventorySpaces = [
-  ["Despensa", "Inventario Cocina", "Bonito en aceite · 4 uds.", "1 por reponer", "comida", "Comida"],
-  ["Congelador", "Inventario Cocina", "Verduras · 3 bolsas", "Todo localizado", "comida", "Comida"],
   ["Armario", "Inventario Casa", "Ropa de invierno", "Guardado por temporada", "ropa", "Ropa"],
   ["Botiquín", "Inventario Casa", "8 productos · 2 caducan pronto", "Revisar fechas", "botiquin", "Botiquín"],
   ["Trastero", "Inventario Casa", "Taladro y accesorios", "12 piezas", "herramientas", "Herramientas"],
   ["Oficina", "Inventario Trabajo", "Papel, tinta y cables", "2 con stock bajo", "oficina", "Oficina"],
   ["Vitrina", "Inventario Colecciones", "Ediciones y piezas", "36 registradas", "colecciones", "Colecciones"],
   ["Garaje", "Inventario Casa", "Limpieza y mantenimiento", "Todo localizado", "hogar", "Hogar"],
+  ["Despensa", "Inventario Cocina", "Bonito en aceite · 4 uds.", "1 por reponer", "comida", "Comida"],
+  ["Congelador", "Inventario Cocina", "Verduras · 3 bolsas", "Todo localizado", "comida", "Comida"],
 ];
 
 const faqs = [
