@@ -8,13 +8,23 @@ import { passwordError, readRecoveryLink, recoveryRequest } from "./recovery.mjs
 import styles from "./auth.module.css";
 
 export default function AuthBridge({ mode = "confirmation" }) {
-  const recovery = mode === "recovery";
-  if (recovery) return <PasswordRecovery />;
-  const deepLink = recovery ? "ordivy://auth/reset-password" : "ordivy://auth/callback";
+  const [confirmation, setConfirmation] = useState(null);
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    new URLSearchParams(window.location.hash.slice(1)).forEach((value, key) => params.set(key, value));
+    setConfirmation({
+      failed: Boolean(params.get("error") || params.get("error_description")),
+      hasSession: Boolean(params.get("access_token") && params.get("refresh_token")),
+      hasCode: Boolean(params.get("code")),
+    });
+  }, []);
+  if (mode === "recovery") return <PasswordRecovery />;
+  const canContinue = confirmation && !confirmation.failed && (confirmation.hasSession || confirmation.hasCode);
+  const deepLink = canContinue ? "ordivy://auth/callback" : "ordivy://account";
 
   function openApp(event) {
     event.preventDefault();
-    window.location.href = `${deepLink}${window.location.search}${window.location.hash}`;
+    window.location.href = canContinue ? `${deepLink}${window.location.search}${window.location.hash}` : deepLink;
   }
 
   return (
@@ -22,18 +32,16 @@ export default function AuthBridge({ mode = "confirmation" }) {
       <section className={styles.card}>
         <div className={styles.mark}>O</div>
         <p className={styles.eyebrow}>TU CUENTA ORDIVY</p>
-        <h1>{recovery ? "Cambia tu contraseña en Ordivy" : "Correo confirmado"}</h1>
+        <h1>{!confirmation ? "Comprobando el enlace…" : confirmation.failed ? "Este enlace ya no es válido" : confirmation.hasSession ? "Correo confirmado" : "Continúa en tu cuenta"}</h1>
         <p className={styles.lead}>
-          {recovery
-            ? "Abre la aplicación para elegir una contraseña nueva de forma segura."
-            : "Tu dirección de correo ya está verificada. Puedes continuar en la aplicación."}
+          {!confirmation ? "Solo tardará un momento." : confirmation.failed
+            ? "El enlace puede haber caducado o haberse utilizado. Prueba a iniciar sesión en Ordivy. Si todavía te pide verificar el correo, solicita uno nuevo y abre el enlace más reciente."
+            : confirmation.hasSession ? "Tu dirección de correo ya está verificada. Puedes continuar en la aplicación."
+              : confirmation.hasCode ? "Abre Ordivy para completar la confirmación de tu cuenta."
+                : "Este enlace no contiene una sesión de confirmación. Inicia sesión en Ordivy; si aún falta verificar tu correo, solicita un nuevo email de confirmación."}
         </p>
-        <a className={styles.primary} href={deepLink} onClick={openApp}>{recovery ? "Abrir Ordivy" : "Continuar en Ordivy"}</a>
-        <p className={styles.note}>
-          {recovery
-            ? "Si estás en un ordenador, abre este mismo correo en tu móvil para continuar de forma segura."
-            : "Si estás en un ordenador, ya puedes cerrar esta pestaña e iniciar sesión en Ordivy desde tu móvil."}
-        </p>
+        {confirmation ? <a className={styles.primary} href={deepLink} onClick={openApp}>{canContinue ? "Continuar en Ordivy" : "Ir a mi cuenta"}</a> : null}
+        <p className={styles.note}>Si estás en un ordenador, abre Ordivy en tu móvil para continuar.</p>
         <Link className={styles.home} href="/">Volver a ordivy.app</Link>
       </section>
     </main>
