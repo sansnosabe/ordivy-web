@@ -147,7 +147,9 @@ export default function OrdivyLanding() {
           <div className="v2-hero-copy" data-hero>
             <p className="v2-eyebrow">TU INVENTARIO PERSONAL</p>
             <h1>
-              Saber qué tienes, cambia <em>lo que compras.</em>
+              Saber qué<br />
+              <span style={{ whiteSpace: "nowrap" }}>tienes, cambia</span><br />
+              <em style={{ whiteSpace: "nowrap" }}>lo que compras.</em>
             </h1>
             <p className="v2-hero-lede">
               Ordivy pone orden en tus cosas para que encuentres todo, repongas a tiempo y dejes de comprar lo que ya tenías.
