@@ -316,7 +316,7 @@ export default function OrdivyLandingEn() {
           </div>
           <div className="v2-faq-list" data-reveal-v2>
             {faqs.map(([question, answer], index) => (
-              <details key={question} open={index === 0}>
+              <details key={question} name="ordivy-faq" open={index === 0}>
                 <summary>
                   <span>{question}</span>
                   <ChevronDown />
