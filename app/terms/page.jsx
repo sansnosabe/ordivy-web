@@ -13,7 +13,7 @@ export default function TermsPage() {
       page="terms"
       eyebrow="CONDICIONES DE USO"
       title="Reglas claras para usar Ordivy."
-      intro={<p>Estas condiciones se aplican a Ordivy 1.0.0. Última actualización: 1 de octubre de 2026.</p>}
+      intro={<p>Estas condiciones se aplican a Ordivy. Última actualización: 7 de octubre de 2026.</p>}
     >
       <LanguageSection id="es" language="Español" title="Condiciones de uso">
         <LegalSection title="1. El servicio">
@@ -26,7 +26,7 @@ export default function TermsPage() {
         </LegalSection>
 
         <LegalSection title="3. Tus datos y copias de seguridad">
-          <p>Debes revisar la información que introduces y mantener seguro el acceso a tu dispositivo. La versión inicial guarda el inventario localmente y no ofrece una copia en servidores de Ordivy. Desinstalar la aplicación o perder el dispositivo puede eliminar los datos si no existe una copia administrada por el sistema.</p>
+          <p>Debes revisar la información que introduces y mantener seguro el acceso a tu dispositivo. Ordivy guarda el inventario en tu dispositivo y permite sincronizar datos al conectar tu cuenta. Comprueba el estado de sincronización y tus copias de seguridad antes de desinstalar la aplicación o cambiar de dispositivo. Los datos que no estén sincronizados ni incluidos en una copia pueden perderse.</p>
         </LegalSection>
 
         <LegalSection title="4. Información de terceros">

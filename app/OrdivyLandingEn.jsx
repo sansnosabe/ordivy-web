@@ -7,21 +7,13 @@ import Link from "next/link";
 import {
   ArrowDown,
   ArrowRight,
-  BriefcaseBusiness,
-  CarFront,
   Check,
   ChevronDown,
-  CookingPot,
-  Drill,
-  Gem,
-  HeartPulse,
   MapPin,
   ScanLine,
   Search,
   ShieldCheck,
-  Shirt,
   ShoppingBasket,
-  Snowflake,
   Sparkles,
 } from "lucide-react";
 
@@ -53,23 +45,23 @@ const faqs = [
   ],
   [
     "Where is my information stored?",
-    "In this first version, your inventories are stored on your device. Your account protects Premium access, but inventory sync is not active yet.",
+    "Your inventories are stored on your device. Connect your account in Settings to sync your data; Your family lets you share inventories and Premium.",
   ],
   [
-    "Which devices will be supported?",
-    "The first release is built for iPhone. Android and a dedicated iPad experience will come later.",
+    "Which devices are supported?",
+    "Ordivy is now available on the App Store. The Android version is coming soon to Google Play.",
   ],
   [
-    "How does Premium work at launch?",
-    "During this first phase, Premium is activated through Ordivy invitations. In-app purchases and subscriptions are not available yet.",
+    "How does Ordivy Premium work?",
+    "On iOS, you can subscribe to Premium in the app with a verified Ordivy account. View and manage your plan in Settings, restore purchases from Premium, and manage or cancel your subscription through your Apple account.",
   ],
 ];
 
 const screenshots = [
-  ["/screenshots/01-inicio.jpg", "Home", "See which space has low stock and which products are currently in use."],
-  ["/screenshots/02-inventario-general.jpg", "Inventory", "Add, remove, move, set a minimum, or check expiry from the product card."],
-  ["/screenshots/04-buscar-producto.jpg", "Search", "Reuse products you saved before or browse suggestions from Open Food Facts."],
-  ["/screenshots/05-lista-compra.jpg", "Shopping", "Calculate how much is missing to restore your minimums and tick items off as you shop."],
+  ["/screenshots/en/home.jpeg", "Home", "See your inventories, locations, and products in use at a glance."],
+  ["/screenshots/en/inventory.jpeg", "Inventory", "Explore locations, search for products, and check available quantities."],
+  ["/screenshots/en/shopping.jpeg", "Shopping", "Collect what is missing, organize your list, and tick items off as you shop."],
+  ["/screenshots/en/settings.jpeg", "Settings and Premium", "Manage your plan, connect your account to sync data, and share with your family."],
 ];
 
 function LogoSymbol({ className = "" }) {
@@ -98,13 +90,13 @@ function Logo({ light = false }) {
 
 function StoreBadge() {
   return (
-    <span className="v2-store" aria-label="Ordivy is coming soon to the App Store">
+    <a className="v2-store" href="https://apps.apple.com/app/ordivy/id6814024224" aria-label="Download Ordivy on the App Store">
       <i aria-hidden="true">●</i>
       <span>
-        <small>Coming soon to the</small>
+        <small>Download on the</small>
         <b>App Store</b>
       </span>
-    </span>
+    </a>
   );
 }
 
@@ -115,10 +107,10 @@ function AppScreen() {
       <div className="v2-orbit v2-orbit--b" />
       <div className="v2-phone v2-phone--real">
         <Image
-          src="/ordivy-app-home.jpeg"
-          alt="Ordivy home screen showing the Kitchen inventory and its locations"
-          width={1242}
-          height={2688}
+          src="/screenshots/en/home.jpeg"
+          alt="Ordivy home screen showing the My workshop inventory and its locations"
+          width={942}
+          height={2048}
           priority
           sizes="(max-width: 560px) 286px, 304px"
         />
@@ -142,7 +134,7 @@ export default function OrdivyLandingEn() {
           </nav>
           <div className="v2-header-actions">
             <Link className="v2-lang-switch" href="/" hrefLang="es" aria-label="Ver la web en español">ES</Link>
-            <a className="v2-header-cta" href="#download">Coming soon <ArrowRight size={16} /></a>
+            <a className="v2-header-cta" href="#download">Download <ArrowRight size={16} /></a>
           </div>
         </header>
         <div className="v2-hero-layout v2-shell">
@@ -156,7 +148,7 @@ export default function OrdivyLandingEn() {
             </p>
             <div className="v2-hero-actions">
               <a className="v2-primary" href="#download">
-                View release <ArrowRight size={18} />
+                Download Ordivy <ArrowRight size={18} />
               </a>
               <a className="v2-text-link" href="#how-it-works">
                 See how it works <ArrowDown size={16} />
@@ -275,13 +267,13 @@ export default function OrdivyLandingEn() {
             <p className="v2-eyebrow v2-eyebrow--dark">THE COMPLETE LOOP, IN THE APP</p>
             <h2>Check, update, restock. No parallel spreadsheets.</h2>
           </div>
-          <p>Home summarizes your household; Inventory lets you act; Search finds; Shopping collects what is missing.</p>
+          <p>Home summarizes your spaces; Inventory lets you act; Shopping collects what is missing; Settings connects your account, plan, and family.</p>
         </div>
         <div className="v2-shell v2-screen-grid">
           {screenshots.map(([src, title, text]) => (
             <article key={src} data-reveal-v2>
               <div className="v2-screen-shot">
-                <Image src={src} alt={`Ordivy ${title} screen`} width={1242} height={2688} sizes="(max-width: 560px) 78vw, 260px" />
+                <Image src={src} alt={`Ordivy ${title} screen`} width={942} height={2048} sizes="(max-width: 560px) 78vw, 260px" />
               </div>
               <span>{title}</span>
               <p>{text}</p>
@@ -297,11 +289,11 @@ export default function OrdivyLandingEn() {
           </i>
           <div>
             <p className="v2-eyebrow v2-eyebrow--dark">WHAT IS STORED, AND WHERE</p>
-            <h2>Your belongings do not leave home unless you decide.</h2>
+            <h2>Your inventory, with options to sync and share.</h2>
           </div>
           <div className="v2-privacy-facts">
-            <span><b>Inventory</b> stored on your iPhone in this first version.</span>
-            <span><b>Account</b> used to protect your access and Premium status.</span>
+            <span><b>Inventory</b> stored on your device, with sync when you connect your account.</span>
+            <span><b>Account</b> used for access, Premium, sync, and family features.</span>
             <span><b>Camera</b> activated only when you choose to scan a barcode.</span>
           </div>
         </div>
@@ -340,9 +332,10 @@ export default function OrdivyLandingEn() {
             Find more.
           </h2>
           <p>Your home, inventory, and shopping list in one place.</p>
-          <span className="v2-launch-status"><i /> iPhone version submitted for review</span>
+          <span className="v2-launch-status"><i /> Available on the App Store</span>
           <div className="v2-store-row">
             <StoreBadge />
+            <span className="v2-store" aria-label="Android coming soon to Google Play"><span><small>Coming soon to</small><b>Google Play</b></span></span>
           </div>
         </div>
       </section>

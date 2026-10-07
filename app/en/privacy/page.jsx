@@ -15,7 +15,7 @@ export default function PrivacyPage() {
       title="Your inventory remains yours."
       intro={
         <p>
-          This policy explains what information Ordivy uses, where it is stored, and which external services are involved. Last updated: October 1, 2026.
+          This policy explains what information Ordivy uses, where it is stored, and which external services are involved. Last updated: October 7, 2026.
         </p>
       }
     >
@@ -23,7 +23,7 @@ export default function PrivacyPage() {
       <LanguageSection id="en" language="English" title="Privacy policy">
         <LegalSection title="1. Scope">
           <p>
-            This policy applies to the first public version of Ordivy, a personal inventory app that works mainly on the device. Its local features do not require an account, and inventory is not currently synced with Ordivy servers.
+            This policy applies to Ordivy, a personal inventory app. Its local features do not require an account. Connecting your account lets you sync your data and use family features to share inventories and Premium.
           </p>
         </LegalSection>
 
@@ -31,8 +31,8 @@ export default function PrivacyPage() {
           <p>
             Ordivy stores the information you enter locally: inventories, locations, product names and details, identifiers, quantities, minimums, expiry dates, items in use, Shopping list, history, preferences, and photos you choose.
           </p>
-          <p>This information remains in the app&apos;s private storage and is used only to provide its features.</p>
-          <p>If you create an account, Supabase processes your email, password, unique username, internal identifier, and session to register you, confirm your email, and keep you signed in. Ordivy does not store your password in readable form. Your username may be visible when social or collaboration features become available.</p>
+          <p>This information is stored in the app&apos;s private storage and used to provide its features. If you use sync, inventory data is also processed in the cloud; inventories you share are available to the corresponding members of your family.</p>
+          <p>If you create an account, Supabase processes your email, password, unique username, internal identifier, and session to register you, confirm your email, and keep you signed in. Ordivy does not store your password in readable form. Your username may be visible to other members when you use family features.</p>
         </LegalSection>
 
         <LegalSection title="3. Permissions">
@@ -81,8 +81,8 @@ export default function PrivacyPage() {
           </p>
         </LegalSection>
 
-        <LegalSection title="8. Services that are not active">
-          <p>Cloud inventory sync, collaboration, advertising, and usage analytics are not active. Ordivy accounts and App Store Premium subscriptions use the services described in this policy.</p>
+        <LegalSection title="8. Sync and family">
+          <p>You can connect your account to sync data and use Your family to share inventories and Premium. These features require processing the data needed for sync and sharing outside your device. Advertising and usage analytics are not active. Ordivy accounts and App Store Premium subscriptions use the services described in this policy.</p>
         </LegalSection>
 
         <LegalSection title="9. Questions and requests">

@@ -1132,6 +1132,8 @@
 }
 .v2-store-row {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 12px;
   margin-top: 28px;
 }
@@ -1813,7 +1815,7 @@
 .v2-search-story .v2-search-copy > p:not(.v2-eyebrow) { font-size: 14px; line-height: 1.6; }
 .v2-search-story .v2-search-copy ul { margin-top: 20px; gap: 12px; }
 .v2-screens .v2-screen-grid { margin-top: 0; gap: 20px; }
-.v2-screens .v2-screen-shot { height: min(49svh, 480px); width: fit-content; aspect-ratio: 1242 / 2688; max-width: 100%; margin-inline: auto; padding: 6px; border-radius: 24px; }
+.v2-screens .v2-screen-shot { height: min(49svh, 480px); width: fit-content; aspect-ratio: 942 / 2048; max-width: 100%; margin-inline: auto; padding: 6px; border-radius: 24px; }
 .v2-screens .v2-screen-shot img { width: 100%; height: 100%; object-fit: contain; border-radius: 18px; }
 .v2-screens .v2-screen-grid article > span { margin-top: 14px; }
 .v2-screens .v2-screen-grid article > p { font-size: 12px; line-height: 1.45; }
