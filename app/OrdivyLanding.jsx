@@ -47,23 +47,23 @@ const faqs = [
   ],
   [
     "¿Dónde se guardan mis datos?",
-    "En esta primera versión, tus inventarios se guardan en el dispositivo. La cuenta protege el acceso Premium, pero la sincronización del inventario todavía no está activa.",
+    "Tus inventarios se guardan en tu dispositivo. Conecta tu cuenta desde Ajustes para sincronizar tus datos; la sección Tu familia permite compartir inventarios y Premium.",
   ],
   [
-    "¿En qué dispositivos estará disponible?",
-    "El primer lanzamiento está preparado para iPhone. La versión para Android y la experiencia específica para iPad llegarán más adelante.",
+    "¿En qué dispositivos está disponible?",
+    "Ordivy ya está disponible en App Store. La versión para Android llegará próximamente a Google Play.",
   ],
   [
-    "¿Cómo funciona Premium en el lanzamiento?",
-    "Durante esta primera fase, Premium se activa mediante invitaciones de Ordivy. Las compras y suscripciones dentro de la app todavía no están disponibles.",
+    "¿Cómo funciona Ordivy Premium?",
+    "En iOS, puedes contratar una suscripción Premium desde la app con una cuenta Ordivy verificada. Consulta y gestiona tu plan en Ajustes, restaura tus compras desde Premium y gestiona o cancela la suscripción desde tu cuenta de Apple.",
   ],
 ];
 
 const screenshots = [
-  ["/screenshots/01-inicio.jpg", "Inicio", "Detecta qué espacio tiene stock bajo y qué productos están ahora mismo en uso."],
-  ["/screenshots/02-inventario-general.jpg", "Inventario", "Suma, quita, mueve, fija un mínimo o revisa la caducidad desde la ficha del producto."],
-  ["/screenshots/04-buscar-producto.jpg", "Búsqueda", "Reutiliza tus productos guardados o consulta sugerencias de Open Food Facts."],
-  ["/screenshots/05-lista-compra.jpg", "Compra", "Calcula cuánto falta para recuperar tus mínimos y marca productos mientras compras."],
+  ["/screenshots/es/home.jpeg", "Inicio", "Consulta tus inventarios, ubicaciones y productos en uso de un vistazo."],
+  ["/screenshots/es/inventory.jpeg", "Inventario", "Explora ubicaciones, busca productos y consulta las cantidades disponibles."],
+  ["/screenshots/es/shopping.jpeg", "Compra", "Reúne lo que falta, organiza la lista y marca productos mientras compras."],
+  ["/screenshots/es/settings.jpeg", "Ajustes y Premium", "Gestiona tu plan, conecta tu cuenta para sincronizar datos y comparte con tu familia."],
 ];
 
 function LogoSymbol({ className = "" }) {
@@ -92,13 +92,13 @@ function Logo({ light = false }) {
 
 function StoreBadge() {
   return (
-    <span className="v2-store" aria-label="Ordivy llegará próximamente a App Store">
+    <a className="v2-store" href="https://apps.apple.com/app/ordivy/id6814024224" aria-label="Descargar Ordivy en App Store">
       <i aria-hidden="true">●</i>
       <span>
-        <small>Próximamente en</small>
+        <small>Descárgala en</small>
         <b>App Store</b>
       </span>
-    </span>
+    </a>
   );
 }
 
@@ -110,9 +110,9 @@ function AppScreen() {
       <div className="v2-phone v2-phone--real">
         <Image
           src="/ordivy-app-home.jpeg"
-          alt="Pantalla de inicio de Ordivy con el inventario Cocina y sus ubicaciones"
-          width={1242}
-          height={2688}
+          alt="Pantalla de inicio de Ordivy con el inventario Mi taller y sus ubicaciones"
+          width={942}
+          height={2048}
           priority
           sizes="(max-width: 560px) 286px, 304px"
         />
@@ -139,7 +139,7 @@ export default function OrdivyLanding() {
               EN
             </Link>
             <a className="v2-header-cta" href="#descargar">
-              Próximamente <ArrowRight size={16} />
+              Descargar <ArrowRight size={16} />
             </a>
           </div>
         </header>
@@ -156,7 +156,7 @@ export default function OrdivyLanding() {
             </p>
             <div className="v2-hero-actions">
               <a className="v2-primary" href="#descargar">
-                Ver lanzamiento <ArrowRight size={18} />
+                Descargar Ordivy <ArrowRight size={18} />
               </a>
               <a className="v2-text-link" href="#como-funciona">
                 Ver cómo funciona <ArrowDown size={16} />
@@ -277,13 +277,13 @@ export default function OrdivyLanding() {
             <p className="v2-eyebrow v2-eyebrow--dark">EL CICLO COMPLETO, EN LA APP</p>
             <h2>Mirar, actualizar, reponer. Sin hojas paralelas.</h2>
           </div>
-          <p>Inicio resume el estado de tu casa; Inventario permite actuar; Búsqueda encuentra; Compra reúne lo que falta.</p>
+          <p>Inicio resume tus espacios; Inventario permite actuar; Compra reúne lo que falta; Ajustes conecta tu cuenta, tu plan y tu familia.</p>
         </div>
         <div className="v2-shell v2-screen-grid">
           {screenshots.map(([src, title, text]) => (
             <article key={src} data-reveal-v2>
               <div className="v2-screen-shot">
-                <Image src={src} alt={`Pantalla ${title} de Ordivy`} width={1242} height={2688} sizes="(max-width: 560px) 78vw, 260px" />
+                <Image src={src} alt={`Pantalla ${title} de Ordivy`} width={942} height={2048} sizes="(max-width: 560px) 78vw, 260px" />
               </div>
               <span>{title}</span>
               <p>{text}</p>
@@ -299,14 +299,14 @@ export default function OrdivyLanding() {
           </i>
           <div>
             <p className="v2-eyebrow v2-eyebrow--dark">QUÉ SE GUARDA Y DÓNDE</p>
-            <h2>Tus cosas no salen de casa sin que tú lo decidas.</h2>
+            <h2>Tu inventario, con opciones para sincronizar y compartir.</h2>
           </div>
           <div className="v2-privacy-facts">
             <span>
-              <b>Inventario</b> guardado en tu iPhone durante esta primera versión.
+              <b>Inventario</b> guardado en tu dispositivo, con sincronización al conectar tu cuenta.
             </span>
             <span>
-              <b>Cuenta</b> utilizada para proteger tu acceso y tu estado Premium.
+              <b>Cuenta</b> utilizada para tu acceso, Premium, sincronización y funciones de familia.
             </span>
             <span>
               <b>Cámara</b> activada únicamente cuando decides escanear un código.
@@ -349,10 +349,11 @@ export default function OrdivyLanding() {
           </h2>
           <p>Tu casa, tu inventario y tu lista de compra en un solo lugar.</p>
           <span className="v2-launch-status">
-            <i /> Versión para iPhone enviada a revisión
+            <i /> Disponible en App Store
           </span>
           <div className="v2-store-row">
             <StoreBadge />
+            <span className="v2-store" aria-label="Android próximamente en Google Play"><span><small>Próximamente en</small><b>Google Play</b></span></span>
           </div>
         </div>
       </section>

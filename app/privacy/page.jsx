@@ -15,14 +15,14 @@ export default function PrivacyPage() {
       title="Tu inventario sigue siendo tuyo."
       intro={
         <p>
-          Esta política explica qué información utiliza Ordivy, dónde se guarda y qué servicios externos intervienen. Última actualización: 1 de octubre de 2026.
+          Esta política explica qué información utiliza Ordivy, dónde se guarda y qué servicios externos intervienen. Última actualización: 7 de octubre de 2026.
         </p>
       }
     >
       <LanguageSection id="es" language="Español" title="Política de privacidad">
         <LegalSection title="1. Alcance">
           <p>
-            Esta política se aplica a la primera versión pública de Ordivy, una aplicación de inventario personal con funcionamiento principalmente local. Sus funciones locales no exigen crear una cuenta y el inventario todavía no se sincroniza con servidores propios.
+            Esta política se aplica a Ordivy, una aplicación de inventario personal. Sus funciones locales no exigen crear una cuenta. Al conectar tu cuenta puedes sincronizar tus datos y utilizar las funciones de familia para compartir inventarios y Premium.
           </p>
         </LegalSection>
 
@@ -30,8 +30,8 @@ export default function PrivacyPage() {
           <p>
             Ordivy guarda localmente los datos que introduces: inventarios, ubicaciones, nombres y detalles de productos, identificadores, cantidades, mínimos, caducidades, elementos en uso, lista de Compra, historial, preferencias y fotografías elegidas por ti.
           </p>
-          <p>Estos datos permanecen en el almacenamiento privado de la aplicación y se utilizan exclusivamente para ofrecer sus funciones.</p>
-          <p>Si creas una cuenta, Supabase procesa tu correo, contraseña, nombre de usuario único, identificador interno y sesión para registrarte, confirmar el correo y mantener la sesión. Ordivy no guarda tu contraseña en texto legible. El nombre de usuario podrá ser visible cuando se activen funciones sociales o de colaboración.</p>
+          <p>Estos datos se guardan en el almacenamiento privado de la aplicación y se utilizan para ofrecer sus funciones. Si utilizas la sincronización, los datos de inventario también se procesan en la nube; los inventarios que compartas estarán disponibles para los miembros de tu familia correspondientes.</p>
+          <p>Si creas una cuenta, Supabase procesa tu correo, contraseña, nombre de usuario único, identificador interno y sesión para registrarte, confirmar el correo y mantener la sesión. Ordivy no guarda tu contraseña en texto legible. El nombre de usuario puede ser visible para otros miembros cuando utilizas las funciones de familia.</p>
         </LegalSection>
 
         <LegalSection title="3. Permisos">
@@ -80,8 +80,8 @@ export default function PrivacyPage() {
           </p>
         </LegalSection>
 
-        <LegalSection title="8. Servicios que no están activos">
-          <p>La sincronización del inventario en la nube, la colaboración, la publicidad y la analítica de uso no están activas. Las cuentas Ordivy y las suscripciones Premium de App Store utilizan los servicios descritos en esta política.</p>
+        <LegalSection title="8. Sincronización y familia">
+          <p>Puedes conectar tu cuenta para sincronizar datos y utilizar Tu familia para compartir inventarios y Premium. Estas funciones requieren procesar fuera del dispositivo los datos necesarios para sincronizar y compartir. La publicidad y la analítica de uso no están activas. Las cuentas Ordivy y las suscripciones Premium de App Store utilizan los servicios descritos en esta política.</p>
         </LegalSection>
 
         <LegalSection title="9. Consultas y solicitudes">

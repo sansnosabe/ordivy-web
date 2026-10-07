@@ -13,7 +13,7 @@ export default function TermsPage() {
       page="terms"
       eyebrow="TERMS OF USE"
       title="Clear rules for using Ordivy."
-      intro={<p>These terms apply to Ordivy 1.0.0. Last updated: October 1, 2026.</p>}
+      intro={<p>These terms apply to Ordivy. Last updated: October 7, 2026.</p>}
     >
 
       <LanguageSection id="en" language="English" title="Terms of use">
@@ -27,7 +27,7 @@ export default function TermsPage() {
         </LegalSection>
 
         <LegalSection title="3. Your information and backups">
-          <p>You are responsible for reviewing the information you enter and keeping access to your device secure. The initial version stores inventory locally and does not provide a backup on Ordivy servers. Uninstalling the app or losing the device may remove information when no system-managed backup exists.</p>
+          <p>You are responsible for reviewing the information you enter and keeping access to your device secure. Ordivy stores inventory on your device and lets you sync data when you connect your account. Check sync status and your backups before uninstalling the app or changing devices. Data that is neither synced nor backed up may be lost.</p>
         </LegalSection>
 
         <LegalSection title="4. Third-party information">
