@@ -1,0 +1,4 @@
+/* Official Apple artwork keeps its own lettering and proportions. */
+.v2-app-store-badge { display: inline-flex; flex-shrink: 0; align-self: center; padding: 15px; }
+.v2-app-store-badge img { display: block; width: 180px; height: auto; }
+.v2-app-store-badge:focus-visible { outline: 2px solid #fff; outline-offset: 3px; border-radius: 8px; }

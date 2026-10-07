@@ -1,3 +1,4 @@
+import "./store-badge.css";
 import InventoryDemo from "./InventoryDemo";
 import MotionV2 from "./MotionV2";
 import BrandFilm from "./BrandFilm";
@@ -90,12 +91,14 @@ function Logo({ light = false }) {
 
 function StoreBadge() {
   return (
-    <a className="v2-store" href="https://apps.apple.com/app/ordivy/id6814024224" aria-label="Download Ordivy on the App Store">
-      <i aria-hidden="true">●</i>
-      <span>
-        <small>Download on the</small>
-        <b>App Store</b>
-      </span>
+    <a className="v2-app-store-badge" href="https://apps.apple.com/app/ordivy/id6814024224" aria-label="Download on the App Store">
+      <Image
+        src="https://toolbox.marketingtools.apple.com/api/badges/download-on-the-app-store/black/en-us?size=250x83"
+        alt="Download on the App Store"
+        width={180}
+        height={60}
+        unoptimized
+      />
     </a>
   );
 }
