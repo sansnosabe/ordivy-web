@@ -120,7 +120,11 @@
   color: rgba(255, 255, 255, 0.76) !important;
   font-size: 0.72rem;
   font-weight: 800;
-  letter-spacing: 0.08em;
+  letter-spacing: 0;
+  line-height: 1;
+  text-align: center;
+  padding: 0;
+  flex-shrink: 0;
   transition: background 0.2s, color 0.2s;
 }
 .v2-lang-switch:hover {
