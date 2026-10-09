@@ -116,8 +116,9 @@ function AppScreen() {
           alt="Pantalla de inicio de Ordivy con el inventario Mi taller y sus ubicaciones"
           width={942}
           height={2048}
-          priority
-          sizes="(max-width: 560px) 286px, 304px"
+          loading="eager"
+          fetchPriority="high"
+          sizes="(max-width: 900px) 17.52svh, min(286px, calc(46.1svh - 87.6px))"
         />
       </div>
     </div>
@@ -376,3 +377,4 @@ export default function OrdivyLanding() {
     </main>
   );
 }
+

@@ -1177,7 +1177,7 @@
   background: var(--v2-cream);
 }
 .v2-footer > p {
-  color: #8b8187;
+  color: #71696e;
   font-size: 0.72rem;
 }
 .v2-footer nav {
@@ -1932,3 +1932,4 @@
  .brand-viewport-outro span { font-size:11px; }
 }
 @media (prefers-reduced-motion:reduce) { .brand-chapter { animation:none; } }
+

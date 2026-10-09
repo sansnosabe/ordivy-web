@@ -29,15 +29,26 @@
 }
 
 .legal-brand {
-  display: block;
-  width: 112px;
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  flex-shrink: 0;
   color: var(--legal-plum);
 }
 
 .legal-brand svg {
   display: block;
-  width: 100%;
   height: auto;
+}
+
+.legal-brand .legal-brand-symbol {
+  width: 26px;
+  height: 28px;
+  flex-shrink: 0;
+}
+
+.legal-brand .v2-original-wordmark {
+  width: 112px;
 }
 
 .legal-header nav {
