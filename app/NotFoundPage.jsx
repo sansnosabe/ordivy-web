@@ -1,6 +1,5 @@
 import Link from 'next/link';
-import OrdivySymbol from './OrdivySymbol';
-import OriginalWordmark from './OriginalWordmark';
+import OrdivyLogo from './OrdivyLogo';
 import styles from './NotFoundPage.module.css';
 
 export default function NotFoundPage({ locale = 'es' }) {
@@ -9,8 +8,7 @@ export default function NotFoundPage({ locale = 'es' }) {
   return (
     <main className={styles.page} lang={locale}>
       <Link href={home} className={styles.brand} aria-label={en ? 'Ordivy, home' : 'Ordivy, inicio'}>
-        <OrdivySymbol className={styles.symbol} />
-        <OriginalWordmark />
+        <OrdivyLogo light className={styles.logo} />
       </Link>
       <section className={styles.content} aria-labelledby="not-found-title">
         <p className={styles.code}>404</p>

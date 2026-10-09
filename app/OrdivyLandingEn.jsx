@@ -3,7 +3,7 @@ import InventoryDemo from "./InventoryDemo";
 import MotionV2 from "./MotionV2";
 import BrandFilm from "./BrandFilm";
 import BenefitMockup from "./BenefitMockup";
-import OriginalWordmark from "./OriginalWordmark";
+import OrdivyLogo from "./OrdivyLogo";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -84,8 +84,7 @@ function LogoSymbol({ className = "" }) {
 function Logo({ light = false }) {
   return (
     <a className={`v2-brand ${light ? "v2-brand--light" : ""}`} href="#home" aria-label="Ordivy, home">
-      <LogoSymbol />
-      <OriginalWordmark />
+      <OrdivyLogo light={light} className="ordivy-brand-image" />
     </a>
   );
 }

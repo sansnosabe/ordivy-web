@@ -11,3 +11,5 @@
 .page a:focus-visible { outline:3px solid #dec4d6; outline-offset:6px; }
 @media(max-width:560px) { .page { padding:24px; } .content { padding:48px 0; } }
 .brand > svg:last-child g { fill:currentColor; }
+
+.logo { display:block; width:166px; height:auto; }
