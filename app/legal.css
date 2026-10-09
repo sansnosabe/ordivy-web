@@ -183,7 +183,7 @@
 
 .legal-sections ul {
   margin: 0;
-  padding-left: 1.25rem;
+  padding-left: 0;
 }
 
 .legal-sections a {
@@ -279,3 +279,4 @@
 }
 
 .legal-brand > .ordivy-brand-image { display:block; width:166px; height:auto; }
+
