@@ -80,6 +80,7 @@ export default function PrivacyPage() {
             <strong>Premium y RevenueCat.</strong> En iOS, Apple procesa el pago de las suscripciones. RevenueCat recibe el identificador interno de tu cuenta Ordivy, los identificadores de los productos y el estado de las compras para activar Premium y restaurarlo. Ordivy no recibe ni guarda los datos de tu tarjeta. Consulta la <a href="https://www.revenuecat.com/privacy/">política de privacidad de RevenueCat</a>.
           </p>
           <p><strong>Web y Vercel.</strong> Vercel aloja la web y procesa los datos técnicos necesarios para servirla, como dirección IP y solicitudes. El distintivo de descarga puede solicitar una imagen a servidores de Apple. No hay publicidad ni analítica de uso activadas en esta web. El almacenamiento vacío en el navegador no significa que no existan registros técnicos del servidor.</p>
+          <p><strong>Correos de cuenta y Resend.</strong> Supabase utiliza Resend para enviar los mensajes de confirmación y recuperación de cuenta. Resend procesa la dirección del destinatario, el contenido del mensaje y los datos técnicos necesarios para su entrega. Consulta su <a href="https://resend.com/legal/privacy-policy">política de privacidad</a> y su <a href="https://resend.com/legal/dpa">acuerdo de tratamiento</a>.</p>
           <p><strong>Soporte por correo.</strong> Utilizamos Gmail para recibir y responder a los mensajes enviados a ordivyapp@gmail.com. Google procesa los mensajes conforme a sus <a href="https://policies.google.com/privacy?hl=es">condiciones de privacidad</a>.</p>
         </LegalSection>
 
@@ -121,5 +122,4 @@ export default function PrivacyPage() {
     </LegalShell>
   );
 }
-
 
