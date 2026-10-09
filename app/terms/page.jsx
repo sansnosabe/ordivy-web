@@ -37,7 +37,7 @@ export default function TermsPage() {
       page="terms"
       eyebrow="CONDICIONES DE USO"
       title="Reglas claras para usar Ordivy."
-      intro={<p>Estas condiciones se aplican a Ordivy. Última actualización: 7 de octubre de 2026.</p>}
+      intro={<p>Estas condiciones se aplican a Ordivy. Última actualización: 9 de octubre de 2026.</p>}
     >
       <LanguageSection id="es" language="Español" title="Condiciones de uso">
         <LegalSection title="1. El servicio">
@@ -51,6 +51,7 @@ export default function TermsPage() {
 
         <LegalSection title="3. Tus datos y copias de seguridad">
           <p>Debes revisar la información que introduces y mantener seguro el acceso a tu dispositivo. Ordivy guarda el inventario en tu dispositivo y permite sincronizar datos al conectar tu cuenta. Comprueba el estado de sincronización y tus copias de seguridad antes de desinstalar la aplicación o cambiar de dispositivo. Los datos que no estén sincronizados ni incluidos en una copia pueden perderse.</p>
+          <p>Los inventarios que compartes con tu familia son accesibles para sus miembros. Eliminar tu cuenta no implica eliminar el inventario compartido mientras queden otros miembros. No compartas datos personales de terceros sin una base válida.</p>
         </LegalSection>
 
         <LegalSection title="4. Información de terceros">
@@ -59,6 +60,7 @@ export default function TermsPage() {
 
         <LegalSection title="5. Ordivy Premium">
           <p>En iOS, Premium requiere una cuenta Ordivy con el correo verificado y una suscripción mensual o anual contratada desde App Store. Los códigos propios de Ordivy no activan Premium en iOS. La pantalla de compra muestra las funciones, el precio, la duración y cualquier prueba antes de confirmar el pago.</p>
+          <p>También puedes disponer de Premium a través de las funciones de familia mientras algún miembro mantenga un acceso Premium válido. Esto no crea ni cancela automáticamente una suscripción individual.</p>
         </LegalSection>
 
         <LegalSection title="6. Renovación, cancelación y restauración">
@@ -71,6 +73,7 @@ export default function TermsPage() {
 
         <LegalSection title="8. Disponibilidad">
           <p>Trabajamos para mantener Ordivy disponible, pero algunas funciones dependen del dispositivo, la conexión, Open Food Facts o los servicios de Apple. Podemos corregir, modificar o retirar funciones cuando sea necesario para mantener la seguridad, compatibilidad o cumplimiento legal.</p>
+          <p>La autenticación, sincronización y las funciones de familia también dependen de Supabase; la gestión del acceso Premium utiliza RevenueCat. Si alguno de esos servicios no está disponible, sus funciones pueden verse afectadas.</p>
         </LegalSection>
 
         <LegalSection title="9. Responsabilidad">
@@ -89,4 +92,5 @@ export default function TermsPage() {
     </LegalShell>
   );
 }
+
 

@@ -37,7 +37,7 @@ export default function TermsPage() {
       page="terms"
       eyebrow="TERMS OF USE"
       title="Clear rules for using Ordivy."
-      intro={<p>These terms apply to Ordivy. Last updated: October 7, 2026.</p>}
+      intro={<p>These terms apply to Ordivy. Last updated: October 9, 2026.</p>}
     >
 
       <LanguageSection id="en" language="English" title="Terms of use">
@@ -52,6 +52,7 @@ export default function TermsPage() {
 
         <LegalSection title="3. Your information and backups">
           <p>You are responsible for reviewing the information you enter and keeping access to your device secure. Ordivy stores inventory on your device and lets you sync data when you connect your account. Check sync status and your backups before uninstalling the app or changing devices. Data that is neither synced nor backed up may be lost.</p>
+          <p>Inventories shared with your family are accessible to its members. Deleting your account does not delete the shared inventory while other members remain. Do not share third-party personal data without a valid basis.</p>
         </LegalSection>
 
         <LegalSection title="4. Third-party information">
@@ -60,6 +61,7 @@ export default function TermsPage() {
 
         <LegalSection title="5. Ordivy Premium">
           <p>On iOS, Premium requires an Ordivy account with a verified email and a monthly or annual subscription purchased through the App Store. Ordivy invitation codes do not activate Premium on iOS. The purchase screen shows the features, price, duration, and any trial before you confirm payment.</p>
+          <p>Premium may also be available through family features while a member maintains valid Premium access. This does not automatically create or cancel an individual subscription.</p>
         </LegalSection>
 
         <LegalSection title="6. Renewal, cancellation, and restoration">
@@ -72,6 +74,7 @@ export default function TermsPage() {
 
         <LegalSection title="8. Availability">
           <p>We work to keep Ordivy available, but some features depend on the device, connection, Open Food Facts, or Apple services. We may correct, modify, or withdraw features when needed to maintain security, compatibility, or legal compliance.</p>
+          <p>Authentication, sync and family features also depend on Supabase; Premium access management uses RevenueCat. Unavailability of these services may affect those features.</p>
         </LegalSection>
 
         <LegalSection title="9. Liability">
@@ -90,4 +93,5 @@ export default function TermsPage() {
     </LegalShell>
   );
 }
+
 
