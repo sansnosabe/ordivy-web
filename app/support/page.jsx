@@ -5,6 +5,30 @@ export const metadata = {
   title: "Soporte",
   description: "Ayuda y contacto de soporte para Ordivy.",
   alternates: { canonical: "/support", languages: { "es-ES": "/support", en: "/en/support" } },
+  openGraph: {
+    "type": "website",
+    "siteName": "Ordivy",
+    "locale": "es_ES",
+    "url": "/support",
+    "title": "Soporte | Ordivy",
+    "description": "Ayuda y contacto de soporte para Ordivy.",
+    "images": [
+      {
+        "url": "/social/ordivy-es.png",
+        "width": 1200,
+        "height": 630,
+        "alt": "Ordivy — Tu casa, en orden"
+      }
+    ]
+  },
+  twitter: {
+    "card": "summary_large_image",
+    "title": "Soporte | Ordivy",
+    "description": "Ayuda y contacto de soporte para Ordivy.",
+    "images": [
+      "/social/ordivy-es.png"
+    ]
+  },
 };
 
 export default function SupportPage() {
@@ -27,7 +51,7 @@ export default function SupportPage() {
         </LegalSection>
 
         <LegalSection title="Datos e inventarios">
-          <p>La primera versión guarda tus inventarios localmente. Si cambias de dispositivo o desinstalas Ordivy, los datos pueden perderse cuando no exista una copia administrada por el sistema.</p>
+          <p>Tus inventarios se guardan en tu dispositivo. Puedes conectar tu cuenta desde Ajustes para sincronizarlos y utilizar Tu familia para compartir inventarios y Premium. Antes de cambiar de dispositivo o desinstalar Ordivy, comprueba el estado de sincronización y tus copias de seguridad: los datos que no estén sincronizados ni incluidos en una copia pueden perderse.</p>
         </LegalSection>
 
         <LegalSection title="Cámara, fotos y voz">

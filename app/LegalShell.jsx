@@ -1,5 +1,5 @@
 import Link from "next/link";
-import OriginalWordmark from "./OriginalWordmark";
+import OrdivyLogo from "./OrdivyLogo";
 
 export function LegalShell({ eyebrow, title, intro, children, locale = "es", page = "" }) {
   const english = locale === "en";
@@ -9,7 +9,7 @@ export function LegalShell({ eyebrow, title, intro, children, locale = "es", pag
     <main className="legal-site" lang={locale}>
       <header className="legal-header">
         <Link className="legal-brand" href={english ? "/en" : "/"} aria-label={english ? "Ordivy, home" : "Ordivy, inicio"}>
-          <OriginalWordmark />
+          <OrdivyLogo className="ordivy-brand-image" />
         </Link>
         <nav aria-label={english ? "Ordivy pages" : "Páginas de Ordivy"}>
           <Link href={`${base}/support`}>{english ? "Support" : "Soporte"}</Link>

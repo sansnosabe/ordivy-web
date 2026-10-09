@@ -3,6 +3,7 @@ import MotionV2 from "./MotionV2";
 import BrandFilm from "./BrandFilm";
 import BenefitMockup from "./BenefitMockup";
 import InventoryDemo from "./InventoryDemo";
+import OrdivyLogo from "./OrdivyLogo";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -85,8 +86,7 @@ function LogoSymbol({ className = "" }) {
 function Logo({ light = false }) {
   return (
     <a className={`v2-brand ${light ? "v2-brand--light" : ""}`} href="#inicio" aria-label="Ordivy, inicio">
-      <LogoSymbol />
-      <span>ordivy</span>
+      <OrdivyLogo light={light} className="ordivy-brand-image" />
     </a>
   );
 }
@@ -116,8 +116,9 @@ function AppScreen() {
           alt="Pantalla de inicio de Ordivy con el inventario Mi taller y sus ubicaciones"
           width={942}
           height={2048}
-          priority
-          sizes="(max-width: 560px) 286px, 304px"
+          loading="eager"
+          fetchPriority="high"
+          sizes="(max-width: 900px) 17.52svh, min(286px, calc(46.1svh - 87.6px))"
         />
       </div>
     </div>
@@ -376,3 +377,4 @@ export default function OrdivyLanding() {
     </main>
   );
 }
+

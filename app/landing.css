@@ -1177,7 +1177,7 @@
   background: var(--v2-cream);
 }
 .v2-footer > p {
-  color: #8b8187;
+  color: #71696e;
   font-size: 0.72rem;
 }
 .v2-footer nav {
@@ -1932,3 +1932,11 @@
  .brand-viewport-outro span { font-size:11px; }
 }
 @media (prefers-reduced-motion:reduce) { .brand-chapter { animation:none; } }
+
+
+/* Preserve the original lettering in every landing-page brand placement. */
+.v2-brand > .v2-original-wordmark { width:96px; height:auto; flex-shrink:0; }
+.v2-brand > .v2-original-wordmark g { fill:currentColor; }
+
+.v2-brand > .ordivy-brand-image { display:block; width:112px; height:auto; }
+

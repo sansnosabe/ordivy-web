@@ -4,6 +4,30 @@ export const metadata = {
   title: "Privacy",
   description: "Ordivy privacy policy in English.",
   alternates: { canonical: "/en/privacy", languages: { "es-ES": "/privacy", en: "/en/privacy" } },
+  openGraph: {
+    "type": "website",
+    "siteName": "Ordivy",
+    "locale": "en_US",
+    "url": "/en/privacy",
+    "title": "Privacy | Ordivy",
+    "description": "Ordivy privacy policy in English.",
+    "images": [
+      {
+        "url": "/social/ordivy-en.png",
+        "width": 1200,
+        "height": 630,
+        "alt": "Ordivy — Your home, in order"
+      }
+    ]
+  },
+  twitter: {
+    "card": "summary_large_image",
+    "title": "Privacy | Ordivy",
+    "description": "Ordivy privacy policy in English.",
+    "images": [
+      "/social/ordivy-en.png"
+    ]
+  },
 };
 
 export default function PrivacyPage() {
@@ -99,3 +123,4 @@ export default function PrivacyPage() {
     </LegalShell>
   );
 }
+

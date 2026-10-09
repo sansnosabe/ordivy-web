@@ -4,6 +4,30 @@ export const metadata = {
   title: "Privacidad",
   description: "Política de privacidad de Ordivy en español.",
   alternates: { canonical: "/privacy", languages: { "es-ES": "/privacy", en: "/en/privacy" } },
+  openGraph: {
+    "type": "website",
+    "siteName": "Ordivy",
+    "locale": "es_ES",
+    "url": "/privacy",
+    "title": "Privacidad | Ordivy",
+    "description": "Política de privacidad de Ordivy en español.",
+    "images": [
+      {
+        "url": "/social/ordivy-es.png",
+        "width": 1200,
+        "height": 630,
+        "alt": "Ordivy — Tu casa, en orden"
+      }
+    ]
+  },
+  twitter: {
+    "card": "summary_large_image",
+    "title": "Privacidad | Ordivy",
+    "description": "Política de privacidad de Ordivy en español.",
+    "images": [
+      "/social/ordivy-es.png"
+    ]
+  },
 };
 
 export default function PrivacyPage() {
@@ -98,3 +122,4 @@ export default function PrivacyPage() {
     </LegalShell>
   );
 }
+

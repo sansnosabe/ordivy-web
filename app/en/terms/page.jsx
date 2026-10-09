@@ -4,6 +4,30 @@ export const metadata = {
   title: "Terms of use",
   description: "Ordivy terms of use in English.",
   alternates: { canonical: "/en/terms", languages: { "es-ES": "/terms", en: "/en/terms" } },
+  openGraph: {
+    "type": "website",
+    "siteName": "Ordivy",
+    "locale": "en_US",
+    "url": "/en/terms",
+    "title": "Terms of use | Ordivy",
+    "description": "Ordivy terms of use in English.",
+    "images": [
+      {
+        "url": "/social/ordivy-en.png",
+        "width": 1200,
+        "height": 630,
+        "alt": "Ordivy — Your home, in order"
+      }
+    ]
+  },
+  twitter: {
+    "card": "summary_large_image",
+    "title": "Terms of use | Ordivy",
+    "description": "Ordivy terms of use in English.",
+    "images": [
+      "/social/ordivy-en.png"
+    ]
+  },
 };
 
 export default function TermsPage() {
@@ -66,3 +90,4 @@ export default function TermsPage() {
     </LegalShell>
   );
 }
+

@@ -5,6 +5,30 @@ export const metadata = {
   title: "Support",
   description: "Help and support contact information for Ordivy.",
   alternates: { canonical: "/en/support", languages: { "es-ES": "/support", en: "/en/support" } },
+  openGraph: {
+    "type": "website",
+    "siteName": "Ordivy",
+    "locale": "en_US",
+    "url": "/en/support",
+    "title": "Support | Ordivy",
+    "description": "Help and support contact information for Ordivy.",
+    "images": [
+      {
+        "url": "/social/ordivy-en.png",
+        "width": 1200,
+        "height": 630,
+        "alt": "Ordivy — Your home, in order"
+      }
+    ]
+  },
+  twitter: {
+    "card": "summary_large_image",
+    "title": "Support | Ordivy",
+    "description": "Help and support contact information for Ordivy.",
+    "images": [
+      "/social/ordivy-en.png"
+    ]
+  },
 };
 
 export default function SupportPage() {
@@ -17,7 +41,7 @@ export default function SupportPage() {
           <a className="legal-contact" href="mailto:ordivyapp@gmail.com?subject=Ordivy%20support">Send an email</a>
         </LegalSection>
         <LegalSection title="Information and inventories">
-          <p>The first version stores inventories locally. If you change devices or uninstall Ordivy, information may be lost when no system-managed backup exists.</p>
+          <p>Your inventories are stored on your device. You can connect your account in Settings to sync them and use Your family to share inventories and Premium. Before changing devices or uninstalling Ordivy, check your sync status and backups: data that has not been synced or included in a backup may be lost.</p>
         </LegalSection>
         <LegalSection title="Camera, photos, and voice">
           <p>You can review or change permissions in your device settings. If you deny one, the other Ordivy features remain available.</p>

@@ -1,0 +1,16 @@
+.page { min-height:100svh; padding:32px max(24px,calc((100vw - 1180px)/2)); background:radial-gradient(ellipse at 75% 30%,#49313f 0%,#241d24 60%); color:#fff; display:flex; flex-direction:column; }
+.brand { display:inline-flex; gap:11px; align-items:center; align-self:flex-start; color:#fff; text-decoration:none; }
+.symbol { width:26px; height:28px; flex-shrink:0; }
+.brand > svg:last-child { width:112px; height:auto; }
+.content { width:100%; max-width:690px; margin:auto; padding:64px 0; text-align:center; }
+.code { margin:0 0 20px; color:#dec4d6; font-size:clamp(64px,15vw,120px); font-weight:750; line-height:1; letter-spacing:-.06em; }
+.content h1 { margin:0; font-size:clamp(30px,5vw,52px); line-height:1.1; letter-spacing:-.035em; }
+.description { margin:24px auto 32px; max-width:460px; color:#e0d5dc; font-size:16px; line-height:1.7; }
+.button { display:inline-flex; align-items:center; justify-content:center; gap:18px; min-height:48px; padding:12px 24px; border-radius:999px; background:#fff; color:#241d24; font-weight:700; text-decoration:none; }
+.support { display:block; width:fit-content; margin:24px auto 0; padding:8px; color:#e0d5dc; text-underline-offset:4px; line-height:1.5; }
+.page a:focus-visible { outline:3px solid #dec4d6; outline-offset:6px; }
+@media(max-width:560px) { .page { padding:24px; } .content { padding:48px 0; } }
+.brand > svg:last-child g { fill:currentColor; }
+
+.logo { display:block; width:140px; height:auto; }
+
