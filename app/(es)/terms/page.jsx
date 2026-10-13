@@ -1,4 +1,4 @@
-import { LanguageSection, LegalSection, LegalShell } from "../LegalShell";
+import { LanguageSection, LegalSection, LegalShell } from "../../LegalShell";
 
 export const metadata = {
   title: "Condiciones de uso",

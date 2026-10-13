@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { LanguageSection, LegalSection, LegalShell } from "../LegalShell";
+import { LanguageSection, LegalSection, LegalShell } from "../../LegalShell";
 
 export const metadata = {
   title: "Soporte",

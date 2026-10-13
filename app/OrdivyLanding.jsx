@@ -139,7 +139,7 @@ export default function OrdivyLanding() {
             <a href="#faq">Preguntas</a>
           </nav>
           <div className="v2-header-actions">
-            <Link className="v2-lang-switch" href="/en" hrefLang="en" aria-label="View the website in English">
+            <Link className="v2-lang-switch" href="/en" hrefLang="en" aria-label="EN — View the website in English">
               EN
             </Link>
             <a className="v2-header-cta" href="#descargar">
