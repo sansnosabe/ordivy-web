@@ -9,7 +9,10 @@ mkdirSync('browser-check', { recursive: true });
 const browser = await chromium.launch({ executablePath: '/usr/bin/google-chrome', args: ['--no-sandbox'] });
 try {
   for (const [version, origin] of [['baseline', 'http://localhost:3001'], ['updated', 'http://localhost:3000']]) {
-    for (const [device, viewport] of [['mobile', { width: 412, height: 823 }], ['desktop', { width: 1440, height: 900 }]]) {
+    for (const { name: device, viewport } of [
+      { name: 'mobile', viewport: { width: 412, height: 823 } },
+      { name: 'desktop', viewport: { width: 1440, height: 900 } },
+    ]) {
       const context = await browser.newContext({ viewport });
       const page = await context.newPage();
       const errors = [];

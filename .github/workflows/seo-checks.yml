@@ -31,7 +31,7 @@ jobs:
           app/DocumentRoot.jsx app/SoftwareApplication.jsx app/OrdivyLogo.jsx
           app/OrdivyLanding.jsx app/OrdivyLandingEn.jsx app/home-seo.js app/site-metadata.js
           app/en/layout.jsx app/en/page.jsx 'app/en/[...missing]/page.jsx' app/global-not-found.jsx
-          next.config.ts scripts/check-seo.mjs scripts/summarize-lighthouse.mjs scripts/measure-lighthouse.mjs
+          next.config.ts scripts/check-seo.mjs scripts/summarize-lighthouse.mjs scripts/measure-lighthouse.mjs scripts/check-browser.mjs
       - run: npm run typecheck
       - run: node --test 'app/(es)/auth/recovery.test.mjs'
       - run: npm run build
