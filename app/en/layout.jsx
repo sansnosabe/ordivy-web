@@ -1,5 +1,4 @@
-import DocumentLanguage from "../DocumentLanguage";
-
-export default function EnglishLayout({ children }) {
-  return <div lang="en"><DocumentLanguage lang="en" />{children}</div>;
-}
+import DocumentRoot from '../DocumentRoot';
+import { siteMetadata } from '../site-metadata';
+export const metadata = siteMetadata;
+export default function EnglishLayout({ children }) { return <DocumentRoot lang="en">{children}</DocumentRoot>; }
