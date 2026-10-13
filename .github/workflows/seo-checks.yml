@@ -17,8 +17,12 @@ jobs:
           cache: npm
       - run: npm ci
       - name: Report full-repository lint (existing issues)
-        continue-on-error: true
-        run: npm run lint
+        run: |
+          if npm run lint > lint-full.txt 2>&1; then
+            echo 'Full repository lint: passed.' >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo 'Full repository lint: existing failures remain; see lint-full.txt. Changed SEO files are checked strictly below.' >> "$GITHUB_STEP_SUMMARY"
+          fi
       - name: Lint SEO changes
         run: >-
           npm run lint --
@@ -27,7 +31,7 @@ jobs:
           app/DocumentRoot.jsx app/SoftwareApplication.jsx app/OrdivyLogo.jsx
           app/OrdivyLanding.jsx app/OrdivyLandingEn.jsx app/home-seo.js app/site-metadata.js
           app/en/layout.jsx app/en/page.jsx 'app/en/[...missing]/page.jsx' app/global-not-found.jsx
-          next.config.ts scripts/check-seo.mjs scripts/summarize-lighthouse.mjs
+          next.config.ts scripts/check-seo.mjs scripts/summarize-lighthouse.mjs scripts/measure-lighthouse.mjs
       - run: npm run typecheck
       - run: node --test 'app/(es)/auth/recovery.test.mjs'
       - run: npm run build
@@ -39,11 +43,6 @@ jobs:
             sleep 1
           done
           node scripts/check-seo.mjs
-      - name: Measure updated mobile pages
-        run: |
-          mkdir -p lighthouse
-          npx --yes lighthouse@13.5.0 http://localhost:3000 --chrome-flags="--headless --no-sandbox" --only-categories=performance,seo,accessibility --output=json --output-path=lighthouse/updated-es.json --quiet
-          npx --yes lighthouse@13.5.0 http://localhost:3000/en --chrome-flags="--headless --no-sandbox" --only-categories=performance,seo,accessibility --output=json --output-path=lighthouse/updated-en.json --quiet
       - name: Build baseline for comparable measurements
         env:
           BASE_REF: ${{ github.event.pull_request.base.sha || 'main' }}
@@ -56,13 +55,20 @@ jobs:
             if curl -fsS http://localhost:3001 > /dev/null; then break; fi
             sleep 1
           done
-      - name: Measure baseline mobile pages
+      - name: Compare mobile pages with warmups and alternating samples
+        run: node scripts/measure-lighthouse.mjs >> "$GITHUB_STEP_SUMMARY"
+      - name: Check mobile and desktop interactions
+        env:
+          BROWSER_CHECK_ROOT: ${{ runner.temp }}/ordivy-browser-check
         run: |
-          npx --yes lighthouse@13.5.0 http://localhost:3001 --chrome-flags="--headless --no-sandbox" --only-categories=performance,seo,accessibility --output=json --output-path=lighthouse/baseline-es.json --quiet
-          npx --yes lighthouse@13.5.0 http://localhost:3001/en --chrome-flags="--headless --no-sandbox" --only-categories=performance,seo,accessibility --output=json --output-path=lighthouse/baseline-en.json --quiet
-          node scripts/summarize-lighthouse.mjs >> "$GITHUB_STEP_SUMMARY"
+          mkdir -p "$BROWSER_CHECK_ROOT"
+          npm install --prefix "$BROWSER_CHECK_ROOT" --no-package-lock playwright@1.58.2
+          node scripts/check-browser.mjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: lighthouse-mobile-comparison
-          path: lighthouse/*.json
+          path: |
+            lighthouse/*.json
+            lint-full.txt
+            browser-check/*.png
