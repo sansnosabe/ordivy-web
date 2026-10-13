@@ -38,6 +38,9 @@ try {
         assert.equal(await choice.getAttribute('aria-pressed'), 'true');
         const faq = page.locator('.v2-faq-list details').first();
         await faq.locator('summary').scrollIntoViewIfNeeded();
+        assert.equal(await faq.evaluate((node) => node.open), true);
+        await faq.locator('summary').click();
+        assert.equal(await faq.evaluate((node) => node.open), false);
         await faq.locator('summary').click();
         assert.equal(await faq.evaluate((node) => node.open), true);
       }
