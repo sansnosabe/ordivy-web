@@ -1,0 +1,28 @@
+name: SEO checks
+on:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run typecheck
+      - run: node --test 'app/(es)/auth/recovery.test.mjs'
+      - run: npm run build
+      - name: Check generated production HTML
+        run: |
+          npm start > /tmp/ordivy-next.log 2>&1 &
+          for i in {1..30}; do
+            if curl -fsS http://localhost:3000 > /dev/null; then break; fi
+            sleep 1
+          done
+          node scripts/check-seo.mjs
